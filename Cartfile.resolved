@@ -1,0 +1,8 @@
+github "JanGorman/Hippolyte" "0.7.1"
+github "Marxon13/M13Checkbox" "3.4.0"
+github "Quick/Nimble" "43304bf2b1579fd555f2fdd51742771c1e4f2b98"
+github "Quick/Quick" "94df9b449508344667e5afc7e80f8bcbff1e4c37"
+github "Swinject/Swinject" "2.6.1"
+github "facebook/SocketRocket" "0a023409b138039d1ab5ac5431fe61c5f334e86b"
+github "thedavidharris/StompClientLib" "78b8768578a642c0126af42a755fc930b1293689"
+github "thii/FontAwesome.swift" "1.8.1"

@@ -1,0 +1,48 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+APP_ID = "com.ford.fordlabs.retroquest"
+CERT_ID = "com.ford.fordlabs.retroquest"
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Run Tests"
+  lane :tests do
+    run_tests(scheme: "retroquest",
+              device: "iPhone Xʀ")
+  end
+
+  lane :beta do
+    match(
+      app_identifier: APP_ID,
+      type: "enterprise",
+      readonly: true,
+      git_url: "git@github.ford.com:QMCI/ios-certificates.git",
+      git_branch: "master"
+    )
+    build_app(
+      scheme: "retroquest",
+      export_method: "enterprise",
+      xcargs: {
+        :BUNDLE_IDENTIFIER => APP_ID,
+        :PROVISIONING_PROFILE_SPECIFIER => "match InHouse " + CERT_ID,
+        :DEVELOPMENT_TEAM => "STB8NU4T84",
+        :CODE_SIGN_STYLE => "Manual",
+        :CODE_SIGN_IDENTITY => "iPhone Distribution"
+      }
+    )
+  end
+end

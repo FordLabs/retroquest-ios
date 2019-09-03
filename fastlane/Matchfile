@@ -1,0 +1,5 @@
+git_url("git@github.ford.com:QMCI/ios-certificates.git")
+git_branch("master")
+app_identifier("com.ford.fordlabs.retroquest")
+team_id("STB8NU4T84")
+type("enterprise")

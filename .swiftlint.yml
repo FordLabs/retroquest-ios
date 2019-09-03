@@ -1,0 +1,17 @@
+disabled_rules:
+  - large_tuple
+included: # paths to include during linting. `--path` is ignored if present.
+  - retroquest
+identifier_name:
+  min_length: # only min_length
+    error: 3 # only error
+  excluded: # excluded via string array
+    - id
+    - URL
+    - r
+    - g
+    - b
+    - a
+    - RetroQuestServerURL
+    - AppCenterSecret
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
