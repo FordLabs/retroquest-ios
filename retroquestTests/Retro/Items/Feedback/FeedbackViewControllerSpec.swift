@@ -33,6 +33,7 @@ limitations under the License.
 import Quick
 import Nimble
 import Hippolyte
+import UIKit
 
 @testable import retroquest
 

@@ -3,21 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
 		EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6652306ED6200780E24 /* AppDelegate.swift */; };
 		EB91B66D2306ED6300780E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB91B66C2306ED6300780E24 /* Assets.xcassets */; };
-		EB91B6872307255100780E24 /* FontAwesome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6862307255100780E24 /* FontAwesome.framework */; };
-		EB91B68C2307256A00780E24 /* StompClientLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6882307256A00780E24 /* StompClientLib.framework */; };
 		EB91B68D2307256A00780E24 /* M13Checkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6892307256A00780E24 /* M13Checkbox.framework */; };
-		EB91B68E2307256A00780E24 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B68A2307256A00780E24 /* Swinject.framework */; };
-		EB91B68F2307256A00780E24 /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B68B2307256A00780E24 /* SocketRocket.framework */; };
-		EB91B696230726DE00780E24 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B693230726DE00780E24 /* Nimble.framework */; };
-		EB91B697230726DE00780E24 /* Hippolyte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B694230726DE00780E24 /* Hippolyte.framework */; };
-		EB91B698230726DE00780E24 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B695230726DE00780E24 /* Quick.framework */; };
 		EB91B6A52307289500780E24 /* AppCenterDistribute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6A32307289500780E24 /* AppCenterDistribute.framework */; };
 		EB91B6A62307289500780E24 /* AppCenterCrashes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6A42307289500780E24 /* AppCenterCrashes.framework */; };
 		EB91B6AA230728CA00780E24 /* RetroContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6A8230728C900780E24 /* RetroContainer.swift */; };
@@ -98,6 +91,13 @@
 		EBB9870423072CF80013EB90 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870223072CF70013EB90 /* Quicksand-Bold.ttf */; };
 		EBB9870523072CF80013EB90 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870323072CF80013EB90 /* Quicksand-Medium.ttf */; };
 		EBB9870823072D120013EB90 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870623072D120013EB90 /* Localizable.strings */; };
+		EBC5EF27232C1A0B00FB5ABA /* StompClientLib in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF26232C1A0B00FB5ABA /* StompClientLib */; };
+		EBC5EF2A232C1ABC00FB5ABA /* SocketRocket in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF29232C1ABC00FB5ABA /* SocketRocket */; };
+		EBC5EF2D232C1B1A00FB5ABA /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF2C232C1B1A00FB5ABA /* Swinject */; };
+		EBC5EF30232C1BAC00FB5ABA /* FontAwesome in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF2F232C1BAC00FB5ABA /* FontAwesome */; };
+		EBC5EF33232C1DBF00FB5ABA /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF32232C1DBF00FB5ABA /* Quick */; };
+		EBC5EF36232C1DF300FB5ABA /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF35232C1DF300FB5ABA /* Nimble */; };
+		EBC5EF39232C1E3400FB5ABA /* Hippolyte in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF38232C1E3400FB5ABA /* Hippolyte */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,14 +214,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB91B70B2307296E00780E24 /* AppCenter.framework in Frameworks */,
+				EBC5EF2D232C1B1A00FB5ABA /* Swinject in Frameworks */,
 				EB91B70C2307296E00780E24 /* AppCenterAnalytics.framework in Frameworks */,
 				EB91B6A52307289500780E24 /* AppCenterDistribute.framework in Frameworks */,
 				EB91B6A62307289500780E24 /* AppCenterCrashes.framework in Frameworks */,
-				EB91B68C2307256A00780E24 /* StompClientLib.framework in Frameworks */,
 				EB91B68D2307256A00780E24 /* M13Checkbox.framework in Frameworks */,
-				EB91B68E2307256A00780E24 /* Swinject.framework in Frameworks */,
-				EB91B68F2307256A00780E24 /* SocketRocket.framework in Frameworks */,
-				EB91B6872307255100780E24 /* FontAwesome.framework in Frameworks */,
+				EBC5EF27232C1A0B00FB5ABA /* StompClientLib in Frameworks */,
+				EBC5EF2A232C1ABC00FB5ABA /* SocketRocket in Frameworks */,
+				EBC5EF30232C1BAC00FB5ABA /* FontAwesome in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,9 +229,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB91B696230726DE00780E24 /* Nimble.framework in Frameworks */,
-				EB91B697230726DE00780E24 /* Hippolyte.framework in Frameworks */,
-				EB91B698230726DE00780E24 /* Quick.framework in Frameworks */,
+				EBC5EF36232C1DF300FB5ABA /* Nimble in Frameworks */,
+				EBC5EF33232C1DBF00FB5ABA /* Quick in Frameworks */,
+				EBC5EF39232C1E3400FB5ABA /* Hippolyte in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +606,12 @@
 			dependencies = (
 			);
 			name = retroquest;
+			packageProductDependencies = (
+				EBC5EF26232C1A0B00FB5ABA /* StompClientLib */,
+				EBC5EF29232C1ABC00FB5ABA /* SocketRocket */,
+				EBC5EF2C232C1B1A00FB5ABA /* Swinject */,
+				EBC5EF2F232C1BAC00FB5ABA /* FontAwesome */,
+			);
 			productName = retroquest;
 			productReference = EB91B6622306ED6200780E24 /* retroquest.app */;
 			productType = "com.apple.product-type.application";
@@ -617,7 +623,6 @@
 				EB91B6722306ED6300780E24 /* Sources */,
 				EB91B6732306ED6300780E24 /* Frameworks */,
 				EB91B6742306ED6300780E24 /* Resources */,
-				EB91B699230726FB00780E24 /* Carthage Copy */,
 			);
 			buildRules = (
 			);
@@ -625,6 +630,11 @@
 				EB91B6782306ED6300780E24 /* PBXTargetDependency */,
 			);
 			name = retroquestTests;
+			packageProductDependencies = (
+				EBC5EF32232C1DBF00FB5ABA /* Quick */,
+				EBC5EF35232C1DF300FB5ABA /* Nimble */,
+				EBC5EF38232C1E3400FB5ABA /* Hippolyte */,
+			);
 			productName = retroquestTests;
 			productReference = EB91B6762306ED6300780E24 /* retroquestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -657,6 +667,15 @@
 				Base,
 			);
 			mainGroup = EB91B6592306ED6200780E24;
+			packageReferences = (
+				EBC5EF25232C1A0B00FB5ABA /* XCRemoteSwiftPackageReference "StompClientLib" */,
+				EBC5EF28232C1ABC00FB5ABA /* XCRemoteSwiftPackageReference "SocketRocket" */,
+				EBC5EF2B232C1B1A00FB5ABA /* XCRemoteSwiftPackageReference "Swinject" */,
+				EBC5EF2E232C1BAC00FB5ABA /* XCRemoteSwiftPackageReference "FontAwesome.swift" */,
+				EBC5EF31232C1DBF00FB5ABA /* XCRemoteSwiftPackageReference "Quick" */,
+				EBC5EF34232C1DF300FB5ABA /* XCRemoteSwiftPackageReference "Nimble" */,
+				EBC5EF37232C1E3400FB5ABA /* XCRemoteSwiftPackageReference "Hippolyte" */,
+			);
 			productRefGroup = EB91B6632306ED6200780E24 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -697,21 +716,13 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/M13Checkbox.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/StompClientLib.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
 			);
 			name = "Carthage Copy";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Swinject.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)FontAwesomeframework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/M13Checkbox.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)StompClientLib.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SocketRocket.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -754,30 +765,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\nsourcery --templates templates/RetroquestServerURL.stencil --templates templates/AppCenterSecret.stencil --sources ./retroquest --output ./retroquest/Generated --args retroquest-server-url=\\\"$RETROQUEST_SERVER_URL\\\",app-center-secret=\\\"$APP_CENTER_SECRET\\\"\n";
-		};
-		EB91B699230726FB00780E24 /* Carthage Copy */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Hippolyte.framework",
-			);
-			name = "Carthage Copy";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Quick.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Nimble.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Hippolyte.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1132,6 +1119,103 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EBC5EF25232C1A0B00FB5ABA /* XCRemoteSwiftPackageReference "StompClientLib" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thedavidharris/StompClientLib.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		EBC5EF28232C1ABC00FB5ABA /* XCRemoteSwiftPackageReference "SocketRocket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devguy22/SocketRocket.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		EBC5EF2B232C1B1A00FB5ABA /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
+		EBC5EF2E232C1BAC00FB5ABA /* XCRemoteSwiftPackageReference "FontAwesome.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thii/FontAwesome.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.2;
+			};
+		};
+		EBC5EF31232C1DBF00FB5ABA /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		EBC5EF34232C1DF300FB5ABA /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		EBC5EF37232C1E3400FB5ABA /* XCRemoteSwiftPackageReference "Hippolyte" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JanGorman/Hippolyte.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EBC5EF26232C1A0B00FB5ABA /* StompClientLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBC5EF25232C1A0B00FB5ABA /* XCRemoteSwiftPackageReference "StompClientLib" */;
+			productName = StompClientLib;
+		};
+		EBC5EF29232C1ABC00FB5ABA /* SocketRocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBC5EF28232C1ABC00FB5ABA /* XCRemoteSwiftPackageReference "SocketRocket" */;
+			productName = SocketRocket;
+		};
+		EBC5EF2C232C1B1A00FB5ABA /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBC5EF2B232C1B1A00FB5ABA /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		EBC5EF2F232C1BAC00FB5ABA /* FontAwesome */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBC5EF2E232C1BAC00FB5ABA /* XCRemoteSwiftPackageReference "FontAwesome.swift" */;
+			productName = FontAwesome;
+		};
+		EBC5EF32232C1DBF00FB5ABA /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBC5EF31232C1DBF00FB5ABA /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		EBC5EF35232C1DF300FB5ABA /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBC5EF34232C1DF300FB5ABA /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		EBC5EF38232C1E3400FB5ABA /* Hippolyte */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBC5EF37232C1E3400FB5ABA /* XCRemoteSwiftPackageReference "Hippolyte" */;
+			productName = Hippolyte;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB91B65A2306ED6200780E24 /* Project object */;
 }

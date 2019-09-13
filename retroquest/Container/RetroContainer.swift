@@ -16,7 +16,7 @@ limitations under the License.
 */
 
 import Swinject
-
+import UIKit
 import StompClientLib
 
 open class RetroContainer {
