@@ -10,7 +10,6 @@
 		EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
 		EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6652306ED6200780E24 /* AppDelegate.swift */; };
 		EB91B66D2306ED6300780E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB91B66C2306ED6300780E24 /* Assets.xcassets */; };
-		EB91B68D2307256A00780E24 /* M13Checkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6892307256A00780E24 /* M13Checkbox.framework */; };
 		EB91B6A52307289500780E24 /* AppCenterDistribute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6A32307289500780E24 /* AppCenterDistribute.framework */; };
 		EB91B6A62307289500780E24 /* AppCenterCrashes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6A42307289500780E24 /* AppCenterCrashes.framework */; };
 		EB91B6AA230728CA00780E24 /* RetroContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6A8230728C900780E24 /* RetroContainer.swift */; };
@@ -101,6 +100,7 @@
 		EBC5EF3D23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3A23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf */; };
 		EBC5EF3E23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */; };
 		EBC5EF3F23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */; };
+		EBC5EF4223301E5C00FB5ABA /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF4123301E5C00FB5ABA /* M13Checkbox */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,7 +224,7 @@
 				EB91B70C2307296E00780E24 /* AppCenterAnalytics.framework in Frameworks */,
 				EB91B6A52307289500780E24 /* AppCenterDistribute.framework in Frameworks */,
 				EB91B6A62307289500780E24 /* AppCenterCrashes.framework in Frameworks */,
-				EB91B68D2307256A00780E24 /* M13Checkbox.framework in Frameworks */,
+				EBC5EF4223301E5C00FB5ABA /* M13Checkbox in Frameworks */,
 				EBC5EF27232C1A0B00FB5ABA /* StompClientLib in Frameworks */,
 				EBC5EF2A232C1ABC00FB5ABA /* SocketRocket in Frameworks */,
 				EBC5EF30232C1BAC00FB5ABA /* FontAwesome in Frameworks */,
@@ -607,7 +607,6 @@
 				EB91B65E2306ED6200780E24 /* Sources */,
 				EB91B65F2306ED6200780E24 /* Frameworks */,
 				EB91B6602306ED6200780E24 /* Resources */,
-				EB91B6902307257E00780E24 /* Carthage Copy */,
 				EB91B6912307262100780E24 /* SwiftLint */,
 			);
 			buildRules = (
@@ -620,6 +619,7 @@
 				EBC5EF29232C1ABC00FB5ABA /* SocketRocket */,
 				EBC5EF2C232C1B1A00FB5ABA /* Swinject */,
 				EBC5EF2F232C1BAC00FB5ABA /* FontAwesome */,
+				EBC5EF4123301E5C00FB5ABA /* M13Checkbox */,
 			);
 			productName = retroquest;
 			productReference = EB91B6622306ED6200780E24 /* retroquest.app */;
@@ -684,6 +684,7 @@
 				EBC5EF31232C1DBF00FB5ABA /* XCRemoteSwiftPackageReference "Quick" */,
 				EBC5EF34232C1DF300FB5ABA /* XCRemoteSwiftPackageReference "Nimble" */,
 				EBC5EF37232C1E3400FB5ABA /* XCRemoteSwiftPackageReference "Hippolyte" */,
+				EBC5EF4023301E5C00FB5ABA /* XCRemoteSwiftPackageReference "M13Checkbox" */,
 			);
 			productRefGroup = EB91B6632306ED6200780E24 /* Products */;
 			projectDirPath = "";
@@ -720,26 +721,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EB91B6902307257E00780E24 /* Carthage Copy */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/M13Checkbox.framework",
-			);
-			name = "Carthage Copy";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/M13Checkbox.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		EB91B6912307262100780E24 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1189,6 +1170,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		EBC5EF4023301E5C00FB5ABA /* XCRemoteSwiftPackageReference "M13Checkbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devguy22/M13Checkbox.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1226,6 +1215,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EBC5EF37232C1E3400FB5ABA /* XCRemoteSwiftPackageReference "Hippolyte" */;
 			productName = Hippolyte;
+		};
+		EBC5EF4123301E5C00FB5ABA /* M13Checkbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBC5EF4023301E5C00FB5ABA /* XCRemoteSwiftPackageReference "M13Checkbox" */;
+			productName = M13Checkbox;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
