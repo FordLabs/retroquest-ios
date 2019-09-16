@@ -101,6 +101,7 @@
 		EBC5EF3E23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */; };
 		EBC5EF3F23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */; };
 		EBC5EF4223301E5C00FB5ABA /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF4123301E5C00FB5ABA /* M13Checkbox */; };
+		EBC5EF4423314E6F00FB5ABA /* SocketRocket in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF4323314E6F00FB5ABA /* SocketRocket */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,14 +122,6 @@
 		EB91B6712306ED6300780E24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB91B6762306ED6300780E24 /* retroquestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = retroquestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB91B67C2306ED6300780E24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB91B6862307255100780E24 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
-		EB91B6882307256A00780E24 /* StompClientLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StompClientLib.framework; path = Carthage/Build/iOS/StompClientLib.framework; sourceTree = "<group>"; };
-		EB91B6892307256A00780E24 /* M13Checkbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M13Checkbox.framework; path = Carthage/Build/iOS/M13Checkbox.framework; sourceTree = "<group>"; };
-		EB91B68A2307256A00780E24 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
-		EB91B68B2307256A00780E24 /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
-		EB91B693230726DE00780E24 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		EB91B694230726DE00780E24 /* Hippolyte.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hippolyte.framework; path = Carthage/Build/iOS/Hippolyte.framework; sourceTree = "<group>"; };
-		EB91B695230726DE00780E24 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		EB91B6A32307289500780E24 /* AppCenterDistribute.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterDistribute.framework; path = Vendor/AppCenterDistribute.framework; sourceTree = "<group>"; };
 		EB91B6A42307289500780E24 /* AppCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterCrashes.framework; path = Vendor/AppCenterCrashes.framework; sourceTree = "<group>"; };
 		EB91B6A8230728C900780E24 /* RetroContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetroContainer.swift; sourceTree = "<group>"; };
@@ -236,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC5EF36232C1DF300FB5ABA /* Nimble in Frameworks */,
+				EBC5EF4423314E6F00FB5ABA /* SocketRocket in Frameworks */,
 				EBC5EF33232C1DBF00FB5ABA /* Quick in Frameworks */,
 				EBC5EF39232C1E3400FB5ABA /* Hippolyte in Frameworks */,
 			);
@@ -301,14 +295,6 @@
 				EB91B70A2307296E00780E24 /* AppCenterAnalytics.framework */,
 				EB91B6A42307289500780E24 /* AppCenterCrashes.framework */,
 				EB91B6A32307289500780E24 /* AppCenterDistribute.framework */,
-				EB91B694230726DE00780E24 /* Hippolyte.framework */,
-				EB91B693230726DE00780E24 /* Nimble.framework */,
-				EB91B695230726DE00780E24 /* Quick.framework */,
-				EB91B6892307256A00780E24 /* M13Checkbox.framework */,
-				EB91B68B2307256A00780E24 /* SocketRocket.framework */,
-				EB91B6882307256A00780E24 /* StompClientLib.framework */,
-				EB91B68A2307256A00780E24 /* Swinject.framework */,
-				EB91B6862307255100780E24 /* FontAwesome.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -643,6 +629,7 @@
 				EBC5EF32232C1DBF00FB5ABA /* Quick */,
 				EBC5EF35232C1DF300FB5ABA /* Nimble */,
 				EBC5EF38232C1E3400FB5ABA /* Hippolyte */,
+				EBC5EF4323314E6F00FB5ABA /* SocketRocket */,
 			);
 			productName = retroquestTests;
 			productReference = EB91B6762306ED6300780E24 /* retroquestTests.xctest */;
@@ -996,7 +983,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vendor",
 				);
 				INFOPLIST_FILE = retroquest/Info.plist;
@@ -1018,7 +1004,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vendor",
 				);
 				INFOPLIST_FILE = retroquest/Info.plist;
@@ -1039,10 +1024,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = retroquestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1063,10 +1045,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = retroquestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1220,6 +1199,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EBC5EF4023301E5C00FB5ABA /* XCRemoteSwiftPackageReference "M13Checkbox" */;
 			productName = M13Checkbox;
+		};
+		EBC5EF4323314E6F00FB5ABA /* SocketRocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBC5EF28232C1ABC00FB5ABA /* XCRemoteSwiftPackageReference "SocketRocket" */;
+			productName = SocketRocket;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

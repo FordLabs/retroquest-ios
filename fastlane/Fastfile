@@ -22,7 +22,7 @@ platform :ios do
   desc "Run Tests"
   lane :tests do
     run_tests(scheme: "retroquest",
-              device: "iPhone Xʀ")
+              device: "iPhone 11 Pro Max")
   end
 
   lane :beta do
