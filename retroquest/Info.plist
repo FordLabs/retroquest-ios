@@ -40,6 +40,9 @@
 	<string>Copyright 2019 Ford Motor Company</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Font Awesome 5 Free-Solid-900.otf</string>
+		<string>Font Awesome 5 Free-Regular-400.otf</string>
+		<string>Font Awesome 5 Brands-Regular-400.otf</string>
 		<string>Quicksand-Bold.ttf</string>
 		<string>Quicksand-Medium.ttf</string>
 	</array>

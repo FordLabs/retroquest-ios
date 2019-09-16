@@ -98,6 +98,9 @@
 		EBC5EF33232C1DBF00FB5ABA /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF32232C1DBF00FB5ABA /* Quick */; };
 		EBC5EF36232C1DF300FB5ABA /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF35232C1DF300FB5ABA /* Nimble */; };
 		EBC5EF39232C1E3400FB5ABA /* Hippolyte in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF38232C1E3400FB5ABA /* Hippolyte */; };
+		EBC5EF3D23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3A23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf */; };
+		EBC5EF3E23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */; };
+		EBC5EF3F23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +209,9 @@
 		EBB9870223072CF70013EB90 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Bold.ttf"; path = "Fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		EBB9870323072CF80013EB90 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Medium.ttf"; path = "Fonts/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		EBB9870723072D120013EB90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EBC5EF3A23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Regular-400.otf"; path = "Fonts/Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
+		EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Brands-Regular-400.otf"; path = "Fonts/Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
+		EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Solid-900.otf"; path = "Fonts/Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +316,9 @@
 		EB91B6A22307286A00780E24 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */,
+				EBC5EF3A23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf */,
+				EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */,
 				EBB9870223072CF70013EB90 /* Quicksand-Bold.ttf */,
 				EBB9870323072CF80013EB90 /* Quicksand-Medium.ttf */,
 			);
@@ -692,9 +701,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBB9870523072CF80013EB90 /* Quicksand-Medium.ttf in Resources */,
+				EBC5EF3E23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				EBB9870823072D120013EB90 /* Localizable.strings in Resources */,
 				EBB9870423072CF80013EB90 /* Quicksand-Bold.ttf in Resources */,
 				EB91B66D2306ED6300780E24 /* Assets.xcassets in Resources */,
+				EBC5EF3D23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf in Resources */,
+				EBC5EF3F23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
