@@ -13,7 +13,6 @@ pipeline {
             steps {
                 echo "Setting up environment"
                 script {
-                    sh "cat retroquest/Generated/*"
                     writeFile file: "env-vars.sh", text: "export RETROQUEST_SERVER_URL="+retroenvs.retroquestserver+";export APP_CENTER_SECRET="+retroenvs.appcentersecret
                     sh "cat env-vars.sh"
                 }
