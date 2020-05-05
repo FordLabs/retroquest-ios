@@ -1,5 +1,5 @@
-github "Swinject/Swinject" "2.7.1"
-github "thii/FontAwesome.swift" "1.9.0"
+github "Swinject/Swinject" "2.6.1"
+github "thii/FontAwesome.swift" "1.8.1"
 github "facebook/SocketRocket" "master"
 github "Marxon13/M13Checkbox" "3.4.0"
 github "thedavidharris/StompClientLib" "carthage"
