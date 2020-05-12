@@ -1,16 +1,8 @@
-.PHONY : log update_carthage bootstrap_carthage  help
+.PHONY : log get_app_center help
 
 SHELL = /bin/bash
 
 log:help
-
-## bootstrap_carthage	: Runs carthage bootstrap
-bootstrap_carthage:
-	carthage bootstrap --platform iOS --cache-builds --no-use-binaries
-
-## update_carthage	: Runs carthage update
-update_carthage:
-	carthage update --platform iOS --cache-builds --no-use-binaries
 
 help: Makefile
 	sed -n "s/^##//p" $<
