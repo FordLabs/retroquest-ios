@@ -20,5 +20,8 @@ jobs:
     - name: Bundle Install
       run: bundle install
     
+    - name: Get AppCenter
+      run: make get_app_center
+    
     - name: Build and test
       run: bundle exec fastlane tests
