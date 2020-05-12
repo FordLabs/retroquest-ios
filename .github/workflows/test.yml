@@ -13,7 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      
+    
+    - name: Brew Install
+      run: brew bundle --no-upgrade
+    
     - name: Bundle Install
       run: bundle install
     
