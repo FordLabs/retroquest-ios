@@ -91,7 +91,6 @@
 		EBB9870523072CF80013EB90 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870323072CF80013EB90 /* Quicksand-Medium.ttf */; };
 		EBB9870823072D120013EB90 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870623072D120013EB90 /* Localizable.strings */; };
 		EBC5EF27232C1A0B00FB5ABA /* StompClientLib in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF26232C1A0B00FB5ABA /* StompClientLib */; };
-		EBC5EF2A232C1ABC00FB5ABA /* SocketRocket in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF29232C1ABC00FB5ABA /* SocketRocket */; };
 		EBC5EF2D232C1B1A00FB5ABA /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF2C232C1B1A00FB5ABA /* Swinject */; };
 		EBC5EF30232C1BAC00FB5ABA /* FontAwesome in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF2F232C1BAC00FB5ABA /* FontAwesome */; };
 		EBC5EF33232C1DBF00FB5ABA /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF32232C1DBF00FB5ABA /* Quick */; };
@@ -101,7 +100,6 @@
 		EBC5EF3E23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */; };
 		EBC5EF3F23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */; };
 		EBC5EF4223301E5C00FB5ABA /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF4123301E5C00FB5ABA /* M13Checkbox */; };
-		EBC5EF4423314E6F00FB5ABA /* SocketRocket in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF4323314E6F00FB5ABA /* SocketRocket */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,7 +217,6 @@
 				EB91B6A62307289500780E24 /* AppCenterCrashes.framework in Frameworks */,
 				EBC5EF4223301E5C00FB5ABA /* M13Checkbox in Frameworks */,
 				EBC5EF27232C1A0B00FB5ABA /* StompClientLib in Frameworks */,
-				EBC5EF2A232C1ABC00FB5ABA /* SocketRocket in Frameworks */,
 				EBC5EF30232C1BAC00FB5ABA /* FontAwesome in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC5EF36232C1DF300FB5ABA /* Nimble in Frameworks */,
-				EBC5EF4423314E6F00FB5ABA /* SocketRocket in Frameworks */,
 				EBC5EF33232C1DBF00FB5ABA /* Quick in Frameworks */,
 				EBC5EF39232C1E3400FB5ABA /* Hippolyte in Frameworks */,
 			);
@@ -602,7 +598,6 @@
 			name = retroquest;
 			packageProductDependencies = (
 				EBC5EF26232C1A0B00FB5ABA /* StompClientLib */,
-				EBC5EF29232C1ABC00FB5ABA /* SocketRocket */,
 				EBC5EF2C232C1B1A00FB5ABA /* Swinject */,
 				EBC5EF2F232C1BAC00FB5ABA /* FontAwesome */,
 				EBC5EF4123301E5C00FB5ABA /* M13Checkbox */,
@@ -629,7 +624,6 @@
 				EBC5EF32232C1DBF00FB5ABA /* Quick */,
 				EBC5EF35232C1DF300FB5ABA /* Nimble */,
 				EBC5EF38232C1E3400FB5ABA /* Hippolyte */,
-				EBC5EF4323314E6F00FB5ABA /* SocketRocket */,
 			);
 			productName = retroquestTests;
 			productReference = EB91B6762306ED6300780E24 /* retroquestTests.xctest */;
@@ -665,7 +659,6 @@
 			mainGroup = EB91B6592306ED6200780E24;
 			packageReferences = (
 				EBC5EF25232C1A0B00FB5ABA /* XCRemoteSwiftPackageReference "StompClientLib" */,
-				EBC5EF28232C1ABC00FB5ABA /* XCRemoteSwiftPackageReference "SocketRocket" */,
 				EBC5EF2B232C1B1A00FB5ABA /* XCRemoteSwiftPackageReference "Swinject" */,
 				EBC5EF2E232C1BAC00FB5ABA /* XCRemoteSwiftPackageReference "FontAwesome.swift" */,
 				EBC5EF31232C1DBF00FB5ABA /* XCRemoteSwiftPackageReference "Quick" */,
@@ -1101,14 +1094,6 @@
 				kind = branch;
 			};
 		};
-		EBC5EF28232C1ABC00FB5ABA /* XCRemoteSwiftPackageReference "SocketRocket" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devguy22/SocketRocket.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		EBC5EF2B232C1B1A00FB5ABA /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -1165,11 +1150,6 @@
 			package = EBC5EF25232C1A0B00FB5ABA /* XCRemoteSwiftPackageReference "StompClientLib" */;
 			productName = StompClientLib;
 		};
-		EBC5EF29232C1ABC00FB5ABA /* SocketRocket */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EBC5EF28232C1ABC00FB5ABA /* XCRemoteSwiftPackageReference "SocketRocket" */;
-			productName = SocketRocket;
-		};
 		EBC5EF2C232C1B1A00FB5ABA /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBC5EF2B232C1B1A00FB5ABA /* XCRemoteSwiftPackageReference "Swinject" */;
@@ -1199,11 +1179,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EBC5EF4023301E5C00FB5ABA /* XCRemoteSwiftPackageReference "M13Checkbox" */;
 			productName = M13Checkbox;
-		};
-		EBC5EF4323314E6F00FB5ABA /* SocketRocket */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EBC5EF28232C1ABC00FB5ABA /* XCRemoteSwiftPackageReference "SocketRocket" */;
-			productName = SocketRocket;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
