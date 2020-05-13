@@ -24,6 +24,8 @@ import UIKit
 class EditItemViewControllerSpec: QuickSpec {
 
     override func spec() {
+        Nimble.AsyncDefaults.Timeout = 3
+        
         var subject: EditItemViewController!
 
         beforeEach {

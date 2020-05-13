@@ -24,6 +24,8 @@ import UIKit
 class ThoughtTableViewCellSpec: QuickSpec {
 
     override func spec() {
+        Nimble.AsyncDefaults.Timeout = 3
+        
         var navController: UINavigationController!
         var subject: ThoughtTableViewCell!
         var thoughtsService: FakeThoughtsService!

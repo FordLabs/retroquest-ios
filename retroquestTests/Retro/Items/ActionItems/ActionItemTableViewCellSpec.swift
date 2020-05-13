@@ -24,6 +24,8 @@ import UIKit
 class ActionItemTableViewCellSpec: QuickSpec {
 
     override func spec() {
+        Nimble.AsyncDefaults.Timeout = 3
+        
         var navController: UINavigationController!
         var subject: ActionItemTableViewCell!
         var actionItemsService: FakeActionItemsService!

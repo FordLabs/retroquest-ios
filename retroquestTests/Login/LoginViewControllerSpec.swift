@@ -25,6 +25,9 @@ import UIKit
 class LoginViewControllerSpec: QuickSpec {
 
     override func spec() {
+
+        Nimble.AsyncDefaults.Timeout = 3
+        
         var subject: LoginViewController!
         var navController: UINavigationController!
         var flowController: FakeFlowController!

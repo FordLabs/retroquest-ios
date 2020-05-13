@@ -24,6 +24,8 @@ import UIKit
 class ThoughtsViewControllerSpec: QuickSpec {
 
     override func spec() {
+        Nimble.AsyncDefaults.Timeout = 3
+        
         let currentTeam = "whoopie"
 
         var rootVc: UIViewController!
