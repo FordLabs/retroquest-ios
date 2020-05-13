@@ -21,7 +21,10 @@ jobs:
         path: ./env-vars.sh
         # The contents of the file
         contents: export RETROQUEST_SERVER_URL=localhost:8080;export APP_CENTER_SECRET=123
-
+    
+    - name: view env vars
+      run: cat ./env-vars.sh
+    
     - name: Brew Install
       run: brew bundle --no-upgrade
     
