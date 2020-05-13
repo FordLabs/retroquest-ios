@@ -14,6 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
+    - name: Write env variables
+      uses: DamianReeves/write-file-action@v1.0
+      with:
+        # The path to the file to write
+        path: ./env-vars.sh
+        # The contents of the file
+        contents: export RETROQUEST_SERVER_URL=localhost:8080;export APP_CENTER_SECRET=123
+
     - name: Brew Install
       run: brew bundle --no-upgrade
     
