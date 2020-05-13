@@ -13,9 +13,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      
+    
+    - name: Write env variables
+      uses: DamianReeves/write-file-action@v1.0
+      with:
+        # The path to the file to write
+        path: ./env-vars.sh
+        # The contents of the file
+        contents: export RETROQUEST_SERVER_URL=localhost:8080;export APP_CENTER_SECRET=123
+    
+    - name: view env vars
+      run: cat ./env-vars.sh
+    
+    - name: Brew Install
+      run: brew bundle --no-upgrade
+    
     - name: Bundle Install
       run: bundle install
+    
+    - name: Get AppCenter
+      run: make get_app_center
     
     - name: Build and test
       run: bundle exec fastlane tests
