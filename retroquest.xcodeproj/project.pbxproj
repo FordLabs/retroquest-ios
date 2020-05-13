@@ -727,6 +727,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/retroquest/Generated/Sourcery.helper.generated.swift",
 			);
 			name = Sourcery;
 			outputFileListPaths = (
@@ -737,7 +738,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\nsourcery --templates templates/RetroquestServerURL.stencil --templates templates/AppCenterSecret.stencil --sources ./retroquest --output ./retroquest/Generated --args retroquest-server-url=\\\"$RETROQUEST_SERVER_URL\\\",app-center-secret=\\\"$APP_CENTER_SECRET\\\"\n";
+			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\nsourcery --templates templates/RetroquestServerURL.stencil --templates templates/AppCenterSecret.stencil --sources ./retroquest --output ./retroquest/Generated --args retroquest-server-url=\\\"$RETROQUEST_SERVER_URL\\\",app-center-secret=\\\"$APP_CENTER_SECRET\\\"\ntouch retroquest/Generated/Sourcery.helper.generated.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
