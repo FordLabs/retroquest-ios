@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
 		EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6652306ED6200780E24 /* AppDelegate.swift */; };
 		EB91B66D2306ED6300780E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB91B66C2306ED6300780E24 /* Assets.xcassets */; };
 		EB91B6A52307289500780E24 /* AppCenterDistribute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6A32307289500780E24 /* AppCenterDistribute.framework */; };
@@ -86,7 +85,6 @@
 		EB91B75523072AC300780E24 /* ViewUtilsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B73623072AC300780E24 /* ViewUtilsSpec.swift */; };
 		EB91B75623072AC300780E24 /* FakeNotificationCenterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B73723072AC300780E24 /* FakeNotificationCenterWrapper.swift */; };
 		EB91B75723072AC300780E24 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B73823072AC300780E24 /* TestHelpers.swift */; };
-		EBB986FF23072CA90013EB90 /* RetroquestServerURL.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB986FE23072CA90013EB90 /* RetroquestServerURL.generated.swift */; };
 		EBB9870423072CF80013EB90 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870223072CF70013EB90 /* Quicksand-Bold.ttf */; };
 		EBB9870523072CF80013EB90 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870323072CF80013EB90 /* Quicksand-Medium.ttf */; };
 		EBB9870823072D120013EB90 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870623072D120013EB90 /* Localizable.strings */; };
@@ -100,6 +98,8 @@
 		EBC5EF3E23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */; };
 		EBC5EF3F23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */; };
 		EBC5EF4223301E5C00FB5ABA /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF4123301E5C00FB5ABA /* M13Checkbox */; };
+		EBCDBEA1246C742700C65F14 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
+		EBCDBEA2246C742700C65F14 /* RetroquestServerURL.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB986FE23072CA90013EB90 /* RetroquestServerURL.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -727,18 +727,17 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/retroquest/Generated/Sourcery.helper.generated.swift",
 			);
 			name = Sourcery;
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(SRCROOT)/retroquest/Generated/RetroQuestServerURL.generated.swift",
-				"$(SRCROOT)/retroquest/Generated/AppCenterSecret.generated.swift",
+				"$(PROJECT_DIR)/retroquest/Generated/AppCenterSecret.generated.swift",
+				"$(PROJECT_DIR)/retroquest/Generated/RetroquestServerURL.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\nsourcery --templates templates/RetroquestServerURL.stencil --templates templates/AppCenterSecret.stencil --sources ./retroquest --output ./retroquest/Generated --args retroquest-server-url=\\\"$RETROQUEST_SERVER_URL\\\",app-center-secret=\\\"$APP_CENTER_SECRET\\\"\ntouch retroquest/Generated/Sourcery.helper.generated.swift\n";
+			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\nsourcery --templates templates/RetroquestServerURL.stencil --templates templates/AppCenterSecret.stencil --sources ./retroquest --output ./retroquest/Generated --args retroquest-server-url=\\\"$RETROQUEST_SERVER_URL\\\",app-center-secret=\\\"$APP_CENTER_SECRET\\\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -747,6 +746,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCDBEA1246C742700C65F14 /* AppCenterSecret.generated.swift in Sources */,
+				EBCDBEA2246C742700C65F14 /* RetroquestServerURL.generated.swift in Sources */,
 				EB91B6EF230728E700780E24 /* NewItemView.swift in Sources */,
 				EB91B6FA230728E700780E24 /* ColumnName.swift in Sources */,
 				EB91B6F1230728E700780E24 /* FeedbackFormView.swift in Sources */,
@@ -774,11 +775,9 @@
 				EB91B706230728E700780E24 /* RetroNavState.swift in Sources */,
 				EB91B6E6230728E700780E24 /* ActionItemsView.swift in Sources */,
 				EB91B6E4230728E700780E24 /* ActionItem.swift in Sources */,
-				EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */,
 				EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */,
 				EB91B700230728E700780E24 /* PubSub.swift in Sources */,
 				EB91B6FC230728E700780E24 /* Column.swift in Sources */,
-				EBB986FF23072CA90013EB90 /* RetroquestServerURL.generated.swift in Sources */,
 				EB91B6E9230728E700780E24 /* EditItemViewController.swift in Sources */,
 				EB91B6EC230728E700780E24 /* Item.swift in Sources */,
 				EB91B6F9230728E700780E24 /* ThoughtsView.swift in Sources */,
