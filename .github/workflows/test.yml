@@ -28,13 +28,8 @@ jobs:
     - name: Brew Install
       run: brew bundle --no-upgrade
     
-    - name: Bundle Install
-      run: bundle install
-    
     - name: Get AppCenter
       run: make get_app_center
     
     - name: Build and test
-      env: 
-          FASTLANE_EXPLICIT_OPEN_SIMULATOR: "2"
-      run: bundle exec fastlane tests
+      run: xcodebuild clean test -project retroquest.xcodeproj -scheme retroquest -destination 'platform=iOS Simulator,name=iPhone 11 Pro' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
