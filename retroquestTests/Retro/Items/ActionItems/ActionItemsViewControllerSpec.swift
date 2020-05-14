@@ -25,6 +25,7 @@ class ActionItemsViewControllerSpec: QuickSpec {
 
     override func spec() {
         Nimble.AsyncDefaults.Timeout = 3
+        Nimble.AsyncDefaults.PollInterval = 0.1
         
         var rootVc: UIViewController!
         var navController: UINavigationController!

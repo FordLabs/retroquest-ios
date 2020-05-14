@@ -25,6 +25,7 @@ class NewItemViewControllerSpec: QuickSpec {
 
     override func spec() {
         Nimble.AsyncDefaults.Timeout = 3
+        Nimble.AsyncDefaults.PollInterval = 0.1
         
         let columnNameService = FakeColumnNameService(itemPubSub: PubSub<Column>())
         let thoughtSubject = NewItemViewController<Thought>(

@@ -27,6 +27,7 @@ class LoginViewControllerSpec: QuickSpec {
     override func spec() {
 
         Nimble.AsyncDefaults.Timeout = 3
+        Nimble.AsyncDefaults.PollInterval = 0.1
         
         var subject: LoginViewController!
         var navController: UINavigationController!

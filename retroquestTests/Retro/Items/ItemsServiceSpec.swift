@@ -27,6 +27,7 @@ class ItemsServiceSpec: QuickSpec {
 
     override func spec() {
         Nimble.AsyncDefaults.Timeout = 3
+        Nimble.AsyncDefaults.PollInterval = 0.1
         
         let thoughtPubSub = PubSub<Thought>()
         spec(ThoughtsService(itemPubSub: thoughtPubSub), endpoint: "/thoughts")
