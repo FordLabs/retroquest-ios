@@ -26,8 +26,8 @@ class LoginViewControllerSpec: QuickSpec {
 
     override func spec() {
 
-        Nimble.AsyncDefaults.Timeout = 3
-        Nimble.AsyncDefaults.PollInterval = 0.1
+        Nimble.AsyncDefaults.timeout = .seconds(3)
+        Nimble.AsyncDefaults.pollInterval = .milliseconds(100)
         
         var subject: LoginViewController!
         var navController: UINavigationController!
@@ -407,7 +407,7 @@ class LoginViewControllerSpec: QuickSpec {
                     let feedbackFormView = feedbackViewController.feedbackFormView!
                     feedbackFormView.cancelButton.tap()
 
-                    expect(subject.presentedViewController).toEventually(beNil(), timeout: 5)
+                    expect(subject.presentedViewController).toEventually(beNil())
                 }
             }
         }
