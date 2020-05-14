@@ -297,7 +297,6 @@ class ThoughtsViewControllerSpec: QuickSpec {
                 it("should send a message to change the sad column name") {
                     let newSadTopicName = "More Sad"
                     let sadIndex = 2
-                    let topicExpandingIndex = IndexPath(row: 0, section: sadIndex)
                     let sadHeader = getHeaderView(forSection: sadIndex)
                     var outgoingPublished = false
 

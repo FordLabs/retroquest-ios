@@ -732,7 +732,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(SRCROOT)/retroquest/Generated/RetroQuestServerURL.generated.swift",
+				"$(SRCROOT)/retroquest/Generated/RetroquestServerURL.generated.swift",
 				"$(SRCROOT)/retroquest/Generated/AppCenterSecret.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
