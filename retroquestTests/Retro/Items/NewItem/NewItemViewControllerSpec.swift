@@ -352,7 +352,7 @@ class NewItemViewControllerSpec: QuickSpec {
         navController!.viewControllers = [rootVc!, subject]
         navController!.view.layoutSubviews()
 
-        UIApplication.shared.keyWindow?.rootViewController = navController
+        UIWindow.key?.rootViewController = navController
 
         URLManager.currentTeam = "Team"
     }

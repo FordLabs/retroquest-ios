@@ -19,7 +19,7 @@ import UIKit
 
 class NewItemView<T: Item>: UIView {
     internal let tableView = UITableView()
-    internal let statusBarHeight = UIApplication.shared.statusBarFrame.height
+    internal let statusBarHeight = UIWindow.key!.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 
     internal var headingLabel: UILabel!
     internal var cancelButton: UIButton!

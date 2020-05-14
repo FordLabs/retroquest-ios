@@ -239,7 +239,7 @@ class LoginViewControllerSpec: QuickSpec {
                         let responseData = try? JSONEncoder().encode(retroLoginError)
 
                         beforeEach {
-                            UIApplication.shared.keyWindow?.rootViewController = navController
+                            UIWindow.key?.rootViewController = navController
 
                             let response = StubResponse.Builder()
                                     .stubResponse(withStatusCode: loginErrorCode)
@@ -275,7 +275,7 @@ class LoginViewControllerSpec: QuickSpec {
 
                     context("when the authentication fails with no error details") {
                         beforeEach {
-                            UIApplication.shared.keyWindow?.rootViewController = navController
+                            UIWindow.key?.rootViewController = navController
 
                             let response = StubResponse.Builder()
                                     .stubResponse(withStatusCode: 500)
@@ -307,7 +307,7 @@ class LoginViewControllerSpec: QuickSpec {
 
                 context("when password or board fields are empty") {
                     beforeEach {
-                        UIApplication.shared.keyWindow?.rootViewController = navController
+                        UIWindow.key?.rootViewController = navController
 
                         subject.loginView.boardField.text = nil
                         subject.loginView.passwordField.text = nil
@@ -354,7 +354,7 @@ class LoginViewControllerSpec: QuickSpec {
 
                 context("when neither field is blank") {
                     beforeEach {
-                        UIApplication.shared.keyWindow?.rootViewController = navController
+                        UIWindow.key?.rootViewController = navController
 
                         subject.loginView.boardField.text = nil
                         subject.loginView.passwordField.text = nil
@@ -393,7 +393,7 @@ class LoginViewControllerSpec: QuickSpec {
 
                     subject.loginView.giveFeedbackButton.tap()
 
-                    let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
+                    let rootViewController = UIWindow.key!.rootViewController!
                     expect(rootViewController.presentedViewController)
                             .toEventually(beAKindOf(FeedbackViewController.self))
                     guard let feedbackViewController = rootViewController.presentedViewController
@@ -443,7 +443,7 @@ class LoginViewControllerSpec: QuickSpec {
         navController.viewControllers = [rootVc, subject]
         navController.view.layoutSubviews()
 
-        UIApplication.shared.keyWindow?.rootViewController = navController
+        UIWindow.key?.rootViewController = navController
     }
 
 }

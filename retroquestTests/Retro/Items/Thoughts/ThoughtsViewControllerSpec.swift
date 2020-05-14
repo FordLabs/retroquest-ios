@@ -53,7 +53,7 @@ class ThoughtsViewControllerSpec: QuickSpec {
             navController.viewControllers = [rootVc, subject]
             navController.view.layoutSubviews()
 
-            UIApplication.shared.keyWindow?.rootViewController = navController
+            UIWindow.key?.rootViewController = navController
         }
 
         describe("when the view loads") {
@@ -209,7 +209,7 @@ class ThoughtsViewControllerSpec: QuickSpec {
 
                     subject.thoughtsView.addThoughtButton.tap()
 
-                    let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
+                    let rootViewController = UIWindow.key!.rootViewController!
                     expect(rootViewController.presentedViewController)
                             .toEventually(beAKindOf(NewItemViewController<Thought>.self))
                     guard let newItemViewController = rootViewController.presentedViewController
@@ -320,7 +320,7 @@ class ThoughtsViewControllerSpec: QuickSpec {
 
                     subject.longPressHandler(longPressGestureRecognizer: gestureRecognizer)
 
-                    let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
+                    let rootViewController = UIWindow.key!.rootViewController!
                     expect(rootViewController.presentedViewController)
                             .toEventually(beAKindOf(EditItemViewController.self))
                     guard let editItemVC = rootViewController.presentedViewController as? EditItemViewController else {

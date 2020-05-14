@@ -56,11 +56,11 @@ extension UIColor {
         self.init(hexString: hexString, alpha: 255)
     }
 
-    convenience init(hexString: String, alpha: UInt32) {
+    convenience init(hexString: String, alpha: UInt64) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        var int = UInt32()
-        Scanner(string: hex).scanHexInt32(&int)
-        let a, r, g, b: UInt32
+        var int = UInt64()
+        Scanner(string: hex).scanHexInt64(&int)
+        let a, r, g, b: UInt64
         switch hex.count {
         case 3: // RGB (12-bit)
             (a, r, g, b) = (alpha, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
@@ -357,7 +357,7 @@ extension UIViewController {
     }
 
     public func showSpinner() {
-        let spinnerView = UIActivityIndicatorView(style: .whiteLarge)
+        let spinnerView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
 
         objc_setAssociatedObject(self, &AssociatedKeys.DescriptiveName, spinnerView, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         spinnerView.frame = UIScreen.main.bounds
@@ -369,6 +369,16 @@ extension UIViewController {
     public func hideSpinner() {
         if let spinner = objc_getAssociatedObject(self, &AssociatedKeys.DescriptiveName) as? UIActivityIndicatorView {
             spinner.stopAnimating()
+        }
+    }
+}
+
+extension UIWindow {
+    static var key: UIWindow? {
+        if #available(iOS 13, *) {
+            return UIApplication.shared.windows.first { $0.isKeyWindow }
+        } else {
+            return UIApplication.shared.keyWindow
         }
     }
 }

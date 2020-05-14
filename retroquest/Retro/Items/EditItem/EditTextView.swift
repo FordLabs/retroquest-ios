@@ -18,7 +18,7 @@ limitations under the License.
 import UIKit
 
 class EditTextView: UIView {
-    internal let statusBarHeight = UIApplication.shared.statusBarFrame.height
+    internal let statusBarHeight = UIWindow.key!.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 
     internal var headingLabel: UILabel!
     internal var cancelButton: UIButton!

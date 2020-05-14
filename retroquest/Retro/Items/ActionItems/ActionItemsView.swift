@@ -19,7 +19,7 @@ import UIKit
 
 class ActionItemsView: UIView {
     let tableView = UITableView()
-    let statusBarHeight = UIApplication.shared.statusBarFrame.height
+    let statusBarHeight = UIWindow.key!.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 
     var headingLabel: UILabel!
     var addActionItemButton: UIButton!
