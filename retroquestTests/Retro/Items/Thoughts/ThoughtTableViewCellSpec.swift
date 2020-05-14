@@ -52,7 +52,7 @@ class ThoughtTableViewCellSpec: QuickSpec {
 
             navController = UINavigationController(rootViewController: thoughtsViewController)
             navController.view.layoutSubviews()
-            UIApplication.shared.keyWindow?.rootViewController = navController
+            UIWindow.key?.rootViewController = navController
         }
 
         describe("tapping on a cell") {
@@ -96,7 +96,7 @@ class ThoughtTableViewCellSpec: QuickSpec {
 
                     subject.modifyMessageTapped(sender: nil)
 
-                    let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
+                    let rootViewController = UIWindow.key!.rootViewController!
                     expect(rootViewController.presentedViewController)
                             .toEventually(beAKindOf(EditItemViewController.self))
                     guard let editController = rootViewController.presentedViewController

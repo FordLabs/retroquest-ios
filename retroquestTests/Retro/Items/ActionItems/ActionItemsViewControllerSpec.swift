@@ -46,7 +46,7 @@ class ActionItemsViewControllerSpec: QuickSpec {
             navController.viewControllers = [rootVc, subject]
             navController.view.layoutSubviews()
 
-            UIApplication.shared.keyWindow?.rootViewController = navController
+            UIWindow.key?.rootViewController = navController
         }
 
         describe("when the view loads") {
@@ -143,7 +143,7 @@ class ActionItemsViewControllerSpec: QuickSpec {
                         let actionItemsView = subject.actionItemsView
                         actionItemsView.addActionItemButton.sendActions(for: .touchUpInside)
 
-                        let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
+                        let rootViewController = UIWindow.key!.rootViewController!
                         expect(rootViewController.presentedViewController)
                                 .toEventually(beAKindOf(NewItemViewController<ActionItem>.self))
                         guard let newItemViewController = rootViewController.presentedViewController

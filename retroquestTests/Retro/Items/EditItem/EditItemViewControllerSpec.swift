@@ -34,7 +34,7 @@ class EditItemViewControllerSpec: QuickSpec {
             navController.viewControllers = [subject]
             navController.view.layoutSubviews()
 
-            UIApplication.shared.keyWindow?.rootViewController = navController
+            UIWindow.key?.rootViewController = navController
         }
 
         describe("when the view loads") {

@@ -46,7 +46,7 @@ class ActionItemTableViewCellSpec: QuickSpec {
 
             navController = UINavigationController(rootViewController: actionItemsVC)
             navController.view.layoutSubviews()
-            UIApplication.shared.keyWindow?.rootViewController = navController
+            UIWindow.key?.rootViewController = navController
         }
 
         describe("tapping on a cell") {
@@ -79,7 +79,7 @@ class ActionItemTableViewCellSpec: QuickSpec {
 
                     subject.modifyTaskTapped(sender: nil)
 
-                    let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
+                    let rootViewController = UIWindow.key!.rootViewController!
                     expect(rootViewController.presentedViewController)
                             .toEventually(beAKindOf(EditItemViewController.self))
                     guard let editController = rootViewController.presentedViewController
@@ -105,7 +105,7 @@ class ActionItemTableViewCellSpec: QuickSpec {
                     }
                     subject.assigneeTapped(sender: nil)
 
-                    let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
+                    let rootViewController = UIWindow.key!.rootViewController!
                     expect(rootViewController.presentedViewController)
                             .toEventually(beAKindOf(EditItemViewController.self))
                     guard let editController = rootViewController.presentedViewController

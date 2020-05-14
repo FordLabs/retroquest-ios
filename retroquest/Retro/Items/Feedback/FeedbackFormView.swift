@@ -19,7 +19,7 @@ import UIKit
 import FontAwesome
 
 class FeedbackFormView: UIView {
-    internal let statusBarHeight = UIApplication.shared.statusBarFrame.height
+    internal let statusBarHeight = UIWindow.key!.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 
     internal var headingLabel: UILabel!
     internal var improveLabel: UILabel!

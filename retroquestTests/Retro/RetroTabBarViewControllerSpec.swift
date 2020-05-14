@@ -50,7 +50,7 @@ class RetroTabBarViewControllerSpec: QuickSpec {
             navController = UINavigationController(rootViewController: subject)
             navController.view.layoutSubviews()
             subject.view.layoutSubviews()
-            UIApplication.shared.keyWindow?.rootViewController = navController
+            UIWindow.key?.rootViewController = navController
         }
 
         describe("ThoughtsTabBarViewControllerSpec") {
