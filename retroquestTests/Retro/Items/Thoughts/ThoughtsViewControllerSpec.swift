@@ -24,6 +24,9 @@ import UIKit
 class ThoughtsViewControllerSpec: QuickSpec {
 
     override func spec() {
+        Nimble.AsyncDefaults.timeout = .seconds(3)
+        Nimble.AsyncDefaults.pollInterval = .milliseconds(100)
+        
         let currentTeam = "whoopie"
 
         var rootVc: UIViewController!
@@ -219,7 +222,7 @@ class ThoughtsViewControllerSpec: QuickSpec {
                     let newItemView = newItemViewController.newItemView!
                     newItemView.cancelButton.tap()
 
-                    expect(subject.presentedViewController).toEventually(beNil(), timeout: 5)
+                    expect(subject.presentedViewController).toEventually(beNil())
                 }
 
                 it("should show a new happy thought") {
@@ -244,7 +247,7 @@ class ThoughtsViewControllerSpec: QuickSpec {
                     subject.thoughtsService.publishItem(items: [newThought])
                     let happyExpandingCellUpdatedText = getHeaderView(forSection: 0).topicLabel.text
                     let expectedItemCount = "\(originalNumHappyThoughts + 1) items"
-                    expect(happyExpandingCellUpdatedText).toEventually(contain(expectedItemCount), timeout: 10)
+                    expect(happyExpandingCellUpdatedText).toEventually(contain(expectedItemCount))
                 }
 
                 it("should show a new confused thought") {

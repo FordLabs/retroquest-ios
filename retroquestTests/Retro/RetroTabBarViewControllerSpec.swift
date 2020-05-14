@@ -24,6 +24,9 @@ import UIKit
 class RetroTabBarViewControllerSpec: QuickSpec {
 
     override func spec() {
+        Nimble.AsyncDefaults.timeout = .seconds(3)
+        Nimble.AsyncDefaults.pollInterval = .milliseconds(100)
+        
         var navController: UINavigationController!
         var subject: RetroTabBarViewController!
         var flowController: FakeFlowController!

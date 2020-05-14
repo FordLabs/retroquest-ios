@@ -24,6 +24,9 @@ import UIKit
 class ActionItemsViewControllerSpec: QuickSpec {
 
     override func spec() {
+        Nimble.AsyncDefaults.timeout = .seconds(3)
+        Nimble.AsyncDefaults.pollInterval = .milliseconds(100)
+        
         var rootVc: UIViewController!
         var navController: UINavigationController!
 
@@ -153,7 +156,7 @@ class ActionItemsViewControllerSpec: QuickSpec {
                         let newItemView = newItemViewController.newItemView!
                         newItemView.cancelButton.sendActions(for: .touchUpInside)
 
-                        expect(subject.presentedViewController).toEventually(beNil(), timeout: 5)
+                        expect(subject.presentedViewController).toEventually(beNil())
                     }
                 }
             }
