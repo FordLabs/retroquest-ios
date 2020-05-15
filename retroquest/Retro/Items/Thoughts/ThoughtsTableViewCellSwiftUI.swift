@@ -138,7 +138,7 @@ private struct StarsLabel: View {
         HStack {
             FAText(iconName: "star", size: 20, style: .solid)
                 .foregroundColor(Color(RetroColors.starColor))
-            Text(String.init(numStars))
+            Text(String(numStars))
                 .font(Font.retroquestRegular(size: 20))
                 .foregroundColor(Color(RetroColors.cellTextColor))
         }
@@ -148,25 +148,17 @@ private struct StarsLabel: View {
 struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
 
     static var previews: some View {
-        PreviewWrapper()
-    }
-
-    struct PreviewWrapper: View {
-      @State(initialValue: Thought(
-        id: 2,
-        message: "fdsas",
-        hearts: 70,
-        topic: "happy",
-        discussed: true,
-        teamId: "testers"
-      )) var thought: Thought
-
-      var body: some View {
         ThoughtsTableViewCellSwiftUI(
-            self.thought,
+            Thought(
+              id: 2,
+              message: "fdsas",
+              hearts: 70,
+              topic: "happy",
+              discussed: true,
+              teamId: "testers"
+            ),
             delegate: PreviewThoughtEditDelegate()
         )
-      }
     }
 }
 
