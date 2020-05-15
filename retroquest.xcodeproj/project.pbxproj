@@ -100,6 +100,9 @@
 		EBC5EF3E23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */; };
 		EBC5EF3F23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */; };
 		EBC5EF4223301E5C00FB5ABA /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF4123301E5C00FB5ABA /* M13Checkbox */; };
+		EBCDBEA8246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEA7246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift */; };
+		EBCDBEAB246DE74D00C65F14 /* FASwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EBCDBEAA246DE74D00C65F14 /* FASwiftUI */; };
+		EBCDBEAD246DE9D000C65F14 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = EBCDBEAC246DE9D000C65F14 /* icons.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +206,8 @@
 		EBC5EF3A23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Regular-400.otf"; path = "Fonts/Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Brands-Regular-400.otf"; path = "Fonts/Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Solid-900.otf"; path = "Fonts/Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
+		EBCDBEA7246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableViewCellSwiftUI.swift; sourceTree = "<group>"; };
+		EBCDBEAC246DE9D000C65F14 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = icons.json; path = Fonts/icons.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +223,7 @@
 				EBC5EF4223301E5C00FB5ABA /* M13Checkbox in Frameworks */,
 				EBC5EF27232C1A0B00FB5ABA /* StompClientLib in Frameworks */,
 				EBC5EF30232C1BAC00FB5ABA /* FontAwesome in Frameworks */,
+				EBCDBEAB246DE74D00C65F14 /* FASwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +304,7 @@
 		EB91B6A22307286A00780E24 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				EBCDBEAC246DE9D000C65F14 /* icons.json */,
 				EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */,
 				EBC5EF3A23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf */,
 				EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */,
@@ -400,6 +407,7 @@
 				EB91B6CA230728E700780E24 /* ThoughtTableViewHeaderView.swift */,
 				EB91B6CB230728E700780E24 /* ThoughtsViewController.swift */,
 				EB91B6CC230728E700780E24 /* ThoughtsView.swift */,
+				EBCDBEA7246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift */,
 			);
 			path = Thoughts;
 			sourceTree = "<group>";
@@ -601,6 +609,7 @@
 				EBC5EF2C232C1B1A00FB5ABA /* Swinject */,
 				EBC5EF2F232C1BAC00FB5ABA /* FontAwesome */,
 				EBC5EF4123301E5C00FB5ABA /* M13Checkbox */,
+				EBCDBEAA246DE74D00C65F14 /* FASwiftUI */,
 			);
 			productName = retroquest;
 			productReference = EB91B6622306ED6200780E24 /* retroquest.app */;
@@ -665,6 +674,7 @@
 				EBC5EF34232C1DF300FB5ABA /* XCRemoteSwiftPackageReference "Nimble" */,
 				EBC5EF37232C1E3400FB5ABA /* XCRemoteSwiftPackageReference "Hippolyte" */,
 				EBC5EF4023301E5C00FB5ABA /* XCRemoteSwiftPackageReference "M13Checkbox" */,
+				EBCDBEA9246DE74D00C65F14 /* XCRemoteSwiftPackageReference "FASwiftUI" */,
 			);
 			productRefGroup = EB91B6632306ED6200780E24 /* Products */;
 			projectDirPath = "";
@@ -687,6 +697,7 @@
 				EBB9870423072CF80013EB90 /* Quicksand-Bold.ttf in Resources */,
 				EB91B66D2306ED6300780E24 /* Assets.xcassets in Resources */,
 				EBC5EF3D23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf in Resources */,
+				EBCDBEAD246DE9D000C65F14 /* icons.json in Resources */,
 				EBC5EF3F23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,6 +780,7 @@
 				EB91B6F8230728E700780E24 /* ThoughtsViewController.swift in Sources */,
 				EB91B6F7230728E700780E24 /* ThoughtTableViewHeaderView.swift in Sources */,
 				EB91B6F4230728E700780E24 /* Thought.swift in Sources */,
+				EBCDBEA8246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift in Sources */,
 				EB91B704230728E700780E24 /* WebSocketService.swift in Sources */,
 				EB91B706230728E700780E24 /* RetroNavState.swift in Sources */,
 				EB91B6E6230728E700780E24 /* ActionItemsView.swift in Sources */,
@@ -1142,6 +1154,14 @@
 				kind = branch;
 			};
 		};
+		EBCDBEA9246DE74D00C65F14 /* XCRemoteSwiftPackageReference "FASwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattmaddux/FASwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1179,6 +1199,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EBC5EF4023301E5C00FB5ABA /* XCRemoteSwiftPackageReference "M13Checkbox" */;
 			productName = M13Checkbox;
+		};
+		EBCDBEAA246DE74D00C65F14 /* FASwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBCDBEA9246DE74D00C65F14 /* XCRemoteSwiftPackageReference "FASwiftUI" */;
+			productName = FASwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

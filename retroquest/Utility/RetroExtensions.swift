@@ -16,6 +16,7 @@ limitations under the License.
 */
 
 import UIKit
+import SwiftUI
 
 extension String {
     var isAlphanumeric: Bool {
@@ -325,6 +326,16 @@ extension UIFont {
 
     static func retroquestRegular(size: CGFloat) -> UIFont {
         return UIFont(name: "Quicksand-Medium", size: size)!
+    }
+}
+
+extension Font {
+    static func retroquestBold(size: CGFloat) -> Font {
+        return Font.custom("Quicksand-Bold", size: size)
+    }
+
+    static func retroquestRegular(size: CGFloat) -> Font {
+        return Font.custom("Quicksand-Medium", size: size)
     }
 }
 
