@@ -20,30 +20,31 @@ import FASwiftUI
 
 struct ThoughtsTableViewCellSwiftUI: View {
     let thought: Thought
+    internal weak var thoughtEditDelegate: ThoughtEditDelegate!
 
-    init(_ thought: Thought) {
-        UITableView.appearance().separatorColor = .clear
+    init(_ thought: Thought, delegate: ThoughtEditDelegate) {
         self.thought = thought
+        self.thoughtEditDelegate = delegate
     }
 
     var body: some View {
         VStack {
             MessageLabel(thought.message).padding(.top, 10)
-            ThoughtsTableCellVerticalDivider()
+            ThoughtsTableCellDivider(.vertical)
             HStack {
-                Group {
+                Button(action: starsTapped) {
                     Spacer()
                     StarsLabel(thought.hearts)
                     Spacer()
                 }
-                ThoughtsTableCellHorizontalDivider()
-                Group {
+                ThoughtsTableCellDivider(.horizontal)
+                Button(action: modifyMessageTapped) {
                     Spacer()
                     FAIcon("edit").padding(10)
                     Spacer()
                 }
-                ThoughtsTableCellHorizontalDivider()
-                Group {
+                ThoughtsTableCellDivider(.horizontal)
+                Button(action: markDiscussedTapped) {
                     Spacer()
                     FAIcon("envelope").padding(10)
                     Spacer()
@@ -53,25 +54,65 @@ struct ThoughtsTableViewCellSwiftUI: View {
         .background(Color(RetroColors.expandedCellBackgroundColor.withAlphaComponent(1.0)))
         .frame(minHeight: 0, maxHeight: 115)
     }
-}
 
-struct ThoughtsTableCellVerticalDivider: View {
-    var body: some View {
-        Rectangle()
-            .fill(Color(RetroColors.separatorColor))
-            .frame(height: 4)
+    internal func starsTapped() {
+        print("tapped on stars")
+        thoughtEditDelegate.starred(thought)
+    }
+
+    internal func modifyMessageTapped() {
+        print("tapped on message")
+        thoughtEditDelegate.textChanged(thought)
+    }
+
+    internal func markDiscussedTapped() {
+        print("tapped on discussed")
+        thoughtEditDelegate.discussed(thought)
     }
 }
 
-struct ThoughtsTableCellHorizontalDivider: View {
+enum DividerAxis: Int {
+    case horizontal = 0
+
+    case vertical = 1
+}
+
+struct FAIcon: View {
+    let iconName: String
+
+    init(_ iconName: String) {
+        self.iconName = iconName
+    }
+
     var body: some View {
-        Rectangle()
-            .fill(Color(RetroColors.separatorColor))
-            .frame(width: 4)
+        FAText(iconName: iconName, size: 20, style: .solid)
+            .foregroundColor(Color(RetroColors.cellTextColor))
     }
 }
 
-struct MessageLabel: View {
+private struct ThoughtsTableCellDivider: View {
+    let axis: DividerAxis
+
+    init(_ axis: DividerAxis) {
+        self.axis = axis
+    }
+
+    var body: some View {
+        Group {
+            if axis == .vertical {
+                Rectangle()
+                    .fill(Color(RetroColors.separatorColor))
+                    .frame(height: 4)
+            } else {
+                Rectangle()
+                    .fill(Color(RetroColors.separatorColor))
+                    .frame(width: 4)
+            }
+        }
+    }
+}
+
+private struct MessageLabel: View {
     let message: String
 
     init(_ message: String) {
@@ -86,7 +127,7 @@ struct MessageLabel: View {
     }
 }
 
-struct StarsLabel: View {
+private struct StarsLabel: View {
     let numStars: Int
 
     init(_ numStars: Int) {
@@ -104,19 +145,6 @@ struct StarsLabel: View {
     }
 }
 
-struct FAIcon: View {
-    let iconName: String
-
-    init(_ iconName: String) {
-        self.iconName = iconName
-    }
-
-    var body: some View {
-        FAText(iconName: iconName, size: 20, style: .solid)
-            .foregroundColor(Color(RetroColors.cellTextColor))
-    }
-}
-
 struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
 
     static var previews: some View {
@@ -127,14 +155,23 @@ struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
       @State(initialValue: Thought(
         id: 2,
         message: "fdsas",
-        hearts: 3,
+        hearts: 70,
         topic: "happy",
         discussed: true,
         teamId: "testers"
       )) var thought: Thought
 
       var body: some View {
-        ThoughtsTableViewCellSwiftUI(self.thought)
+        ThoughtsTableViewCellSwiftUI(
+            self.thought,
+            delegate: PreviewThoughtEditDelegate()
+        )
       }
     }
+}
+
+private class PreviewThoughtEditDelegate: ThoughtEditDelegate {
+    func starred(_ thought: Thought) { }
+    func discussed(_ thought: Thought) { }
+    func textChanged(_ thought: Thought) { }
 }
