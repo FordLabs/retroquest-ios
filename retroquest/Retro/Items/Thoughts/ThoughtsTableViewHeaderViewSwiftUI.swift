@@ -25,18 +25,15 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
     let textColor: Color
 
     var chevronDirection: String = "chevron-down"
-    internal weak var thoughtTableViewHeaderViewDelegate: ThoughtTableViewHeaderViewDelegate!
 
     init(
         topicName: String,
         numThoughts: Int,
-        topicIndex: Int,
-        thoughtTableViewHeaderViewDelegate: ThoughtTableViewHeaderViewDelegate
+        topicIndex: Int
     ) {
         self.topicName = topicName
         self.numThoughts = numThoughts
         self.topicIndex = topicIndex
-        self.thoughtTableViewHeaderViewDelegate = thoughtTableViewHeaderViewDelegate
 
         switch topicIndex {
         case 0:
@@ -88,7 +85,7 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
         print("tapped on header")
         //thoughtTableViewHeaderViewDelegate.toggleSection(self, section: 0)
     }
-    
+
     private func getNumThoughtsText() -> String {
         let pluralThoughts = numThoughts != 1 ? "s" : ""
         return "\(numThoughts) item\(pluralThoughts)"
@@ -100,8 +97,7 @@ struct ThoughtsTableViewHeaderViewSwiftUIPreviews: PreviewProvider {
         ThoughtsTableViewHeaderViewSwiftUI(
             topicName: "Happy",
             numThoughts: 3,
-            topicIndex: 2,
-            thoughtTableViewHeaderViewDelegate: PreviewThoughtTableViewHeaderViewDelegate()
+            topicIndex: 2
         )
     }
 }

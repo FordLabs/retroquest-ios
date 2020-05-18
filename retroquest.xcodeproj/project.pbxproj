@@ -104,6 +104,7 @@
 		EBCDBEAB246DE74D00C65F14 /* FASwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EBCDBEAA246DE74D00C65F14 /* FASwiftUI */; };
 		EBCDBEAD246DE9D000C65F14 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = EBCDBEAC246DE9D000C65F14 /* icons.json */; };
 		EBCDBEAF246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */; };
+		EBCDBEB12473093400C65F14 /* ThoughtsTableSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +211,7 @@
 		EBCDBEA7246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableViewCellSwiftUI.swift; sourceTree = "<group>"; };
 		EBCDBEAC246DE9D000C65F14 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = icons.json; path = Fonts/icons.json; sourceTree = "<group>"; };
 		EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableViewHeaderViewSwiftUI.swift; sourceTree = "<group>"; };
+		EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableSwiftUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +413,7 @@
 				EB91B6CC230728E700780E24 /* ThoughtsView.swift */,
 				EBCDBEA7246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift */,
 				EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */,
+				EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */,
 			);
 			path = Thoughts;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				EB91B6F1230728E700780E24 /* FeedbackFormView.swift in Sources */,
 				EB91B6E5230728E700780E24 /* ActionItemTableViewCell.swift in Sources */,
 				EB91B6FB230728E700780E24 /* ColumnNameService.swift in Sources */,
+				EBCDBEB12473093400C65F14 /* ThoughtsTableSwiftUI.swift in Sources */,
 				EB91B6E7230728E700780E24 /* ActionItemsViewController.swift in Sources */,
 				EB91B6FD230728E700780E24 /* RetroCookies.swift in Sources */,
 				EB91B6F0230728E700780E24 /* FeedbackViewController.swift in Sources */,

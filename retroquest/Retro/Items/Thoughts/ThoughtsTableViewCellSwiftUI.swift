@@ -162,7 +162,7 @@ struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
     }
 }
 
-private class PreviewThoughtEditDelegate: ThoughtEditDelegate {
+class PreviewThoughtEditDelegate: ThoughtEditDelegate {
     func starred(_ thought: Thought) { }
     func discussed(_ thought: Thought) { }
     func textChanged(_ thought: Thought) { }
