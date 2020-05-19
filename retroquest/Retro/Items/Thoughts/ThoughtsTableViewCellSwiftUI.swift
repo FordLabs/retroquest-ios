@@ -22,7 +22,7 @@ struct ThoughtsTableViewCellSwiftUI: View {
     let thought: Thought
     internal weak var thoughtEditDelegate: ThoughtEditDelegate!
 
-    init(_ thought: Thought, delegate: ThoughtEditDelegate) {
+    init(thought: Thought, delegate: ThoughtEditDelegate) {
         self.thought = thought
         self.thoughtEditDelegate = delegate
     }
@@ -149,7 +149,7 @@ struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
 
     static var previews: some View {
         ThoughtsTableViewCellSwiftUI(
-            Thought(
+            thought: Thought(
               id: 2,
               message: "fdsas",
               hearts: 70,

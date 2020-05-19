@@ -32,12 +32,12 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
         numThoughts: Int,
         topicIndex: Int,
         collapsed: Bool,
-        thoughtTableViewHeaderViewSwiftUIDelegate: ThoughtTableViewHeaderViewSwiftUIDelegate
+        delegate: ThoughtTableViewHeaderViewSwiftUIDelegate
     ) {
         self.topicName = topicName
         self.numThoughts = numThoughts
         self.topicIndex = topicIndex
-        self.thoughtTableViewHeaderViewSwiftUIDelegate = thoughtTableViewHeaderViewSwiftUIDelegate
+        self.thoughtTableViewHeaderViewSwiftUIDelegate = delegate
 
         switch topicIndex {
         case 0:
@@ -81,9 +81,9 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
                     .foregroundColor(textColor)
                     .padding(.trailing, 25)
             }
-            .shadow(color: Color(RetroColors.shadowColor), radius: 5, x: 0, y: 2)
             .background(Color(RetroColors.tableViewHeaderBackgroundColor))
             .frame(minHeight: 0, maxHeight: 100)
+            .shadow(color: Color(RetroColors.shadowColor), radius: 5, x: 0, y: 2)
         }
     }
 
@@ -105,7 +105,7 @@ struct ThoughtsTableViewHeaderViewSwiftUIPreviews: PreviewProvider {
             numThoughts: 3,
             topicIndex: 2,
             collapsed: true,
-            thoughtTableViewHeaderViewSwiftUIDelegate: PreviewThoughtTableViewHeaderViewSwiftUIDelegate()
+            delegate: PreviewThoughtTableViewHeaderViewSwiftUIDelegate()
         )
     }
 }
