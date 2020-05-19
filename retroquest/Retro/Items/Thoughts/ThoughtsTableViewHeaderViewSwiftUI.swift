@@ -22,18 +22,22 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
     let topicName: String
     let numThoughts: Int
     let topicIndex: Int
-    let textColor: Color
+    weak var thoughtTableViewHeaderViewSwiftUIDelegate: ThoughtTableViewHeaderViewSwiftUIDelegate!
 
+    let textColor: Color
     var chevronDirection: String = "chevron-down"
 
     init(
         topicName: String,
         numThoughts: Int,
-        topicIndex: Int
+        topicIndex: Int,
+        collapsed: Bool,
+        thoughtTableViewHeaderViewSwiftUIDelegate: ThoughtTableViewHeaderViewSwiftUIDelegate
     ) {
         self.topicName = topicName
         self.numThoughts = numThoughts
         self.topicIndex = topicIndex
+        self.thoughtTableViewHeaderViewSwiftUIDelegate = thoughtTableViewHeaderViewSwiftUIDelegate
 
         switch topicIndex {
         case 0:
@@ -45,6 +49,8 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
         default:
            self.textColor = Color.black
         }
+
+        chevronDirection = collapsed ? "chevron-right" : "chevron-down"
     }
 
     var body: some View {
@@ -83,7 +89,7 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
 
     internal func tapHeader() {
         print("tapped on header")
-        //thoughtTableViewHeaderViewDelegate.toggleSection(self, section: 0)
+        thoughtTableViewHeaderViewSwiftUIDelegate.setCollapsed(self.topicIndex)
     }
 
     private func getNumThoughtsText() -> String {
@@ -97,11 +103,17 @@ struct ThoughtsTableViewHeaderViewSwiftUIPreviews: PreviewProvider {
         ThoughtsTableViewHeaderViewSwiftUI(
             topicName: "Happy",
             numThoughts: 3,
-            topicIndex: 2
+            topicIndex: 2,
+            collapsed: true,
+            thoughtTableViewHeaderViewSwiftUIDelegate: PreviewThoughtTableViewHeaderViewSwiftUIDelegate()
         )
     }
 }
 
-private class PreviewThoughtTableViewHeaderViewDelegate: ThoughtTableViewHeaderViewDelegate {
-    func toggleSection(_ header: ThoughtTableViewHeaderView, section: Int) { }
+protocol ThoughtTableViewHeaderViewSwiftUIDelegate: AnyObject {
+    func setCollapsed(_ topic: Int)
+}
+
+class PreviewThoughtTableViewHeaderViewSwiftUIDelegate: ThoughtTableViewHeaderViewSwiftUIDelegate {
+    func setCollapsed(_ topic: Int) { }
 }
