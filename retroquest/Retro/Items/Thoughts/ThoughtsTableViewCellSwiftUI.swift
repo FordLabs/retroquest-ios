@@ -21,15 +21,18 @@ import FASwiftUI
 struct ThoughtsTableViewCellSwiftUI: View {
     let thought: Thought
     internal weak var thoughtEditDelegate: ThoughtEditDelegate!
+    var opacity: CGFloat
 
     init(thought: Thought, delegate: ThoughtEditDelegate) {
         self.thought = thought
         self.thoughtEditDelegate = delegate
+
+        opacity = CGFloat(thought.discussed ? 0.7 : 1.0)
     }
 
     var body: some View {
         VStack {
-            MessageLabel(thought.message)
+            MessageLabel(self.thought)
                 .padding(.top, 20)
                 .padding(.bottom, 10)
             ThoughtsTableCellDivider(.vertical)
@@ -44,12 +47,12 @@ struct ThoughtsTableViewCellSwiftUI: View {
                 }
                 ThoughtsTableCellDivider(.horizontal)
                 Button(action: markDiscussedTapped) {
-                    FAIcon("envelope").padding(10)
+                    FAIcon(self.thought.discussed ? "envelope-open-text" : "envelope").padding(10)
                 }
                 Spacer()
             }.padding(.bottom, 20)
         }
-        .background(Color(RetroColors.expandedCellBackgroundColor.withAlphaComponent(1.0)))
+        .background(Color(RetroColors.expandedCellBackgroundColor.withAlphaComponent(self.opacity)))
         .cornerRadius(15)
     }
 
@@ -113,16 +116,16 @@ private struct ThoughtsTableCellDivider: View {
 }
 
 private struct MessageLabel: View {
-    let message: String
+    let thought: Thought
 
-    init(_ message: String) {
-        self.message = message
+    init(_ thought: Thought) {
+        self.thought = thought
     }
 
     var body: some View {
-        Text(message)
+        Text(self.thought.message)
             .font(Font.retroquestRegular(size: 20))
-            .strikethrough(false)
+            .strikethrough(self.thought.discussed)
             .foregroundColor(Color(RetroColors.cellTextColor))
             .padding(.horizontal, 25)
             .fixedSize(horizontal: false, vertical: true)
