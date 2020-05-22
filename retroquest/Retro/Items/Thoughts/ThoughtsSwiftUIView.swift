@@ -39,7 +39,6 @@ struct ThoughtsSwiftUIView: View {
 
             ThoughtsTableSwiftUI(
                 columnTitles: ["happy", "confused", "sad"],
-                collapsedState: [false, true, false],
                 thoughts: [
                     [
                         Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: true, teamId: "1"),

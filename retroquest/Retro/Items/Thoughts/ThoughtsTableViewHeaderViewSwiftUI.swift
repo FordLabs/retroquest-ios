@@ -19,10 +19,11 @@ import SwiftUI
 import FASwiftUI
 
 struct ThoughtsTableViewHeaderViewSwiftUI: View {
+    @Binding var headerCollapsedStates: [Bool]
+
     let topicName: String
     let numThoughts: Int
     let topicIndex: Int
-    weak var thoughtTableViewHeaderViewSwiftUIDelegate: ThoughtTableViewHeaderViewSwiftUIDelegate!
 
     let textColor: Color
     var chevronDirection: String = "chevron-down"
@@ -31,13 +32,12 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
         topicName: String,
         numThoughts: Int,
         topicIndex: Int,
-        collapsed: Bool,
-        delegate: ThoughtTableViewHeaderViewSwiftUIDelegate
+        headerCollapsedStates: Binding<[Bool]>
     ) {
         self.topicName = topicName
         self.numThoughts = numThoughts
         self.topicIndex = topicIndex
-        self.thoughtTableViewHeaderViewSwiftUIDelegate = delegate
+        self._headerCollapsedStates = headerCollapsedStates
 
         switch topicIndex {
         case 0:
@@ -50,6 +50,7 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
            self.textColor = Color.black
         }
 
+        let collapsed = self.headerCollapsedStates[topicIndex]
         chevronDirection = collapsed ? "chevron-right" : "chevron-down"
     }
 
@@ -88,8 +89,8 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
     }
 
     internal func tapHeader() {
-        print("tapped on header")
-        thoughtTableViewHeaderViewSwiftUIDelegate.setCollapsed(self.topicIndex)
+        print("tapped on header: \(self.headerCollapsedStates[self.topicIndex])")
+        self.headerCollapsedStates[self.topicIndex].toggle()
     }
 
     private func getNumThoughtsText() -> String {
@@ -99,21 +100,20 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
 }
 
 struct ThoughtsTableViewHeaderViewSwiftUIPreviews: PreviewProvider {
-    static var previews: some View {
-        ThoughtsTableViewHeaderViewSwiftUI(
-            topicName: "Happy",
-            numThoughts: 3,
-            topicIndex: 2,
-            collapsed: true,
-            delegate: PreviewThoughtTableViewHeaderViewSwiftUIDelegate()
-        )
+    struct BindingTestHolder: View {
+        @State var collapsedStates: [Bool] = [true, true, true]
+
+        var body: some View {
+            ThoughtsTableViewHeaderViewSwiftUI(
+                topicName: "Happy",
+                numThoughts: 3,
+                topicIndex: 2,
+                headerCollapsedStates: $collapsedStates
+            )
+        }
     }
-}
 
-protocol ThoughtTableViewHeaderViewSwiftUIDelegate: AnyObject {
-    func setCollapsed(_ topic: Int)
-}
-
-class PreviewThoughtTableViewHeaderViewSwiftUIDelegate: ThoughtTableViewHeaderViewSwiftUIDelegate {
-    func setCollapsed(_ topic: Int) { }
+    static var previews: some View {
+        BindingTestHolder()
+    }
 }

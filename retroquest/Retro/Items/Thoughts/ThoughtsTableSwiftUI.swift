@@ -19,12 +19,12 @@ import SwiftUI
 
 struct ThoughtsTableSwiftUI: View {
     let columnTitles: [String]
-    let collapsedState: [Bool]
     let thoughts: [[Thought]]
 
-    init(columnTitles: [String], collapsedState: [Bool], thoughts: [[Thought]]) {
+    @State var collapsedStates: [Bool] = [true, true, true]
+
+    init(columnTitles: [String], thoughts: [[Thought]]) {
         self.columnTitles = columnTitles
-        self.collapsedState = collapsedState
         self.thoughts = thoughts
 
         UITableView.appearance().backgroundColor = .clear
@@ -39,11 +39,10 @@ struct ThoughtsTableSwiftUI: View {
                     topicName: self.columnTitles[columnIndex],
                     numThoughts: self.thoughts[columnIndex].count,
                     topicIndex: columnIndex,
-                    collapsed: self.collapsedState[columnIndex],
-                    delegate: PreviewThoughtTableViewHeaderViewSwiftUIDelegate()
+                    headerCollapsedStates: self.$collapsedStates
                 )
                 .listRowInsets(EdgeInsets())) {
-                    if self.collapsedState[columnIndex] != true {
+                    if self.collapsedStates[columnIndex] != true {
                         ForEach(0 ..< self.thoughts[columnIndex].count) { thoughtIndex in
                             ThoughtsTableViewCellSwiftUI(
                                 thought: self.thoughts[columnIndex][thoughtIndex],
@@ -67,8 +66,7 @@ struct ThoughtsTableSwiftUI: View {
 struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
     static var previews: some View {
         ThoughtsTableSwiftUI(
-            columnTitles: ["happy", "confused", "sad"],
-            collapsedState: [false, true, false],
+            columnTitles: ["happy", "confused", "so sad, so sad, so sad, so sad, so sad, so sad"],
             thoughts: [
                 [
                     Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: true, teamId: "1"),
