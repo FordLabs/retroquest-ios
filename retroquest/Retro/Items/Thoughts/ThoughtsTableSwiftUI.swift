@@ -27,7 +27,8 @@ struct ThoughtsTableSwiftUI: View {
         self.collapsedState = collapsedState
         self.thoughts = thoughts
 
-        UITableView.appearance().backgroundColor = RetroColors.backgroundColor
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
     }
 
@@ -55,7 +56,7 @@ struct ThoughtsTableSwiftUI: View {
                                 trailing: 1
                             ))
                             .listRowBackground(Color(RetroColors.backgroundColor))
-                            .cornerRadius(10)
+                            .cornerRadius(15)
                         }
                     }
                 }
