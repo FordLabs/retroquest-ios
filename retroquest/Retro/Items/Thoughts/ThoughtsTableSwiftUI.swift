@@ -80,7 +80,7 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
                     Thought(id: 5, message: "she", hearts: 1, topic: "confused", discussed: false, teamId: "1")
                 ],
                 [
-                    Thought(id: 6, message: "they", hearts: 7, topic: "sad", discussed: true, teamId: "1")
+                    Thought(id: 6, message: "really long message, really long message, really long message, really long message, really long message, really long message, really long message, really long message.", hearts: 7, topic: "sad", discussed: true, teamId: "1")
                 ]
             ]
         )

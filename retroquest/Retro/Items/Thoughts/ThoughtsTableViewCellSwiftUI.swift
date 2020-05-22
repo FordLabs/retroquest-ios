@@ -29,7 +29,9 @@ struct ThoughtsTableViewCellSwiftUI: View {
 
     var body: some View {
         VStack {
-            MessageLabel(thought.message).padding(.top, 20)
+            MessageLabel(thought.message)
+                .padding(.top, 20)
+                .padding(.bottom, 10)
             ThoughtsTableCellDivider(.vertical)
             HStack {
                 Spacer()
@@ -48,7 +50,6 @@ struct ThoughtsTableViewCellSwiftUI: View {
             }.padding(.bottom, 20)
         }
         .background(Color(RetroColors.expandedCellBackgroundColor.withAlphaComponent(1.0)))
-        .frame(minHeight: 0, maxHeight: 115)
         .cornerRadius(15)
     }
 
@@ -123,6 +124,8 @@ private struct MessageLabel: View {
             .font(Font.retroquestRegular(size: 20))
             .strikethrough(false)
             .foregroundColor(Color(RetroColors.cellTextColor))
+            .padding(.horizontal, 25)
+            .fixedSize(horizontal: false, vertical: true)
     }
 }
 
