@@ -29,30 +29,27 @@ struct ThoughtsTableViewCellSwiftUI: View {
 
     var body: some View {
         VStack {
-            MessageLabel(thought.message).padding(.top, 10)
+            MessageLabel(thought.message).padding(.top, 20)
             ThoughtsTableCellDivider(.vertical)
             HStack {
+                Spacer()
                 Button(action: starsTapped) {
-                    Spacer()
                     StarsLabel(thought.hearts)
-                    Spacer()
                 }
                 ThoughtsTableCellDivider(.horizontal)
                 Button(action: modifyMessageTapped) {
-                    Spacer()
                     FAIcon("edit").padding(10)
-                    Spacer()
                 }
                 ThoughtsTableCellDivider(.horizontal)
                 Button(action: markDiscussedTapped) {
-                    Spacer()
                     FAIcon("envelope").padding(10)
-                    Spacer()
                 }
-            }.padding(.bottom, 10)
+                Spacer()
+            }.padding(.bottom, 20)
         }
         .background(Color(RetroColors.expandedCellBackgroundColor.withAlphaComponent(1.0)))
         .frame(minHeight: 0, maxHeight: 115)
+        .cornerRadius(15)
     }
 
     internal func starsTapped() {
@@ -99,6 +96,7 @@ private struct ThoughtsTableCellDivider: View {
 
     var body: some View {
         Group {
+            Spacer()
             if axis == .vertical {
                 Rectangle()
                     .fill(Color(RetroColors.separatorColor))
@@ -108,6 +106,7 @@ private struct ThoughtsTableCellDivider: View {
                     .fill(Color(RetroColors.separatorColor))
                     .frame(width: 4)
             }
+            Spacer()
         }
     }
 }

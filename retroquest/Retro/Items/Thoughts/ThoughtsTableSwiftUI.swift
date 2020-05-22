@@ -56,7 +56,6 @@ struct ThoughtsTableSwiftUI: View {
                                 trailing: 1
                             ))
                             .listRowBackground(Color(RetroColors.backgroundColor))
-                            .cornerRadius(15)
                         }
                     }
                 }
