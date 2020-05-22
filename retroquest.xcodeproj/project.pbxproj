@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
+		EB4E9B6D247467F800E3A583 /* ThoughtsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E9B6C247467F800E3A583 /* ThoughtsSwiftUIView.swift */; };
 		EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6652306ED6200780E24 /* AppDelegate.swift */; };
 		EB91B66D2306ED6300780E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB91B66C2306ED6300780E24 /* Assets.xcassets */; };
 		EB91B6A52307289500780E24 /* AppCenterDistribute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6A32307289500780E24 /* AppCenterDistribute.framework */; };
@@ -119,6 +120,7 @@
 
 /* Begin PBXFileReference section */
 		EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenterSecret.generated.swift; sourceTree = "<group>"; };
+		EB4E9B6C247467F800E3A583 /* ThoughtsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsSwiftUIView.swift; sourceTree = "<group>"; };
 		EB91B6622306ED6200780E24 /* retroquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = retroquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB91B6652306ED6200780E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB91B66C2306ED6300780E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				EBCDBEA7246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift */,
 				EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */,
 				EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */,
+				EB4E9B6C247467F800E3A583 /* ThoughtsSwiftUIView.swift */,
 			);
 			path = Thoughts;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				EB91B6E4230728E700780E24 /* ActionItem.swift in Sources */,
 				EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */,
 				EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */,
+				EB4E9B6D247467F800E3A583 /* ThoughtsSwiftUIView.swift in Sources */,
 				EB91B700230728E700780E24 /* PubSub.swift in Sources */,
 				EB91B6FC230728E700780E24 /* Column.swift in Sources */,
 				EBB986FF23072CA90013EB90 /* RetroquestServerURL.generated.swift in Sources */,
