@@ -45,7 +45,7 @@ struct ThoughtsTableSwiftUI: View {
                     if self.collapsedStates[columnIndex] != true {
                         ForEach(0 ..< self.thoughts[columnIndex].count) { thoughtIndex in
                             ThoughtsTableViewCellSwiftUI(
-                                thought: self.thoughts[columnIndex][thoughtIndex],
+                                thought: self.getThoughtsOfTopic(self.thoughts[columnIndex])[thoughtIndex],
                                 delegate: PreviewThoughtEditDelegate()
                             )
                             .listRowInsets(EdgeInsets(
@@ -61,9 +61,23 @@ struct ThoughtsTableSwiftUI: View {
             }
         }
     }
+
+    func getThoughtsOfTopic(_ thoughts: [Thought]) -> [Thought] {
+        let unDiscussedThoughtsOfThisTopic: [Thought] = thoughts.filter { !$0.discussed }
+        let discussedThoughtsOfThisTopic: [Thought] = thoughts.filter { $0.discussed }
+
+        let sortedUnDiscussedThoughts = unDiscussedThoughtsOfThisTopic.sorted(by: { $0.id < $1.id })
+        let sortedDiscussedThoughts = discussedThoughtsOfThisTopic.sorted(by: { $0.id < $1.id })
+        return sortedUnDiscussedThoughts + sortedDiscussedThoughts
+    }
 }
 
 struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
+    static let longMessage = """
+    really long message, really long message, really long message, really long message,\
+    really long message, really long message, really long message, really long message.
+    """
+
     static var previews: some View {
         ThoughtsTableSwiftUI(
             columnTitles: ["happy", "confused", "so sad, so sad, so sad, so sad, so sad, so sad"],
@@ -78,7 +92,7 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
                     Thought(id: 5, message: "she", hearts: 1, topic: "confused", discussed: false, teamId: "1")
                 ],
                 [
-                    Thought(id: 6, message: "really long message, really long message, really long message, really long message, really long message, really long message, really long message, really long message.", hearts: 7, topic: "sad", discussed: true, teamId: "1")
+                    Thought(id: 6, message: longMessage, hearts: 7, topic: "sad", discussed: true, teamId: "1")
                 ]
             ]
         )
