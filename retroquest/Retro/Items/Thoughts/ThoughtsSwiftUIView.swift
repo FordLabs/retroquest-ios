@@ -1,10 +1,19 @@
-//
-//  ThoughtsSwiftUIView.swift
-//  retroquest
-//
-//  Created by Candela, Paul (P.V.) on 5/19/20.
-//  Copyright © 2020 Ford. All rights reserved.
-//
+///**
+/**
+Copyright © 2019 Ford Motor Company. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 
 import SwiftUI
 
@@ -37,23 +46,7 @@ struct ThoughtsSwiftUIView: View {
             .padding(.top, 50)
             .background(Color(RetroColors.backgroundColor))
 
-            ThoughtsTableSwiftUI(
-                columnTitles: ["happy", "confused", "sad"],
-                thoughts: [
-                    [
-                        Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: true, teamId: "1"),
-                        Thought(id: 2, message: "you", hearts: 1, topic: "happy", discussed: false, teamId: "1"),
-                        Thought(id: 3, message: "I", hearts: 1, topic: "happy", discussed: false, teamId: "1")
-                    ],
-                    [
-                        Thought(id: 4, message: "he", hearts: 0, topic: "confused", discussed: true, teamId: "1"),
-                        Thought(id: 5, message: "she", hearts: 1, topic: "confused", discussed: false, teamId: "1")
-                    ],
-                    [
-                        Thought(id: 6, message: "they", hearts: 7, topic: "sad", discussed: true, teamId: "1")
-                    ]
-                ]
-            )
+            ThoughtsTableSwiftUI()
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.top)
@@ -66,7 +59,38 @@ struct ThoughtsSwiftUIView: View {
 }
 
 struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
+    static let items = ItemsSwiftUI(
+        thoughts: [
+            [
+                Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: true, teamId: "1"),
+                Thought(id: 2, message: "you", hearts: 1, topic: "happy", discussed: false, teamId: "1"),
+                Thought(id: 3, message: "I", hearts: 1, topic: "happy", discussed: false, teamId: "1")
+            ],
+            [
+                Thought(id: 4, message: "he", hearts: 0, topic: "confused", discussed: true, teamId: "1"),
+                Thought(id: 5, message: "she", hearts: 1, topic: "confused", discussed: false, teamId: "1")
+            ],
+            [
+                Thought(id: 6, message: "us", hearts: 7, topic: "sad", discussed: true, teamId: "1")
+            ]
+        ],
+        columnTitles: ["happy", "confused", "so sad, so sad, so sad, so sad, so sad, so sad"]
+    )
+
     static var previews: some View {
-        ThoughtsSwiftUIView(teamName: "Coolest Team")
+        ThoughtsSwiftUIView(teamName: "Coolest Team").environmentObject(items)
+    }
+}
+
+class ItemsSwiftUI: ObservableObject {
+    @Published var thoughts: [[Thought]] = [[]]
+    @Published var columnTitles: [String] = []
+
+    init(
+        thoughts: [[Thought]],
+        columnTitles: [String]
+    ) {
+        self.thoughts = thoughts
+        self.columnTitles = columnTitles
     }
 }

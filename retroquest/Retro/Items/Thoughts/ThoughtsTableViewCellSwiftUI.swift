@@ -20,14 +20,11 @@ import FASwiftUI
 
 struct ThoughtsTableViewCellSwiftUI: View {
     let thought: Thought
-    internal weak var thoughtEditDelegate: ThoughtEditDelegate!
     var opacity: CGFloat
 
-    init(thought: Thought, delegate: ThoughtEditDelegate) {
+    init(thought: Thought) {
         self.thought = thought
-        self.thoughtEditDelegate = delegate
-
-        opacity = CGFloat(thought.discussed ? 0.7 : 1.0)
+        self.opacity = CGFloat(thought.discussed ? 0.7 : 1.0)
     }
 
     var body: some View {
@@ -58,17 +55,14 @@ struct ThoughtsTableViewCellSwiftUI: View {
 
     internal func starsTapped() {
         print("tapped on stars")
-        thoughtEditDelegate.starred(thought)
     }
 
     internal func modifyMessageTapped() {
         print("tapped on message")
-        thoughtEditDelegate.textChanged(thought)
     }
 
     internal func markDiscussedTapped() {
         print("tapped on discussed")
-        thoughtEditDelegate.discussed(thought)
     }
 }
 
@@ -161,14 +155,7 @@ struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
               topic: "happy",
               discussed: true,
               teamId: "testers"
-            ),
-            delegate: PreviewThoughtEditDelegate()
+            )
         )
     }
-}
-
-class PreviewThoughtEditDelegate: ThoughtEditDelegate {
-    func starred(_ thought: Thought) { }
-    func discussed(_ thought: Thought) { }
-    func textChanged(_ thought: Thought) { }
 }

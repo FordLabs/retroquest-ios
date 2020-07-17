@@ -17,36 +17,36 @@ limitations under the License.
 
 import SwiftUI
 
+struct HeaderCollapsedStates {
+    var collapsedStates: [Bool] = [true, true, true]
+}
+
 struct ThoughtsTableSwiftUI: View {
-    let columnTitles: [String]
-    let thoughts: [[Thought]]
+    @EnvironmentObject var items: ItemsSwiftUI
+    @State private var headerCollapsedStates: HeaderCollapsedStates = HeaderCollapsedStates()
 
-    @State var collapsedStates: [Bool] = [true, true, true]
-
-    init(columnTitles: [String], thoughts: [[Thought]]) {
-        self.columnTitles = columnTitles
-        self.thoughts = thoughts
-
+    init() {
         UITableView.appearance().backgroundColor = .clear
         UITableView.appearance().separatorColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
     }
 
     var body: some View {
-        List {
-            ForEach(0 ..< columnTitles.count) { columnIndex in
+        let iterableColumnTitles = Array(self.items.columnTitles.enumerated())
+
+        return List {
+            ForEach(iterableColumnTitles, id: \.element) { columnIndex, columnName in
                 SwiftUI.Section(header: ThoughtsTableViewHeaderViewSwiftUI(
-                    topicName: self.columnTitles[columnIndex],
-                    numThoughts: self.thoughts[columnIndex].count,
+                    topicName: columnName,
+                    numThoughts: self.items.thoughts[columnIndex].count,
                     topicIndex: columnIndex,
-                    headerCollapsedStates: self.$collapsedStates
+                    headerCollapsedStates: self.$headerCollapsedStates.collapsedStates
                 )
                 .listRowInsets(EdgeInsets())) {
-                    if self.collapsedStates[columnIndex] != true {
-                        ForEach(0 ..< self.thoughts[columnIndex].count) { thoughtIndex in
+                    if self.headerCollapsedStates.collapsedStates[columnIndex] != true {
+                        ForEach(0 ..< self.items.thoughts[columnIndex].count) { thoughtIndex in
                             ThoughtsTableViewCellSwiftUI(
-                                thought: self.getThoughtsOfTopic(self.thoughts[columnIndex])[thoughtIndex],
-                                delegate: PreviewThoughtEditDelegate()
+                                thought: self.getThoughtsOfTopic(self.items.thoughts[columnIndex])[thoughtIndex]
                             )
                             .listRowInsets(EdgeInsets(
                                 top: 2,
@@ -78,23 +78,25 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
     really long message, really long message, really long message, really long message.
     """
 
-    static var previews: some View {
-        ThoughtsTableSwiftUI(
-            columnTitles: ["happy", "confused", "so sad, so sad, so sad, so sad, so sad, so sad"],
-            thoughts: [
-                [
-                    Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: true, teamId: "1"),
-                    Thought(id: 2, message: "you", hearts: 1, topic: "happy", discussed: false, teamId: "1"),
-                    Thought(id: 3, message: "I", hearts: 1, topic: "happy", discussed: false, teamId: "1")
-                ],
-                [
-                    Thought(id: 4, message: "he", hearts: 0, topic: "confused", discussed: true, teamId: "1"),
-                    Thought(id: 5, message: "she", hearts: 1, topic: "confused", discussed: false, teamId: "1")
-                ],
-                [
-                    Thought(id: 6, message: longMessage, hearts: 7, topic: "sad", discussed: true, teamId: "1")
-                ]
+    static let items = ItemsSwiftUI(
+        thoughts: [
+            [
+                Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: true, teamId: "1"),
+                Thought(id: 2, message: "you", hearts: 1, topic: "happy", discussed: false, teamId: "1"),
+                Thought(id: 3, message: "I", hearts: 1, topic: "happy", discussed: false, teamId: "1")
+            ],
+            [
+                Thought(id: 4, message: "he", hearts: 0, topic: "confused", discussed: true, teamId: "1"),
+                Thought(id: 5, message: "she", hearts: 1, topic: "confused", discussed: false, teamId: "1")
+            ],
+            [
+                Thought(id: 6, message: longMessage, hearts: 7, topic: "sad", discussed: true, teamId: "1")
             ]
-        )
+        ],
+        columnTitles: ["happy", "confused", "so sad, so sad, so sad, so sad, so sad, so sad"]
+    )
+
+    static var previews: some View {
+        ThoughtsTableSwiftUI().environmentObject(items)
     }
 }
