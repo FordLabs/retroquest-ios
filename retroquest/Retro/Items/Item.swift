@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-protocol Item: Codable, Equatable {
+protocol Item: Codable, Hashable {
     var description: String { get }
     var id: Int { get }
     var teamId: String { get }

@@ -62,13 +62,13 @@ struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
     static let items = ItemsSwiftUI(
         thoughts: [
             [
-                Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: true, teamId: "1"),
-                Thought(id: 2, message: "you", hearts: 1, topic: "happy", discussed: false, teamId: "1"),
-                Thought(id: 3, message: "I", hearts: 1, topic: "happy", discussed: false, teamId: "1")
+                Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: false, teamId: "1"),
+                Thought(id: 2, message: "you", hearts: 1, topic: "happy", discussed: true, teamId: "1"),
+                Thought(id: 3, message: "I", hearts: 1, topic: "happy", discussed: true, teamId: "1")
             ],
             [
-                Thought(id: 4, message: "he", hearts: 0, topic: "confused", discussed: true, teamId: "1"),
-                Thought(id: 5, message: "she", hearts: 1, topic: "confused", discussed: false, teamId: "1")
+                Thought(id: 4, message: "he", hearts: 0, topic: "confused", discussed: false, teamId: "1"),
+                Thought(id: 5, message: "she", hearts: 1, topic: "confused", discussed: true, teamId: "1")
             ],
             [
                 Thought(id: 6, message: "us", hearts: 7, topic: "sad", discussed: true, teamId: "1")
