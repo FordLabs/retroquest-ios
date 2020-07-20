@@ -59,6 +59,7 @@ struct ThoughtsSwiftUIView: View {
 }
 
 struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
+    static let itemPubSub = PubSub<Thought>()
     static let items = ItemsSwiftUI(
         thoughts: [
             [
@@ -78,7 +79,9 @@ struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
     )
 
     static var previews: some View {
-        ThoughtsSwiftUIView(teamName: "Coolest Team").environmentObject(items)
+        ThoughtsSwiftUIView(teamName: "Coolest Team")
+            .environmentObject(items)
+            .environmentObject(itemPubSub)
     }
 }
 

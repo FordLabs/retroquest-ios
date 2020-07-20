@@ -15,7 +15,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-class PubSub<T> {
+import SwiftUI
+
+class PubSub<T>: ObservableObject {
 
     internal var incomingSubscribers: [IncomingSubscriptionCallback<T>]!
     internal var outgoingSubscribers: [OutgoingSubscriptionCallback<T>]!

@@ -19,12 +19,6 @@ import UIKit
 
 import FontAwesome
 
-protocol ThoughtEditDelegate: AnyObject {
-    func starred(_ thought: Thought)
-    func discussed(_ thought: Thought)
-    func textChanged(_ thought: Thought)
-}
-
 class ThoughtTableViewCell: UITableViewCell {
     internal let messageLabel = UILabel()
     internal let starsLabel = UILabel()

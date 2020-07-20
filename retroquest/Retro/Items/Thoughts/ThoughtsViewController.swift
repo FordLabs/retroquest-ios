@@ -27,7 +27,7 @@ class ThoughtsViewController: UIViewController {
 
     internal var columnNameService: ColumnNameService!
     internal var thoughtsService: ThoughtsService!
-    internal var itemsSwiftUI: ItemsSwiftUI = ItemsSwiftUI(thoughts: [[]], columnTitles: [])
+    internal var itemsSwiftUI: ItemsSwiftUI = ItemsSwiftUI(thoughts: [[],[],[]], columnTitles: [])
 
     convenience init(thoughtsService: ThoughtsService, columnNameService: ColumnNameService) {
         self.init()
@@ -45,7 +45,9 @@ class ThoughtsViewController: UIViewController {
         columnNameService.registerItemCallback(columnNamesCallback)
         getThoughtsAndColumns()
 
-        let thoughtsViewSwiftUI: some View = ThoughtsSwiftUIView(teamName: URLManager.currentTeam).environmentObject(itemsSwiftUI)
+        let thoughtsViewSwiftUI: some View = ThoughtsSwiftUIView(teamName: URLManager.currentTeam)
+            .environmentObject(itemsSwiftUI)
+            .environmentObject(thoughtsService.itemPubSub)
         let hostingController = UIHostingController(rootView: thoughtsViewSwiftUI)
         addChild(hostingController)
         let thoughtsView = hostingController.view!
@@ -148,126 +150,8 @@ class ThoughtsViewController: UIViewController {
 //    }
 }
 
-//extension ThoughtsViewController: UITableViewDelegate, UITableViewDataSource {
-//
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return collapsedState.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let columnName = ColumnNameService.displayOrderForTopics[section]
-//        return collapsedState[section].collapsed ? 0 : thoughtsService.getNumberOfThoughtsOfTopic(columnName)
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ThoughtTableViewCell ??
-//                ThoughtTableViewCell()
-//
-//        let columnName = ColumnNameService.displayOrderForTopics[indexPath.section]
-//
-//        let thought = self.thoughtsService.getThoughtsOfTopic(columnName)[indexPath.row]
-//
-//        cell.setupCell(thought: thought, delegate: self)
-//
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
-//                as? ThoughtTableViewHeaderView ?? ThoughtTableViewHeaderView(reuseIdentifier: "header")
-//
-//        let columnName = ColumnNameService.displayOrderForTopics[section]
-//        let title = columnNameService.getColumnTitle(columnName)
-//        let numThoughts = thoughtsService.getNumberOfThoughtsOfTopic(columnName)
-//        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressHandler))
-//
-//        header.setupCell(columnName: title, topicIndex: section, numThoughts: numThoughts)
-//        header.setCollapsed(collapsedState[section].collapsed)
-//        header.delegate = self
-//
-//        header.addGestureRecognizer(longPressRecognizer)
-//
-//        return header
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 100.0
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 1.0
-//    }
-//
-//    func tableView(
-//            _ tableView: UITableView,
-//            commit editingStyle: UITableViewCell.EditingStyle,
-//            forRowAt indexPath: IndexPath
-//    ) {
-//        if editingStyle == .delete {
-//            guard let thoughtCell = tableView.cellForRow(at: indexPath) as? ThoughtTableViewCell else {
-//                print("Tried deleting a cell that shouldn't be deleted")
-//                return
-//            }
-//            let thought = thoughtCell.thought!
-//            thoughtsService.itemPubSub.publishOutgoing(thought, outgoingType: .delete)
-//            MSAnalytics.trackEvent("delete \(thought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
-//            print("Deleting Thought with id: \(thought.id)")
-//        }
-//    }
-//}
-//
-//extension ThoughtsViewController: ThoughtEditDelegate {
-//    func starred(_ thought: Thought) {
-//        let newThought = thought.copy(hearts: thought.hearts + 1)
-//        thoughtsService.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
-//        MSAnalytics.trackEvent("star \(newThought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
-//    }
-//
-//    func discussed(_ thought: Thought) {
-//        let newThought = thought.copy(discussed: !thought.discussed)
-//        thoughtsService.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
-//        MSAnalytics.trackEvent(
-//                "mark \(newThought.topic) thought \(newThought.discussed ? "discussed" : "undiscussed")",
-//                withProperties: ["Team": URLManager.currentTeam]
-//        )
-//    }
-//
-//    func textChanged(_ thought: Thought) {
-//        print("Opening Edit New Thought View")
-//        DispatchQueue.main.async(execute: {
-//            self.view.window?.rootViewController!.present(
-//                    EditItemViewController(
-//                            titleText: "Change Thought",
-//                            defaultText: thought.message,
-//                            onSave: { updatedText in
-//                                MSAnalytics.trackEvent(
-//                                        "edit \(thought.topic) thought text",
-//                                        withProperties: ["Team": URLManager.currentTeam]
-//                                )
-//                                let newThought = thought.copy(message: updatedText)
-//                                self.thoughtsService.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
-//                            }
-//                    ),
-//                    animated: true
-//            )
-//        })
-//    }
-//}
-//
-//extension ThoughtsViewController: ThoughtTableViewHeaderViewDelegate {
-//
-//    func toggleSection(_ header: ThoughtTableViewHeaderView, section: Int) {
-//        let collapsed = !collapsedState[section].collapsed
-//
-//        // Toggle collapse
-//        collapsedState[section].collapsed = collapsed
-//        header.setCollapsed(collapsed)
-//
-//        thoughtsView.tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
-//    }
-//
-//}
+protocol ThoughtEditDelegate: AnyObject {
+    func starred(_ thought: Thought)
+    func discussed(_ thought: Thought)
+    func textChanged(_ thought: Thought)
+}

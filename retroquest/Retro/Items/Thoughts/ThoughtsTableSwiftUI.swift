@@ -67,6 +67,7 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
     really long message, really long message, really long message, really long message.
     """
 
+    static let itemPubSub = PubSub<Thought>()
     static let items = ItemsSwiftUI(
         thoughts: [
             [
@@ -86,6 +87,8 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
     )
 
     static var previews: some View {
-        ThoughtsTableSwiftUI().environmentObject(items)
+        ThoughtsTableSwiftUI()
+            .environmentObject(items)
+            .environmentObject(itemPubSub)
     }
 }

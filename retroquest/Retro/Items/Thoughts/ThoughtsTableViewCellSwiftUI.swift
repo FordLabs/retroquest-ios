@@ -17,10 +17,12 @@ limitations under the License.
 
 import SwiftUI
 import FASwiftUI
+import AppCenterAnalytics
 
 struct ThoughtsTableViewCellSwiftUI: View {
+    @EnvironmentObject var itemPubSub: PubSub<Thought>
     let thought: Thought
-    var opacity: CGFloat
+    let opacity: CGFloat
 
     init(thought: Thought) {
         self.thought = thought
@@ -35,17 +37,20 @@ struct ThoughtsTableViewCellSwiftUI: View {
             ThoughtsTableCellDivider(.vertical)
             HStack {
                 Spacer()
-                Button(action: starsTapped) {
-                    StarsLabel(thought.hearts)
-                }
+                StarsLabel(thought.hearts)
+                    .onTapGesture {
+                        self.starsTapped()
+                    }
                 ThoughtsTableCellDivider(.horizontal)
-                Button(action: modifyMessageTapped) {
-                    FAIcon("edit").padding(10)
-                }
+                FAIcon("edit").padding(10)
+                    .onTapGesture {
+                        self.modifyMessageTapped()
+                    }
                 ThoughtsTableCellDivider(.horizontal)
-                Button(action: markDiscussedTapped) {
-                    FAIcon(self.thought.discussed ? "envelope-open-text" : "envelope").padding(10)
-                }
+                FAIcon(self.thought.discussed ? "envelope-open-text" : "envelope").padding(10)
+                    .onTapGesture {
+                        self.markDiscussedTapped()
+                    }
                 Spacer()
             }.padding(.bottom, 20)
         }
@@ -55,6 +60,9 @@ struct ThoughtsTableViewCellSwiftUI: View {
 
     internal func starsTapped() {
         print("tapped on stars")
+        let newThought = thought.copy(hearts: thought.hearts + 1)
+        self.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
+        MSAnalytics.trackEvent("star \(newThought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
     }
 
     internal func modifyMessageTapped() {
@@ -63,6 +71,12 @@ struct ThoughtsTableViewCellSwiftUI: View {
 
     internal func markDiscussedTapped() {
         print("tapped on discussed")
+        let newThought = thought.copy(discussed: !thought.discussed)
+        self.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
+        MSAnalytics.trackEvent(
+                "mark \(newThought.topic) thought \(newThought.discussed ? "discussed" : "undiscussed")",
+                withProperties: ["Team": URLManager.currentTeam]
+        )
     }
 }
 
@@ -146,6 +160,8 @@ private struct StarsLabel: View {
 
 struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
 
+    static let itemPubSub = PubSub<Thought>()
+
     static var previews: some View {
         ThoughtsTableViewCellSwiftUI(
             thought: Thought(
@@ -156,6 +172,6 @@ struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
               discussed: true,
               teamId: "testers"
             )
-        )
+        ).environmentObject(itemPubSub)
     }
 }
