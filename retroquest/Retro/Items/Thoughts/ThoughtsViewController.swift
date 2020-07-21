@@ -27,7 +27,7 @@ class ThoughtsViewController: UIViewController {
 
     internal var columnNameService: ColumnNameService!
     internal var thoughtsService: ThoughtsService!
-    internal var itemsSwiftUI: ItemsSwiftUI = ItemsSwiftUI(thoughts: [[],[],[]], columnTitles: [])
+    internal var itemsSwiftUI: ItemsSwiftUI = ItemsSwiftUI(thoughts: [[], [], []], columnTitles: [])
 
     convenience init(thoughtsService: ThoughtsService, columnNameService: ColumnNameService) {
         self.init()

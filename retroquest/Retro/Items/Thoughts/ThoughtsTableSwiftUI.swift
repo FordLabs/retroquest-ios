@@ -16,6 +16,7 @@ limitations under the License.
 */
 
 import SwiftUI
+import AppCenterAnalytics
 
 struct HeaderCollapsedStates {
     var collapsedStates: [Bool] = [true, true, true]
@@ -23,6 +24,7 @@ struct HeaderCollapsedStates {
 
 struct ThoughtsTableSwiftUI: View {
     @EnvironmentObject var items: ItemsSwiftUI
+    @EnvironmentObject var itemPubSub: PubSub<Thought>
     @State private var headerCollapsedStates: HeaderCollapsedStates = HeaderCollapsedStates()
 
     init() {
@@ -53,11 +55,21 @@ struct ThoughtsTableSwiftUI: View {
                                 trailing: 1
                             ))
                             .listRowBackground(Color(RetroColors.backgroundColor))
+                        }.onDelete { thoughtIndex in
+                            self.delete(thoughtIndex: thoughtIndex, columnIndex: columnIndex)
                         }
                     }
                 }
             }
         }
+    }
+
+    func delete(thoughtIndex: IndexSet, columnIndex: Int) {
+        let thought = self.items.thoughts[columnIndex][thoughtIndex.first!]
+        print(thought)
+        self.itemPubSub.publishOutgoing(thought, outgoingType: .delete)
+        MSAnalytics.trackEvent("delete \(thought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
+        print("Deleting Thought with id: \(thought.id)")
     }
 }
 
