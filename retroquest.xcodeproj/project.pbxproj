@@ -87,6 +87,7 @@
 		EB91B75523072AC300780E24 /* ViewUtilsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B73623072AC300780E24 /* ViewUtilsSpec.swift */; };
 		EB91B75623072AC300780E24 /* FakeNotificationCenterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B73723072AC300780E24 /* FakeNotificationCenterWrapper.swift */; };
 		EB91B75723072AC300780E24 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B73823072AC300780E24 /* TestHelpers.swift */; };
+		EB9D3B8724C746DD00D3BC41 /* EditTextSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9D3B8624C746DD00D3BC41 /* EditTextSwiftUIView.swift */; };
 		EBB986FF23072CA90013EB90 /* RetroquestServerURL.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB986FE23072CA90013EB90 /* RetroquestServerURL.generated.swift */; };
 		EBB9870423072CF80013EB90 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870223072CF70013EB90 /* Quicksand-Bold.ttf */; };
 		EBB9870523072CF80013EB90 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBB9870323072CF80013EB90 /* Quicksand-Medium.ttf */; };
@@ -203,6 +204,7 @@
 		EB91B73623072AC300780E24 /* ViewUtilsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilsSpec.swift; sourceTree = "<group>"; };
 		EB91B73723072AC300780E24 /* FakeNotificationCenterWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeNotificationCenterWrapper.swift; sourceTree = "<group>"; };
 		EB91B73823072AC300780E24 /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		EB9D3B8624C746DD00D3BC41 /* EditTextSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextSwiftUIView.swift; sourceTree = "<group>"; };
 		EBB986FE23072CA90013EB90 /* RetroquestServerURL.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetroquestServerURL.generated.swift; sourceTree = "<group>"; };
 		EBB9870223072CF70013EB90 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Bold.ttf"; path = "Fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		EBB9870323072CF80013EB90 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Medium.ttf"; path = "Fonts/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			children = (
 				EB91B6B9230728E700780E24 /* EditItemViewController.swift */,
 				EB91B6BA230728E700780E24 /* EditTextView.swift */,
+				EB9D3B8624C746DD00D3BC41 /* EditTextSwiftUIView.swift */,
 			);
 			path = EditItem;
 			sourceTree = "<group>";
@@ -768,6 +771,7 @@
 			files = (
 				EB91B6EF230728E700780E24 /* NewItemView.swift in Sources */,
 				EB91B6FA230728E700780E24 /* ColumnName.swift in Sources */,
+				EB9D3B8724C746DD00D3BC41 /* EditTextSwiftUIView.swift in Sources */,
 				EB91B6F1230728E700780E24 /* FeedbackFormView.swift in Sources */,
 				EB91B6E5230728E700780E24 /* ActionItemTableViewCell.swift in Sources */,
 				EB91B6FB230728E700780E24 /* ColumnNameService.swift in Sources */,
