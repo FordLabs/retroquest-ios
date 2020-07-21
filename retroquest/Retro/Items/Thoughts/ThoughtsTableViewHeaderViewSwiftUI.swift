@@ -55,42 +55,46 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
     }
 
     var body: some View {
-        Button(action: tapHeader) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Spacer()
-
-                    Text(topicName)
-                        .foregroundColor(textColor)
-                        .font(.system(size: 20))
-                        .fontWeight(.bold)
-                        .padding(.bottom, 5)
-                        .padding(.top, 10)
-                    Text(getNumThoughtsText())
-                        .foregroundColor(textColor)
-                        .font(.system(size: 14))
-                        .fontWeight(.bold)
-
-                    Spacer()
-                }
-                .padding(.leading, 25)
-                .padding(.vertical, 10)
-
+        HStack {
+            VStack(alignment: .leading) {
                 Spacer()
 
-                FAText(iconName: chevronDirection, size: 20, style: .solid)
+                Text(topicName)
                     .foregroundColor(textColor)
-                    .padding(.trailing, 25)
+                    .font(.system(size: 20))
+                    .fontWeight(.bold)
+                    .padding(.bottom, 5)
+                    .padding(.top, 10)
+                Text(getNumThoughtsText())
+                    .foregroundColor(textColor)
+                    .font(.system(size: 14))
+                    .fontWeight(.bold)
+
+                Spacer()
             }
-            .background(Color(RetroColors.tableViewHeaderBackgroundColor))
-            .frame(minHeight: 0, maxHeight: 100)
-            .shadow(color: Color(RetroColors.shadowColor), radius: 5, x: 0, y: 2)
+            .padding(.leading, 25)
+            .padding(.vertical, 10)
+
+            Spacer()
+
+            FAText(iconName: chevronDirection, size: 20, style: .solid)
+                .foregroundColor(textColor)
+                .padding(.trailing, 25)
         }
+        .background(Color(RetroColors.tableViewHeaderBackgroundColor))
+        .frame(minHeight: 0, maxHeight: 100)
+        .shadow(color: Color(RetroColors.shadowColor), radius: 5, x: 0, y: 2)
+        .onTapGesture(perform: self.tapHeader)
+        .onLongPressGesture(perform: self.longPressHeader)
     }
 
     internal func tapHeader() {
         print("tapped on header: \(self.headerCollapsedStates[self.topicIndex])")
         self.headerCollapsedStates[self.topicIndex].toggle()
+    }
+
+    private func longPressHeader() {
+        print("hi")
     }
 
     private func getNumThoughtsText() -> String {
