@@ -21,11 +21,6 @@ struct EditTextSwiftUIView: View {
     let titleText: String
     @State var userInput: String
 
-    init(titleText: String, defaultText: String) {
-        self.titleText = titleText
-        self._userInput = State(initialValue: defaultText)
-    }
-
     var body: some View {
         VStack {
             ZStack {
@@ -36,7 +31,7 @@ struct EditTextSwiftUIView: View {
                 }
                 HStack {
                     Spacer()
-                    
+
                     Text("×")
                         .padding(.trailing, 20)
                         .font(Font(UIFont.retroquestBold(size: 34)))
@@ -73,6 +68,6 @@ struct EditTextSwiftUIView: View {
 
 struct EditTextSwiftUIViewPreviews: PreviewProvider {
     static var previews: some View {
-        EditTextSwiftUIView(titleText: "Change Column Name", defaultText: "Happy")
+        EditTextSwiftUIView(titleText: "Change Column Name", userInput: "Happy")
     }
 }

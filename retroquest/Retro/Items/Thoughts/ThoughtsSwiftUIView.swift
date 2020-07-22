@@ -20,10 +20,6 @@ import SwiftUI
 struct ThoughtsSwiftUIView: View {
     let teamName: String
 
-    init(teamName: String) {
-        self.teamName = teamName
-    }
-
     var body: some View {
         VStack {
             ZStack {
@@ -54,7 +50,7 @@ struct ThoughtsSwiftUIView: View {
     }
 
     internal func addItem() {
-        
+
     }
 }
 
