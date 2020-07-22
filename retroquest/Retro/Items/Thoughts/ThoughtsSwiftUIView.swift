@@ -18,6 +18,8 @@ limitations under the License.
 import SwiftUI
 
 struct ThoughtsSwiftUIView: View {
+    @EnvironmentObject var itemPubSub: PubSub<Thought>
+    @EnvironmentObject var items: ItemsSwiftUI
     let teamName: String
 
     var body: some View {
@@ -47,6 +49,14 @@ struct ThoughtsSwiftUIView: View {
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.top)
         .background(Color(RetroColors.backgroundColor))
+        .sheet(
+            isPresented: self.$items.showThoughtEditModal,
+            content: {
+                EditTextSwiftUIView(titleText: "Change Thought", userInput: self.items.thoughtToEdit?.message ?? "")
+                    .environmentObject(self.items)
+                    .environmentObject(self.itemPubSub)
+            }
+        )
     }
 
     internal func addItem() {
@@ -84,6 +94,8 @@ struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
 class ItemsSwiftUI: ObservableObject {
     @Published var thoughts: [[Thought]] = [[]]
     @Published var columnTitles: [String] = []
+    @Published var showThoughtEditModal: Bool = false
+    @Published var thoughtToEdit: Thought?
 
     init(
         thoughts: [[Thought]],
@@ -92,4 +104,6 @@ class ItemsSwiftUI: ObservableObject {
         self.thoughts = thoughts
         self.columnTitles = columnTitles
     }
+
+    init() {}
 }

@@ -48,13 +48,13 @@ struct ThoughtsTableSwiftUI: View {
                     if self.headerCollapsedStates.collapsedStates[columnIndex] != true {
                         ForEach(self.items.thoughts[columnIndex], id: \.self) { thought in
                             ThoughtsTableViewCellSwiftUI(thought: thought)
-                            .listRowInsets(EdgeInsets(
-                                top: 2,
-                                leading: 1,
-                                bottom: 2,
-                                trailing: 1
-                            ))
-                            .listRowBackground(Color(RetroColors.backgroundColor))
+                                .listRowInsets(EdgeInsets(
+                                    top: 2,
+                                    leading: 1,
+                                    bottom: 2,
+                                    trailing: 1
+                                ))
+                                .listRowBackground(Color(RetroColors.backgroundColor))
                         }.onDelete { thoughtIndex in
                             self.delete(thoughtIndex: thoughtIndex, columnIndex: columnIndex)
                         }

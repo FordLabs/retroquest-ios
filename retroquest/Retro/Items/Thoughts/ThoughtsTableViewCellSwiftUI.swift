@@ -21,6 +21,7 @@ import AppCenterAnalytics
 
 struct ThoughtsTableViewCellSwiftUI: View {
     @EnvironmentObject var itemPubSub: PubSub<Thought>
+    @EnvironmentObject var items: ItemsSwiftUI
     let thought: Thought
     let opacity: CGFloat
 
@@ -67,6 +68,8 @@ struct ThoughtsTableViewCellSwiftUI: View {
 
     internal func modifyMessageTapped() {
         print("tapped on message")
+        self.items.thoughtToEdit = self.thought
+        self.items.showThoughtEditModal = true
     }
 
     internal func markDiscussedTapped() {
@@ -160,8 +163,6 @@ private struct StarsLabel: View {
 
 struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
 
-    static let itemPubSub = PubSub<Thought>()
-
     static var previews: some View {
         ThoughtsTableViewCellSwiftUI(
             thought: Thought(
@@ -172,6 +173,8 @@ struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
               discussed: true,
               teamId: "testers"
             )
-        ).environmentObject(itemPubSub)
+        )
+            .environmentObject(PubSub<Thought>())
+            .environmentObject(ItemsSwiftUI())
     }
 }

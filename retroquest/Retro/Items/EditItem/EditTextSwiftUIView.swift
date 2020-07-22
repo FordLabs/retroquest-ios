@@ -16,8 +16,11 @@ limitations under the License.
 */
 
 import SwiftUI
+import AppCenterAnalytics
 
 struct EditTextSwiftUIView: View {
+    @EnvironmentObject var itemPubSub: PubSub<Thought>
+    @EnvironmentObject var items: ItemsSwiftUI
     let titleText: String
     @State var userInput: String
 
@@ -32,10 +35,12 @@ struct EditTextSwiftUIView: View {
                 HStack {
                     Spacer()
 
-                    Text("×")
-                        .padding(.trailing, 20)
-                        .font(Font(UIFont.retroquestBold(size: 34)))
-                        .foregroundColor(Color(RetroColors.buttonColor))
+                    Button(action: exit) {
+                        Text("×")
+                            .padding(.trailing, 20)
+                            .font(Font(UIFont.retroquestBold(size: 34)))
+                            .foregroundColor(Color(RetroColors.buttonColor))
+                    }
                 }
             }
 //                ValidatingTextFieldSwiftUI(defaultText: $defaultText, placeholderText: .constant(nil))
@@ -63,11 +68,29 @@ struct EditTextSwiftUIView: View {
 
     internal func save() {
         print(self.userInput)
+        
+        MSAnalytics.trackEvent(
+                "edit \(self.userInput) thought text",
+                withProperties: ["Team": URLManager.currentTeam]
+        )
+        let newThought = self.items.thoughtToEdit?.copy(message: userInput)
+        self.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
+        
+        exit()
+    }
+
+    internal func exit() {
+        print("exiting edit text modal")
+        self.items.showThoughtEditModal = false
+        self.items.thoughtToEdit = nil
     }
 }
 
 struct EditTextSwiftUIViewPreviews: PreviewProvider {
+
     static var previews: some View {
         EditTextSwiftUIView(titleText: "Change Column Name", userInput: "Happy")
+            .environmentObject(PubSub<Thought>())
+            .environmentObject(ItemsSwiftUI())
     }
 }
