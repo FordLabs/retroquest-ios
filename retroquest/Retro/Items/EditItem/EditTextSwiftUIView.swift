@@ -26,6 +26,8 @@ struct EditTextSwiftUIView: View {
 
     var body: some View {
         VStack {
+            Spacer()
+
             ZStack {
                 HStack {
                     Text(titleText)
@@ -52,15 +54,24 @@ struct EditTextSwiftUIView: View {
                 .font(Font(UIFont.retroquestRegular(size: 16)))
                 .padding()
 
+            if userInput.count == 0 {
+                EditTextValidationErrorSwiftUIView(errorMessage: "Text cannot be empty.")
+            } else if userInput.count > 255 {
+                EditTextValidationErrorSwiftUIView(errorMessage: "Text must be less than 255 characters.")
+            }
+
             Button(action: save) {
                 Text("Save")
                     .font(Font(UIFont.retroquestBold(size: 24)))
             }
                 .frame(width: 100, height: 50, alignment: .center)
-                .background(Color(RetroColors.buttonColor))
+                .background(isValidInput() ? Color(RetroColors.buttonColor) : Color.gray)
                 .foregroundColor(Color.white)
                 .cornerRadius(3.0)
                 .padding()
+                .disabled(!isValidInput())
+
+            Spacer()
         }
         .padding(.vertical)
         .background(Color(RetroColors.backgroundColor))
@@ -75,7 +86,7 @@ struct EditTextSwiftUIView: View {
         )
         let newThought = self.items.thoughtToEdit?.copy(message: userInput)
         self.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
-        
+
         exit()
     }
 
@@ -83,6 +94,24 @@ struct EditTextSwiftUIView: View {
         print("exiting edit text modal")
         self.items.showThoughtEditModal = false
         self.items.thoughtToEdit = nil
+    }
+
+    internal func isValidInput() -> Bool {
+        return userInput.count != 0 && userInput.count <= 255
+    }
+}
+
+struct EditTextValidationErrorSwiftUIView: View {
+    let errorMessage: String
+
+    var body: some View {
+        Text(errorMessage)
+            .font(Font(UIFont.retroquestBold(size: 18)))
+            .foregroundColor(Color.white)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
+            .background(Color(RetroColors.sadColor))
+            .cornerRadius(5)
+            .padding(.horizontal)
     }
 }
 
