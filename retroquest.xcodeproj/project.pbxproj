@@ -107,6 +107,7 @@
 		EBCDBEAD246DE9D000C65F14 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = EBCDBEAC246DE9D000C65F14 /* icons.json */; };
 		EBCDBEAF246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */; };
 		EBCDBEB12473093400C65F14 /* ThoughtsTableSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */; };
+		EBDA129724C9E87800914560 /* ValidatingTextFieldSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA129624C9E87800914560 /* ValidatingTextFieldSwiftUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,7 @@
 		EBCDBEAC246DE9D000C65F14 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = icons.json; path = Fonts/icons.json; sourceTree = "<group>"; };
 		EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableViewHeaderViewSwiftUI.swift; sourceTree = "<group>"; };
 		EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableSwiftUI.swift; sourceTree = "<group>"; };
+		EBDA129624C9E87800914560 /* ValidatingTextFieldSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingTextFieldSwiftUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +363,7 @@
 				EB91B6C5230728E700780E24 /* ValidatingTextField.swift */,
 				EB91B6C6230728E700780E24 /* Thoughts */,
 				EB91B6CD230728E700780E24 /* Columns */,
+				EBDA129624C9E87800914560 /* ValidatingTextFieldSwiftUI.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				EB91B6F9230728E700780E24 /* ThoughtsView.swift in Sources */,
 				EB91B701230728E700780E24 /* URLManager.swift in Sources */,
 				EB91B6E1230728E700780E24 /* LoginView.swift in Sources */,
+				EBDA129724C9E87800914560 /* ValidatingTextFieldSwiftUI.swift in Sources */,
 				EB91B707230728E700780E24 /* FlowController.swift in Sources */,
 				EB91B703230728E700780E24 /* RetroColors.swift in Sources */,
 				EB91B6EE230728E700780E24 /* NewItemViewController.swift in Sources */,

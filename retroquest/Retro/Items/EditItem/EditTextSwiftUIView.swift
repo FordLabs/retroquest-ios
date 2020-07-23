@@ -45,20 +45,8 @@ struct EditTextSwiftUIView: View {
                     }
                 }
             }
-//                ValidatingTextFieldSwiftUI(defaultText: $defaultText, placeholderText: .constant(nil))
-            TextField("", text: $userInput)
-                .padding()
-                .foregroundColor(Color.black)
-                .background(Color.white)
-                .cornerRadius(5)
-                .font(Font(UIFont.retroquestRegular(size: 16)))
-                .padding()
 
-            if userInput.count == 0 {
-                EditTextValidationErrorSwiftUIView(errorMessage: "Text cannot be empty.")
-            } else if userInput.count > 255 {
-                EditTextValidationErrorSwiftUIView(errorMessage: "Text must be less than 255 characters.")
-            }
+            ValidatingTextFieldSwiftUI(userInput: $userInput)
 
             Button(action: save) {
                 Text("Save")
@@ -79,7 +67,7 @@ struct EditTextSwiftUIView: View {
 
     internal func save() {
         print(self.userInput)
-        
+
         MSAnalytics.trackEvent(
                 "edit \(self.userInput) thought text",
                 withProperties: ["Team": URLManager.currentTeam]
@@ -98,20 +86,6 @@ struct EditTextSwiftUIView: View {
 
     internal func isValidInput() -> Bool {
         return userInput.count != 0 && userInput.count <= 255
-    }
-}
-
-struct EditTextValidationErrorSwiftUIView: View {
-    let errorMessage: String
-
-    var body: some View {
-        Text(errorMessage)
-            .font(Font(UIFont.retroquestBold(size: 18)))
-            .foregroundColor(Color.white)
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
-            .background(Color(RetroColors.sadColor))
-            .cornerRadius(5)
-            .padding(.horizontal)
     }
 }
 
