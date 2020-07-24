@@ -24,7 +24,7 @@ struct HeaderCollapsedStates {
 
 struct ThoughtsTableSwiftUI: View {
     @EnvironmentObject var items: ItemsSwiftUI
-    @EnvironmentObject var itemPubSub: PubSub<Thought>
+    @EnvironmentObject var thoughtPubSub: PubSub<Thought>
     @State private var headerCollapsedStates: HeaderCollapsedStates = HeaderCollapsedStates()
 
     init() {
@@ -66,8 +66,7 @@ struct ThoughtsTableSwiftUI: View {
 
     func delete(thoughtIndex: IndexSet, columnIndex: Int) {
         let thought = self.items.thoughts[columnIndex][thoughtIndex.first!]
-        print(thought)
-        self.itemPubSub.publishOutgoing(thought, outgoingType: .delete)
+        self.thoughtPubSub.publishOutgoing(thought, outgoingType: .delete)
         MSAnalytics.trackEvent("delete \(thought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
         print("Deleting Thought with id: \(thought.id)")
     }
@@ -79,7 +78,7 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
     really long message, really long message, really long message, really long message.
     """
 
-    static let itemPubSub = PubSub<Thought>()
+    static let thoughtPubSub = PubSub<Thought>()
     static let items = ItemsSwiftUI(
         thoughts: [
             [
@@ -101,6 +100,6 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
     static var previews: some View {
         ThoughtsTableSwiftUI()
             .environmentObject(items)
-            .environmentObject(itemPubSub)
+            .environmentObject(thoughtPubSub)
     }
 }

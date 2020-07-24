@@ -16,9 +16,11 @@ limitations under the License.
 */
 
 import SwiftUI
+import AppCenterAnalytics
 
 struct ThoughtsSwiftUIView: View {
-    @EnvironmentObject var itemPubSub: PubSub<Thought>
+    @EnvironmentObject var thoughtPubSub: PubSub<Thought>
+    @EnvironmentObject var columnPubSub: PubSub<Column>
     @EnvironmentObject var items: ItemsSwiftUI
     let teamName: String
 
@@ -49,23 +51,49 @@ struct ThoughtsSwiftUIView: View {
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.top)
         .background(Color(RetroColors.backgroundColor))
-        .sheet(
-            isPresented: self.$items.showThoughtEditModal,
-            content: {
-                EditTextSwiftUIView(titleText: "Change Thought", userInput: self.items.thoughtToEdit?.message ?? "")
-                    .environmentObject(self.items)
-                    .environmentObject(self.itemPubSub)
+        .sheet(isPresented: self.$items.showModal) {
+            if self.items.activeThoughtViewModal == .editThought {
+                EditTextSwiftUIView(
+                    titleText: "Change Thought",
+                    userInput: self.items.thoughtToEdit?.message ?? "",
+                    saveCallback: self.editThoughtCallback
+                ).environmentObject(self.items)
+            } else if self.items.activeThoughtViewModal == .editColumnName {
+                EditTextSwiftUIView(
+                    titleText: "Change Column Title",
+                    userInput: self.items.columnToEdit?.title ?? "",
+                    saveCallback: self.editColumnNameCallback
+                ).environmentObject(self.items)
             }
-        )
+        }
     }
 
     internal func addItem() {
 
     }
+
+    private func editThoughtCallback(userInput: String) {
+        let newThought = self.items.thoughtToEdit?.copy(message: userInput)
+        self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
+
+        MSAnalytics.trackEvent(
+                "edit thought text to \(userInput)",
+                withProperties: ["Team": URLManager.currentTeam]
+        )
+    }
+
+    private func editColumnNameCallback(userInput: String) {
+        let newColumn = self.items.columnToEdit?.copy(title: userInput)
+        self.columnPubSub.publishOutgoing(newColumn, outgoingType: .edit)
+
+        MSAnalytics.trackEvent(
+                "edit column text to \(userInput)",
+                withProperties: ["Team": URLManager.currentTeam]
+        )
+    }
 }
 
 struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
-    static let itemPubSub = PubSub<Thought>()
     static let items = ItemsSwiftUI(
         thoughts: [
             [
@@ -87,15 +115,19 @@ struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
     static var previews: some View {
         ThoughtsSwiftUIView(teamName: "Coolest Team")
             .environmentObject(items)
-            .environmentObject(itemPubSub)
+            .environmentObject(PubSub<Thought>())
+            .environmentObject(PubSub<Column>())
     }
 }
 
 class ItemsSwiftUI: ObservableObject {
     @Published var thoughts: [[Thought]] = [[]]
     @Published var columnTitles: [String] = []
-    @Published var showThoughtEditModal: Bool = false
+
+    @Published var showModal: Bool = false
+    @Published var activeThoughtViewModal: ActiveThoughtViewModal = .none
     @Published var thoughtToEdit: Thought?
+    @Published var columnToEdit: Column?
 
     init(
         thoughts: [[Thought]],
@@ -106,4 +138,8 @@ class ItemsSwiftUI: ObservableObject {
     }
 
     init() {}
+}
+
+enum ActiveThoughtViewModal {
+    case editThought, editColumnName, addThought, none
 }

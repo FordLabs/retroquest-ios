@@ -48,6 +48,7 @@ class ThoughtsViewController: UIViewController {
         let thoughtsViewSwiftUI: some View = ThoughtsSwiftUIView(teamName: URLManager.currentTeam)
             .environmentObject(itemsSwiftUI)
             .environmentObject(thoughtsService.itemPubSub)
+            .environmentObject(columnNameService.itemPubSub)
         let hostingController = UIHostingController(rootView: thoughtsViewSwiftUI)
         addChild(hostingController)
         let thoughtsView = hostingController.view!
@@ -111,43 +112,6 @@ class ThoughtsViewController: UIViewController {
             itemsSwiftUI.thoughts = thoughts
         }
     }
-
-//    @objc func longPressHandler(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-//        if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
-//            if let view = longPressGestureRecognizer.view as? ThoughtTableViewHeaderView {
-//
-//                let columnName = ColumnNameService.displayOrderForTopics[view.topicIndex]
-//                let columnTitle = columnNameService.getColumnTitle(columnName)
-//                DispatchQueue.main.async(execute: {
-//                    self.view.window?.rootViewController!.present(
-//                            EditItemViewController(
-//                                    titleText: "Change Column Name",
-//                                    defaultText: columnTitle,
-//                                    onSave: { updatedText in
-//                                        let topic = ColumnNameService.displayOrderForTopics[view.topicIndex].rawValue
-//                                        let columnId = self.columnNameService.items[view.topicIndex].id
-//                                        let column = Column(
-//                                                id: columnId,
-//                                                topic: topic,
-//                                                title: updatedText,
-//                                                teamId: URLManager.currentTeam
-//                                        )
-//
-//                                        self.columnNameService.itemPubSub.publishOutgoing(column, outgoingType: .edit)
-//                                        MSAnalytics.trackEvent(
-//                                                "change column name",
-//                                                withProperties: ["Team": URLManager.currentTeam]
-//                                        )
-//                                    },
-//                                    maxCharacters: 16
-//                            ),
-//                            animated: true
-//                    )
-//                })
-//            }
-//        }
-//        return
-//    }
 }
 
 protocol ThoughtEditDelegate: AnyObject {

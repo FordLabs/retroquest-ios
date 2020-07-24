@@ -16,13 +16,12 @@ limitations under the License.
 */
 
 import SwiftUI
-import AppCenterAnalytics
 
 struct EditTextSwiftUIView: View {
-    @EnvironmentObject var itemPubSub: PubSub<Thought>
     @EnvironmentObject var items: ItemsSwiftUI
     let titleText: String
     @State var userInput: String
+    let saveCallback: (String) -> Void
 
     var body: some View {
         VStack {
@@ -67,21 +66,15 @@ struct EditTextSwiftUIView: View {
 
     internal func save() {
         print(self.userInput)
-
-        MSAnalytics.trackEvent(
-                "edit \(self.userInput) thought text",
-                withProperties: ["Team": URLManager.currentTeam]
-        )
-        let newThought = self.items.thoughtToEdit?.copy(message: userInput)
-        self.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
-
+        saveCallback(self.userInput)
         exit()
     }
 
     internal func exit() {
         print("exiting edit text modal")
-        self.items.showThoughtEditModal = false
+        self.items.showModal = false
         self.items.thoughtToEdit = nil
+        self.items.columnToEdit = nil
     }
 
     internal func isValidInput() -> Bool {
@@ -91,9 +84,13 @@ struct EditTextSwiftUIView: View {
 
 struct EditTextSwiftUIViewPreviews: PreviewProvider {
 
+    static func saveCallback(input: String) {}
+
     static var previews: some View {
-        EditTextSwiftUIView(titleText: "Change Column Name", userInput: "Happy")
-            .environmentObject(PubSub<Thought>())
-            .environmentObject(ItemsSwiftUI())
+        EditTextSwiftUIView(
+            titleText: "Change Column Name",
+            userInput: "Happy",
+            saveCallback: saveCallback
+        ).environmentObject(ItemsSwiftUI())
     }
 }

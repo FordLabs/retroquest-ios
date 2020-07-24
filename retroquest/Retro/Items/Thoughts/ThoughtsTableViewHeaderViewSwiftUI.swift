@@ -19,6 +19,7 @@ import SwiftUI
 import FASwiftUI
 
 struct ThoughtsTableViewHeaderViewSwiftUI: View {
+    @EnvironmentObject var items: ItemsSwiftUI
     @Binding var headerCollapsedStates: [Bool]
 
     let topicName: String
@@ -94,7 +95,20 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
     }
 
     private func longPressHeader() {
-        print("hi")
+        print("long pressed on header \(self.headerCollapsedStates[self.topicIndex])")
+
+        let topic = ColumnNameService.displayOrderForTopics[self.topicIndex].rawValue
+        let columnId = -1
+        let column = Column(
+               id: columnId,
+               topic: topic,
+               title: self.topicName,
+               teamId: URLManager.currentTeam
+        )
+        self.items.columnToEdit = column
+
+        self.items.activeThoughtViewModal = .editColumnName
+        self.items.showModal = true
     }
 
     private func getNumThoughtsText() -> String {
@@ -113,7 +127,7 @@ struct ThoughtsTableViewHeaderViewSwiftUIPreviews: PreviewProvider {
                 numThoughts: 3,
                 topicIndex: 2,
                 headerCollapsedStates: $collapsedStates
-            )
+            ).environmentObject(ItemsSwiftUI())
         }
     }
 

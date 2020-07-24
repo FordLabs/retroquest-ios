@@ -361,9 +361,9 @@
 				EB91B6BD230728E700780E24 /* NewItem */,
 				EB91B6C1230728E700780E24 /* Feedback */,
 				EB91B6C5230728E700780E24 /* ValidatingTextField.swift */,
+				EBDA129624C9E87800914560 /* ValidatingTextFieldSwiftUI.swift */,
 				EB91B6C6230728E700780E24 /* Thoughts */,
 				EB91B6CD230728E700780E24 /* Columns */,
-				EBDA129624C9E87800914560 /* ValidatingTextFieldSwiftUI.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";

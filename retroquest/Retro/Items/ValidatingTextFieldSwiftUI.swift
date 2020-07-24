@@ -50,7 +50,7 @@ struct ValidatingTextFieldSwiftUI: View {
     }
 }
 
-struct ValidatingTextFieldSwiftUI_Previews: PreviewProvider {
+struct ValidatingTextFieldSwiftUIPreviews: PreviewProvider {
     struct BindingTestHolder: View {
         @State var userInput: String = ""
 

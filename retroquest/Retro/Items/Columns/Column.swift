@@ -37,6 +37,19 @@ struct Column: Item {
         self.teamId = teamId
     }
 
+    func copy(id: Int? = nil,
+              topic: String? = nil,
+              title: String? = nil,
+              teamId: String? = nil
+    ) -> Column {
+        return Column(
+                id: id ?? self.id,
+                topic: topic ?? self.topic,
+                title: title ?? self.title,
+                teamId: teamId ?? self.teamId
+        )
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id
         case topic

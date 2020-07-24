@@ -22,7 +22,7 @@ import AppCenterAnalytics
 let dividerThickness: CGFloat = 4.0
 
 struct ThoughtsTableViewCellSwiftUI: View {
-    @EnvironmentObject var itemPubSub: PubSub<Thought>
+    @EnvironmentObject var thoughtPubSub: PubSub<Thought>
     @EnvironmentObject var items: ItemsSwiftUI
     let thought: Thought
     let opacity: CGFloat
@@ -78,20 +78,21 @@ struct ThoughtsTableViewCellSwiftUI: View {
     internal func starsTapped() {
         print("tapped on stars")
         let newThought = thought.copy(hearts: thought.hearts + 1)
-        self.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
+        self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
         MSAnalytics.trackEvent("star \(newThought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
     }
 
     internal func modifyMessageTapped() {
         print("tapped on message")
         self.items.thoughtToEdit = self.thought
-        self.items.showThoughtEditModal = true
+        self.items.activeThoughtViewModal = .editThought
+        self.items.showModal = true
     }
 
     internal func markDiscussedTapped() {
         print("tapped on discussed")
         let newThought = thought.copy(discussed: !thought.discussed)
-        self.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
+        self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
         MSAnalytics.trackEvent(
                 "mark \(newThought.topic) thought \(newThought.discussed ? "discussed" : "undiscussed")",
                 withProperties: ["Team": URLManager.currentTeam]
