@@ -64,26 +64,25 @@ struct EditTextSwiftUIView: View {
         .background(Color(RetroColors.backgroundColor))
     }
 
-    internal func save() {
+    private func save() {
         print(self.userInput)
         saveCallback(self.userInput)
         exit()
     }
 
-    internal func exit() {
+    private func exit() {
         print("exiting edit text modal")
         self.items.showModal = false
         self.items.thoughtToEdit = nil
         self.items.columnToEdit = nil
     }
 
-    internal func isValidInput() -> Bool {
+    private func isValidInput() -> Bool {
         return userInput.count != 0 && userInput.count <= 255
     }
 }
 
 struct EditTextSwiftUIViewPreviews: PreviewProvider {
-
     static func saveCallback(input: String) {}
 
     static var previews: some View {

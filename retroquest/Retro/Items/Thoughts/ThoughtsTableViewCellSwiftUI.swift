@@ -39,7 +39,7 @@ struct ThoughtsTableViewCellSwiftUI: View {
                 MessageLabel(thought: self.thought)
                     .frame(height: (geometry.size.height / 2) - dividerThickness)
                     .contentShape(Rectangle())
-                    .onTapGesture { self.modifyMessageTapped() }
+                    .onTapGesture(perform: self.modifyMessageTapped)
 
                 ThoughtsTableCellDivider(axis: .vertical)
 
@@ -48,7 +48,7 @@ struct ThoughtsTableViewCellSwiftUI: View {
                         .padding(.vertical)
                         .frame(width: (geometry.size.width / 3) - (3 * dividerThickness))
                         .contentShape(Rectangle())
-                        .onTapGesture { self.starsTapped() }
+                        .onTapGesture(perform: self.starsTapped)
 
                     ThoughtsTableCellDivider(axis: .horizontal)
 
@@ -56,7 +56,7 @@ struct ThoughtsTableViewCellSwiftUI: View {
                         .padding(.vertical)
                         .frame(width: (geometry.size.width / 3) - (3 * dividerThickness))
                         .contentShape(Rectangle())
-                        .onTapGesture { self.modifyMessageTapped() }
+                        .onTapGesture(perform: self.modifyMessageTapped)
 
                     ThoughtsTableCellDivider(axis: .horizontal)
 
@@ -64,32 +64,32 @@ struct ThoughtsTableViewCellSwiftUI: View {
                         .padding(.vertical)
                         .frame(width: (geometry.size.width / 3) - (3 * dividerThickness))
                         .contentShape(Rectangle())
-                        .onTapGesture { self.markDiscussedTapped() }
+                        .onTapGesture(perform: self.markDiscussedTapped)
                 }
                 .frame(height: (geometry.size.height / 2) - dividerThickness)
             }
         }
-        .frame(height: 100)
-        .padding(.vertical, 20)
-        .background(Color(RetroColors.expandedCellBackgroundColor.withAlphaComponent(self.opacity)))
-        .cornerRadius(15)
+            .frame(height: 100)
+            .padding(.vertical, 20)
+            .background(Color(RetroColors.expandedCellBackgroundColor.withAlphaComponent(self.opacity)))
+            .cornerRadius(15)
     }
 
-    internal func starsTapped() {
+    private func starsTapped() {
         print("tapped on stars")
         let newThought = thought.copy(hearts: thought.hearts + 1)
         self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
         MSAnalytics.trackEvent("star \(newThought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
     }
 
-    internal func modifyMessageTapped() {
+    private func modifyMessageTapped() {
         print("tapped on message")
         self.items.thoughtToEdit = self.thought
         self.items.activeThoughtViewModal = .editThought
         self.items.showModal = true
     }
 
-    internal func markDiscussedTapped() {
+    private func markDiscussedTapped() {
         print("tapped on discussed")
         let newThought = thought.copy(discussed: !thought.discussed)
         self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
@@ -160,7 +160,6 @@ private struct StarsLabel: View {
 }
 
 struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
-
     static var previews: some View {
         ThoughtsTableViewCellSwiftUI(
             thought: Thought(

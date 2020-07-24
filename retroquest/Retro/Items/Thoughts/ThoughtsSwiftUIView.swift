@@ -68,7 +68,7 @@ struct ThoughtsSwiftUIView: View {
         }
     }
 
-    internal func addItem() {
+    private func addItem() {
 
     }
 

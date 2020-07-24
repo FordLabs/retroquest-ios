@@ -19,10 +19,6 @@ import UIKit
 import SwiftUI
 import AppCenterAnalytics
 
-struct Section {
-    var collapsed: Bool
-}
-
 class ThoughtsViewController: UIViewController {
 
     internal var columnNameService: ColumnNameService!

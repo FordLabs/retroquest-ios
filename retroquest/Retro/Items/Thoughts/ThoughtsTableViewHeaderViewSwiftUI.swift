@@ -82,14 +82,14 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
                 .foregroundColor(textColor)
                 .padding(.trailing, 25)
         }
-        .background(Color(RetroColors.tableViewHeaderBackgroundColor))
-        .frame(minHeight: 0, maxHeight: 100)
-        .shadow(color: Color(RetroColors.shadowColor), radius: 5, x: 0, y: 2)
-        .onTapGesture(perform: self.tapHeader)
-        .onLongPressGesture(perform: self.longPressHeader)
+            .background(Color(RetroColors.tableViewHeaderBackgroundColor))
+            .frame(minHeight: 0, maxHeight: 100)
+            .shadow(color: Color(RetroColors.shadowColor), radius: 5, x: 0, y: 2)
+            .onTapGesture(perform: self.tapHeader)
+            .onLongPressGesture(perform: self.longPressHeader)
     }
 
-    internal func tapHeader() {
+    private func tapHeader() {
         print("tapped on header: \(self.headerCollapsedStates[self.topicIndex])")
         self.headerCollapsedStates[self.topicIndex].toggle()
     }
