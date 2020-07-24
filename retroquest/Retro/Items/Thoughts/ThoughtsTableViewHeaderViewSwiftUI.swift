@@ -22,7 +22,7 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
     @EnvironmentObject var items: ItemsSwiftUI
     @Binding var headerCollapsedStates: [Bool]
 
-    let topicName: String
+    let column: Column
     let numThoughts: Int
     let topicIndex: Int
 
@@ -30,12 +30,12 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
     var chevronDirection: String = "chevron-down"
 
     init(
-        topicName: String,
+        column: Column,
         numThoughts: Int,
         topicIndex: Int,
         headerCollapsedStates: Binding<[Bool]>
     ) {
-        self.topicName = topicName
+        self.column = column
         self.numThoughts = numThoughts
         self.topicIndex = topicIndex
         self._headerCollapsedStates = headerCollapsedStates
@@ -60,7 +60,7 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
             VStack(alignment: .leading) {
                 Spacer()
 
-                Text(topicName)
+                Text(column.title)
                     .foregroundColor(textColor)
                     .font(.system(size: 20))
                     .fontWeight(.bold)
@@ -96,16 +96,7 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
 
     private func longPressHeader() {
         print("long pressed on header \(self.headerCollapsedStates[self.topicIndex])")
-
-        let topic = ColumnNameService.displayOrderForTopics[self.topicIndex].rawValue
-        let columnId = -1
-        let column = Column(
-               id: columnId,
-               topic: topic,
-               title: self.topicName,
-               teamId: URLManager.currentTeam
-        )
-        self.items.columnToEdit = column
+        self.items.columnToEdit = self.column
 
         self.items.activeThoughtViewModal = .editColumnName
         self.items.showModal = true
@@ -123,7 +114,7 @@ struct ThoughtsTableViewHeaderViewSwiftUIPreviews: PreviewProvider {
 
         var body: some View {
             ThoughtsTableViewHeaderViewSwiftUI(
-                topicName: "Happy",
+                column: Column(id: 88, topic: ColumnName.happy.rawValue, title: "kindaHappy", teamId: "1"),
                 numThoughts: 3,
                 topicIndex: 2,
                 headerCollapsedStates: $collapsedStates

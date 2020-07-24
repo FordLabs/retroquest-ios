@@ -34,12 +34,12 @@ struct ThoughtsTableSwiftUI: View {
     }
 
     var body: some View {
-        let iterableColumnTitles = Array(self.items.columnTitles.enumerated())
+        let iterableColumns = Array(self.items.columns.enumerated())
 
         return List {
-            ForEach(iterableColumnTitles, id: \.element) { columnIndex, columnName in
+            ForEach(iterableColumns, id: \.element) { columnIndex, column in
                 SwiftUI.Section(header: ThoughtsTableViewHeaderViewSwiftUI(
-                    topicName: columnName,
+                    column: column,
                     numThoughts: self.items.thoughts[columnIndex].count,
                     topicIndex: columnIndex,
                     headerCollapsedStates: self.$headerCollapsedStates.collapsedStates
@@ -94,7 +94,11 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
                 Thought(id: 6, message: longMessage, hearts: 7, topic: "sad", discussed: true, teamId: "1")
             ]
         ],
-        columnTitles: ["happy", "confused", "so sad, so sad, so sad, so sad, so sad, so sad"]
+        columnTitles: [
+            Column(id: 88, topic: ColumnName.happy.rawValue, title: "kindaHappy", teamId: "1"),
+            Column(id: 89, topic: ColumnName.confused.rawValue, title: "kindaConfused", teamId: "1"),
+            Column(id: 90, topic: ColumnName.sad.rawValue, title: longMessage, teamId: "1")
+        ]
     )
 
     static var previews: some View {

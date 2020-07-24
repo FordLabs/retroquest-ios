@@ -64,12 +64,7 @@ class ThoughtsViewController: UIViewController {
     private func columnNamesCallback(column: Column?) {
         if let column = column {
             _ = columnNameService.addOrReplace(column)
-            let columnNames: [String] = [
-                columnNameService.getColumnTitle(.happy),
-                columnNameService.getColumnTitle(.confused),
-                columnNameService.getColumnTitle(.sad)
-            ]
-            itemsSwiftUI.columnTitles = columnNames
+            itemsSwiftUI.columns = columnNameService.items
         }
     }
 

@@ -109,7 +109,11 @@ struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
                 Thought(id: 6, message: "us", hearts: 7, topic: "sad", discussed: true, teamId: "1")
             ]
         ],
-        columnTitles: ["happy", "confused", "so sad, so sad, so sad, so sad, so sad, so sad"]
+        columnTitles: [
+            Column(id: 88, topic: ColumnName.happy.rawValue, title: "kindaHappy", teamId: "1"),
+            Column(id: 89, topic: ColumnName.confused.rawValue, title: "kindaConfused", teamId: "1"),
+            Column(id: 90, topic: ColumnName.sad.rawValue, title: "kindaSad", teamId: "1")
+        ]
     )
 
     static var previews: some View {
@@ -122,7 +126,7 @@ struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
 
 class ItemsSwiftUI: ObservableObject {
     @Published var thoughts: [[Thought]] = [[]]
-    @Published var columnTitles: [String] = []
+    @Published var columns: [Column] = []
 
     @Published var showModal: Bool = false
     @Published var activeThoughtViewModal: ActiveThoughtViewModal = .none
@@ -131,10 +135,10 @@ class ItemsSwiftUI: ObservableObject {
 
     init(
         thoughts: [[Thought]],
-        columnTitles: [String]
+        columnTitles: [Column]
     ) {
         self.thoughts = thoughts
-        self.columnTitles = columnTitles
+        self.columns = columnTitles
     }
 
     init() {}
