@@ -19,6 +19,8 @@ import SwiftUI
 import FASwiftUI
 import AppCenterAnalytics
 
+let dividerThickness: CGFloat = 4.0
+
 struct ThoughtsTableViewCellSwiftUI: View {
     @EnvironmentObject var itemPubSub: PubSub<Thought>
     @EnvironmentObject var items: ItemsSwiftUI
@@ -31,30 +33,44 @@ struct ThoughtsTableViewCellSwiftUI: View {
     }
 
     var body: some View {
-        VStack {
-            MessageLabel(self.thought)
-                .padding(.top, 20)
-                .padding(.bottom, 10)
-            ThoughtsTableCellDivider(.vertical)
-            HStack {
-                Spacer()
-                StarsLabel(thought.hearts)
-                    .onTapGesture {
-                        self.starsTapped()
-                    }
-                ThoughtsTableCellDivider(.horizontal)
-                FAIcon("edit").padding(10)
-                    .onTapGesture {
-                        self.modifyMessageTapped()
-                    }
-                ThoughtsTableCellDivider(.horizontal)
-                FAIcon(self.thought.discussed ? "envelope-open-text" : "envelope").padding(10)
-                    .onTapGesture {
-                        self.markDiscussedTapped()
-                    }
-                Spacer()
-            }.padding(.bottom, 20)
+        GeometryReader { geometry in
+            VStack {
+
+                MessageLabel(thought: self.thought)
+                    .frame(height: (geometry.size.height / 2) - dividerThickness)
+                    .contentShape(Rectangle())
+                    .onTapGesture { self.modifyMessageTapped() }
+
+                ThoughtsTableCellDivider(axis: .vertical)
+
+                HStack {
+                    StarsLabel(numStars: self.thought.hearts)
+                        .padding(.vertical)
+                        .frame(width: (geometry.size.width / 3) - (3 * dividerThickness))
+                        .contentShape(Rectangle())
+                        .onTapGesture { self.starsTapped() }
+
+                    ThoughtsTableCellDivider(axis: .horizontal)
+
+                    FAIcon(iconName: "edit")
+                        .padding(.vertical)
+                        .frame(width: (geometry.size.width / 3) - (3 * dividerThickness))
+                        .contentShape(Rectangle())
+                        .onTapGesture { self.modifyMessageTapped() }
+
+                    ThoughtsTableCellDivider(axis: .horizontal)
+
+                    FAIcon(iconName: self.thought.discussed ? "envelope-open-text" : "envelope")
+                        .padding(.vertical)
+                        .frame(width: (geometry.size.width / 3) - (3 * dividerThickness))
+                        .contentShape(Rectangle())
+                        .onTapGesture { self.markDiscussedTapped() }
+                }
+                .frame(height: (geometry.size.height / 2) - dividerThickness)
+            }
         }
+        .frame(height: 100)
+        .padding(.vertical, 20)
         .background(Color(RetroColors.expandedCellBackgroundColor.withAlphaComponent(self.opacity)))
         .cornerRadius(15)
     }
@@ -92,10 +108,6 @@ enum DividerAxis: Int {
 struct FAIcon: View {
     let iconName: String
 
-    init(_ iconName: String) {
-        self.iconName = iconName
-    }
-
     var body: some View {
         FAText(iconName: iconName, size: 20, style: .solid)
             .foregroundColor(Color(RetroColors.cellTextColor))
@@ -105,23 +117,17 @@ struct FAIcon: View {
 private struct ThoughtsTableCellDivider: View {
     let axis: DividerAxis
 
-    init(_ axis: DividerAxis) {
-        self.axis = axis
-    }
-
     var body: some View {
         Group {
-            Spacer()
             if axis == .vertical {
                 Rectangle()
                     .fill(Color(RetroColors.separatorColor))
-                    .frame(height: 4)
+                    .frame(height: dividerThickness)
             } else {
                 Rectangle()
                     .fill(Color(RetroColors.separatorColor))
-                    .frame(width: 4)
+                    .frame(width: dividerThickness)
             }
-            Spacer()
         }
     }
 }
@@ -129,26 +135,17 @@ private struct ThoughtsTableCellDivider: View {
 private struct MessageLabel: View {
     let thought: Thought
 
-    init(_ thought: Thought) {
-        self.thought = thought
-    }
-
     var body: some View {
         Text(self.thought.message)
             .font(Font.retroquestRegular(size: 20))
             .strikethrough(self.thought.discussed)
             .foregroundColor(Color(RetroColors.cellTextColor))
             .padding(.horizontal, 25)
-            .fixedSize(horizontal: false, vertical: true)
     }
 }
 
 private struct StarsLabel: View {
     let numStars: Int
-
-    init(_ numStars: Int) {
-        self.numStars = numStars
-    }
 
     var body: some View {
         HStack {
