@@ -109,7 +109,7 @@ struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
                 Thought(id: 6, message: "us", hearts: 7, topic: "sad", discussed: true, teamId: "1")
             ]
         ],
-        columnTitles: [
+        columns: [
             Column(id: 88, topic: ColumnName.happy.rawValue, title: "kindaHappy", teamId: "1"),
             Column(id: 89, topic: ColumnName.confused.rawValue, title: "kindaConfused", teamId: "1"),
             Column(id: 90, topic: ColumnName.sad.rawValue, title: "kindaSad", teamId: "1")
@@ -135,10 +135,10 @@ class ItemsSwiftUI: ObservableObject {
 
     init(
         thoughts: [[Thought]],
-        columnTitles: [Column]
+        columns: [Column]
     ) {
         self.thoughts = thoughts
-        self.columns = columnTitles
+        self.columns = columns
     }
 
     init() {}

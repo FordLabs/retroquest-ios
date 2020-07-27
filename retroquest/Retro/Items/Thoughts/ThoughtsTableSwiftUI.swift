@@ -93,7 +93,7 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
                 Thought(id: 6, message: longMessage, hearts: 7, topic: "sad", discussed: true, teamId: "1")
             ]
         ],
-        columnTitles: [
+        columns: [
             Column(id: 88, topic: ColumnName.happy.rawValue, title: "kindaHappy", teamId: "1"),
             Column(id: 89, topic: ColumnName.confused.rawValue, title: "kindaConfused", teamId: "1"),
             Column(id: 90, topic: ColumnName.sad.rawValue, title: longMessage, teamId: "1")
