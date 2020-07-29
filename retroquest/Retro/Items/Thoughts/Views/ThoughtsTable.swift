@@ -50,9 +50,9 @@ struct ThoughtsTable: View {
                             ThoughtsTableCell(thought: thought)
                                 .listRowInsets(EdgeInsets(
                                     top: 2,
-                                    leading: 1,
+                                    leading: 4,
                                     bottom: 2,
-                                    trailing: 1
+                                    trailing: 4
                                 ))
                                 .listRowBackground(Color(RetroColors.backgroundColor))
                         }.onDelete { thoughtIndex in
