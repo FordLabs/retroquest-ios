@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
 		EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */; };
-		EB64A45124D2084100607325 /* ItemsSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45024D2084100607325 /* ItemsSwiftUI.swift */; };
+		EB64A45124D2084100607325 /* ThoughtsViewEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */; };
+		EB64A45324D20DCC00607325 /* ThoughtsViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45224D20DCC00607325 /* ThoughtsViewHeader.swift */; };
 		EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6652306ED6200780E24 /* AppDelegate.swift */; };
 		EB91B66D2306ED6300780E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB91B66C2306ED6300780E24 /* Assets.xcassets */; };
 		EB91B6A52307289500780E24 /* AppCenterDistribute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6A32307289500780E24 /* AppCenterDistribute.framework */; };
@@ -122,7 +123,8 @@
 /* Begin PBXFileReference section */
 		EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenterSecret.generated.swift; sourceTree = "<group>"; };
 		EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsView.swift; sourceTree = "<group>"; };
-		EB64A45024D2084100607325 /* ItemsSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsSwiftUI.swift; sourceTree = "<group>"; };
+		EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsViewEnvironmentObject.swift; sourceTree = "<group>"; };
+		EB64A45224D20DCC00607325 /* ThoughtsViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsViewHeader.swift; sourceTree = "<group>"; };
 		EB91B6622306ED6200780E24 /* retroquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = retroquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB91B6652306ED6200780E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB91B66C2306ED6300780E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				EBCDBEAE246F1E3800C65F14 /* ThoughtsTableHeader.swift */,
 				EBCDBEB02473093400C65F14 /* ThoughtsTable.swift */,
 				EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */,
+				EB64A45224D20DCC00607325 /* ThoughtsViewHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,7 +430,7 @@
 				EB91B6C7230728E700780E24 /* Thought.swift */,
 				EB91B6C9230728E700780E24 /* ThoughtsService.swift */,
 				EB91B6CB230728E700780E24 /* ThoughtsViewController.swift */,
-				EB64A45024D2084100607325 /* ItemsSwiftUI.swift */,
+				EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */,
 			);
 			path = Thoughts;
 			sourceTree = "<group>";
@@ -796,7 +799,7 @@
 				EB91B6EB230728E700780E24 /* ItemsService.swift in Sources */,
 				EB91B6ED230728E700780E24 /* NewItemCell.swift in Sources */,
 				EB91B6F6230728E700780E24 /* ThoughtsService.swift in Sources */,
-				EB64A45124D2084100607325 /* ItemsSwiftUI.swift in Sources */,
+				EB64A45124D2084100607325 /* ThoughtsViewEnvironmentObject.swift in Sources */,
 				EB91B6FF230728E700780E24 /* ViewUtils.swift in Sources */,
 				EB91B6AA230728CA00780E24 /* RetroContainer.swift in Sources */,
 				EB91B705230728E700780E24 /* NotificationCenterWrapper.swift in Sources */,
@@ -812,6 +815,7 @@
 				EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */,
 				EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */,
 				EB91B700230728E700780E24 /* PubSub.swift in Sources */,
+				EB64A45324D20DCC00607325 /* ThoughtsViewHeader.swift in Sources */,
 				EB91B6FC230728E700780E24 /* Column.swift in Sources */,
 				EBB986FF23072CA90013EB90 /* RetroquestServerURL.generated.swift in Sources */,
 				EB91B6E9230728E700780E24 /* EditItemViewController.swift in Sources */,

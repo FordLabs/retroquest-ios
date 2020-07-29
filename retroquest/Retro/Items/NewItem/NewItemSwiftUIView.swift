@@ -18,14 +18,14 @@ limitations under the License.
 import SwiftUI
 
 struct NewItemSwiftUIView: View {
-    @EnvironmentObject var items: ItemsSwiftUI
+    @EnvironmentObject var thoughtsViewEnvironmentObject: ThoughtsViewEnvironmentObject
     let titleText: String
     @State var userInput: String
     let saveCallback: (String, Column?) -> Void
     @State var selectedColumn: Column?
 
     var body: some View {
-        let numColumns: Int = self.items.columns.count
+        let numColumns: Int = self.thoughtsViewEnvironmentObject.columns.count
         let columnRowTextHeight: CGFloat = 50.0
         let columnRowHeight = CGFloat(numColumns) * (columnRowTextHeight + 4.0 * CGFloat(numColumns))
 
@@ -53,7 +53,7 @@ struct NewItemSwiftUIView: View {
             ValidatingTextFieldSwiftUI(userInput: $userInput, placeholderText: "Enter Thought")
 
             List {
-                ForEach(self.items.columns, id: \.self) { column in
+                ForEach(self.thoughtsViewEnvironmentObject.columns, id: \.self) { column in
                     HStack {
                         Text(column.title)
                             .font(Font.retroquestRegular(size: 20))
@@ -103,7 +103,7 @@ struct NewItemSwiftUIView: View {
 
     private func exit() {
         print("exiting edit text modal")
-        self.items.showModal = false
+        self.thoughtsViewEnvironmentObject.showModal = false
     }
 
     private func isValidInput() -> Bool {
@@ -112,7 +112,7 @@ struct NewItemSwiftUIView: View {
 }
 
 struct NewItemSwiftUIViewPreviews: PreviewProvider {
-    static let items = ItemsSwiftUI(
+    static let thoughtsViewEnvironmentObject = ThoughtsViewEnvironmentObject(
         thoughts: [[], [], []],
         columns: [
             Column(id: 88, topic: ColumnName.happy.rawValue, title: "kindaHappy", teamId: "1"),
@@ -128,6 +128,6 @@ struct NewItemSwiftUIViewPreviews: PreviewProvider {
             titleText: "Add New Thought",
             userInput: "",
             saveCallback: saveCallback
-        ).environmentObject(items)
+        ).environmentObject(thoughtsViewEnvironmentObject)
     }
 }

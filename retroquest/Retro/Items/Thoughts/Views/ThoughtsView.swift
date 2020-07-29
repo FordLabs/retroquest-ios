@@ -21,68 +21,45 @@ import AppCenterAnalytics
 struct ThoughtsView: View {
     @EnvironmentObject var thoughtPubSub: PubSub<Thought>
     @EnvironmentObject var columnPubSub: PubSub<Column>
-    @EnvironmentObject var items: ItemsSwiftUI
+    @EnvironmentObject var thoughtsViewEnvironmentObject: ThoughtsViewEnvironmentObject
     let teamName: String
 
     var body: some View {
-        VStack {
-            ZStack {
-                HStack {
-                    Text(self.teamName)
-                        .font(.system(size: 30))
-                        .frame(alignment: .center)
-                }
-                HStack {
-                    Spacer()
-                    Button(action: addItem) {
-                        Text("+")
-                            .font(.system(size: 32))
-                            .foregroundColor(Color(RetroColors.buttonColor))
-                            .frame(alignment: .trailing)
-                            .padding(.trailing, 25)
-                    }
-                }
-            }
-            .padding(.top, 50)
-            .padding(.bottom)
-            .background(Color(RetroColors.menuHeaderColor))
+        let activeThoughtViewModal = self.thoughtsViewEnvironmentObject.activeThoughtViewModal
+
+        return VStack {
+            ThoughtsViewHeader(teamName: teamName)
 
             ThoughtsTable()
                 .background(Color(RetroColors.backgroundColor))
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.top)
         .background(Color(RetroColors.menuHeaderColor))
-        .sheet(isPresented: self.$items.showModal) {
-            if self.items.activeThoughtViewModal == .editThought {
+        .sheet(isPresented: self.$thoughtsViewEnvironmentObject.showModal) {
+            if activeThoughtViewModal == .editThought {
                 EditTextSwiftUIView(
                     titleText: "Change Thought",
-                    userInput: self.items.thoughtToEdit?.message ?? "",
+                    userInput: self.thoughtsViewEnvironmentObject.thoughtToEdit?.message ?? "",
                     saveCallback: self.editThoughtCallback
-                ).environmentObject(self.items)
-            } else if self.items.activeThoughtViewModal == .editColumnName {
+                ).environmentObject(self.thoughtsViewEnvironmentObject)
+            } else if activeThoughtViewModal == .editColumnName {
                 EditTextSwiftUIView(
                     titleText: "Change Column Title",
-                    userInput: self.items.columnToEdit?.title ?? "",
+                    userInput: self.thoughtsViewEnvironmentObject.columnToEdit?.title ?? "",
                     saveCallback: self.editColumnNameCallback
-                ).environmentObject(self.items)
-            } else if self.items.activeThoughtViewModal == .addThought {
+                ).environmentObject(self.thoughtsViewEnvironmentObject)
+            } else if activeThoughtViewModal == .addThought {
                 NewItemSwiftUIView(
                     titleText: "Add New Thought",
                     userInput: "",
                     saveCallback: self.addThoughtCallback
-                ).environmentObject(self.items)
+                ).environmentObject(self.thoughtsViewEnvironmentObject)
             }
         }
     }
 
-    private func addItem() {
-        self.items.activeThoughtViewModal = .addThought
-        self.items.showModal = true
-    }
-
     private func editThoughtCallback(userInput: String) {
-        let newThought = self.items.thoughtToEdit?.copy(message: userInput)
+        let newThought = self.thoughtsViewEnvironmentObject.thoughtToEdit?.copy(message: userInput)
         self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
 
         MSAnalytics.trackEvent(
@@ -92,7 +69,7 @@ struct ThoughtsView: View {
     }
 
     private func editColumnNameCallback(userInput: String) {
-        let newColumn = self.items.columnToEdit?.copy(title: userInput)
+        let newColumn = self.thoughtsViewEnvironmentObject.columnToEdit?.copy(title: userInput)
         self.columnPubSub.publishOutgoing(newColumn, outgoingType: .edit)
 
         MSAnalytics.trackEvent(
@@ -119,7 +96,7 @@ struct ThoughtsView: View {
 }
 
 struct ThoughtsViewPreview: PreviewProvider {
-    static let items = ItemsSwiftUI(
+    static let thoughtsViewEnvironmentObject = ThoughtsViewEnvironmentObject(
         thoughts: [
             [
                 Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: false, teamId: "1"),
@@ -143,7 +120,7 @@ struct ThoughtsViewPreview: PreviewProvider {
 
     static var previews: some View {
         ThoughtsView(teamName: "Coolest Team")
-            .environmentObject(items)
+            .environmentObject(thoughtsViewEnvironmentObject)
             .environmentObject(PubSub<Thought>())
             .environmentObject(PubSub<Column>())
     }

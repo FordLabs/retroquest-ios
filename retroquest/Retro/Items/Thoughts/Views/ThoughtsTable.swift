@@ -24,7 +24,7 @@ struct HeaderCollapsedStates {
 
 struct ThoughtsTable: View {
     @EnvironmentObject var thoughtPubSub: PubSub<Thought>
-    @EnvironmentObject var items: ItemsSwiftUI
+    @EnvironmentObject var thoughtsViewEnvironmentObject: ThoughtsViewEnvironmentObject
     @State private var headerCollapsedStates: HeaderCollapsedStates = HeaderCollapsedStates()
 
     init() {
@@ -34,19 +34,19 @@ struct ThoughtsTable: View {
     }
 
     var body: some View {
-        let iterableColumns = Array(self.items.columns.enumerated())
+        let iterableColumns = Array(self.thoughtsViewEnvironmentObject.columns.enumerated())
 
         return List {
             ForEach(iterableColumns, id: \.element) { columnIndex, column in
                 Section(header: ThoughtsTableHeader(
                     column: column,
-                    numThoughts: self.items.thoughts[columnIndex].count,
+                    numThoughts: self.thoughtsViewEnvironmentObject.thoughts[columnIndex].count,
                     topicIndex: columnIndex,
                     headerCollapsedStates: self.$headerCollapsedStates.collapsedStates
                 )
                 .listRowInsets(EdgeInsets())) {
                     if self.headerCollapsedStates.collapsedStates[columnIndex] != true {
-                        ForEach(self.items.thoughts[columnIndex], id: \.self) { thought in
+                        ForEach(self.thoughtsViewEnvironmentObject.thoughts[columnIndex], id: \.self) { thought in
                             ThoughtsTableCell(thought: thought)
                                 .listRowInsets(EdgeInsets(
                                     top: 2,
@@ -65,7 +65,7 @@ struct ThoughtsTable: View {
     }
 
     private func delete(thoughtIndex: IndexSet, columnIndex: Int) {
-        let thought = self.items.thoughts[columnIndex][thoughtIndex.first!]
+        let thought = self.thoughtsViewEnvironmentObject.thoughts[columnIndex][thoughtIndex.first!]
         self.thoughtPubSub.publishOutgoing(thought, outgoingType: .delete)
         MSAnalytics.trackEvent("delete \(thought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
         print("Deleting Thought with id: \(thought.id)")
@@ -78,7 +78,7 @@ struct ThoughtsTablePreview: PreviewProvider {
     really long message, really long message, really long message, really long message.
     """
     static let thoughtPubSub = PubSub<Thought>()
-    static let items = ItemsSwiftUI(
+    static let thoughtsViewEnvironmentObject = ThoughtsViewEnvironmentObject(
         thoughts: [
             [
                 Thought(id: 1, message: "me", hearts: 0, topic: "happy", discussed: false, teamId: "1"),
@@ -102,7 +102,7 @@ struct ThoughtsTablePreview: PreviewProvider {
 
     static var previews: some View {
         ThoughtsTable()
-            .environmentObject(items)
+            .environmentObject(thoughtsViewEnvironmentObject)
             .environmentObject(thoughtPubSub)
     }
 }

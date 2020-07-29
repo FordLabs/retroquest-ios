@@ -22,7 +22,7 @@ class ThoughtsViewController: UIViewController {
 
     internal var columnNameService: ColumnNameService!
     internal var thoughtsService: ThoughtsService!
-    internal var itemsSwiftUI = ItemsSwiftUI()
+    internal var thoughtsViewEnvironmentObject = ThoughtsViewEnvironmentObject()
 
     convenience init(thoughtsService: ThoughtsService, columnNameService: ColumnNameService) {
         self.init()
@@ -40,7 +40,7 @@ class ThoughtsViewController: UIViewController {
         getThoughtsAndColumns()
 
         let thoughtsViewSwiftUI: some View = ThoughtsView(teamName: URLManager.currentTeam)
-            .environmentObject(itemsSwiftUI)
+            .environmentObject(thoughtsViewEnvironmentObject)
             .environmentObject(thoughtsService.itemPubSub)
             .environmentObject(columnNameService.itemPubSub)
         let hostingController = UIHostingController(rootView: thoughtsViewSwiftUI)
@@ -76,7 +76,7 @@ class ThoughtsViewController: UIViewController {
 
             let columnName: ColumnName = self.columnNameService.getColumnName(thought.topic)
             if let columnIndex = ColumnNameService.displayOrderForTopics.firstIndex(of: columnName) {
-                itemsSwiftUI.thoughts[columnIndex] = thoughtsService.getThoughtsOfTopic(columnName)
+                thoughtsViewEnvironmentObject.thoughts[columnIndex] = thoughtsService.getThoughtsOfTopic(columnName)
             }
         }
     }
@@ -84,7 +84,7 @@ class ThoughtsViewController: UIViewController {
     private func columnNamesCallback(column: Column?) {
         if let column = column {
             _ = columnNameService.addOrReplace(column)
-            itemsSwiftUI.columns = columnNameService.items
+            thoughtsViewEnvironmentObject.columns = columnNameService.items
         }
     }
 }

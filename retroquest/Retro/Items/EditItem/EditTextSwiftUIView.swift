@@ -18,7 +18,7 @@ limitations under the License.
 import SwiftUI
 
 struct EditTextSwiftUIView: View {
-    @EnvironmentObject var items: ItemsSwiftUI
+    @EnvironmentObject var thoughtsViewEnvironmentObject: ThoughtsViewEnvironmentObject
     let titleText: String
     @State var userInput: String
     let saveCallback: (String) -> Void
@@ -72,9 +72,9 @@ struct EditTextSwiftUIView: View {
 
     private func exit() {
         print("exiting edit text modal")
-        self.items.showModal = false
-        self.items.thoughtToEdit = nil
-        self.items.columnToEdit = nil
+        self.thoughtsViewEnvironmentObject.showModal = false
+        self.thoughtsViewEnvironmentObject.thoughtToEdit = nil
+        self.thoughtsViewEnvironmentObject.columnToEdit = nil
     }
 
     private func isValidInput() -> Bool {
@@ -90,6 +90,6 @@ struct EditTextSwiftUIViewPreviews: PreviewProvider {
             titleText: "Change Column Name",
             userInput: "Happy",
             saveCallback: saveCallback
-        ).environmentObject(ItemsSwiftUI())
+        ).environmentObject(ThoughtsViewEnvironmentObject())
     }
 }

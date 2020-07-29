@@ -17,7 +17,7 @@ limitations under the License.
 
 import SwiftUI
 
-class ItemsSwiftUI: ObservableObject {
+class ThoughtsViewEnvironmentObject: ObservableObject {
     @Published var thoughts: [[Thought]] = [[], [], []]
     @Published var columns: [Column] = []
 

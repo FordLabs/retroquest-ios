@@ -23,7 +23,7 @@ let dividerThickness: CGFloat = 4.0
 
 struct ThoughtsTableCell: View {
     @EnvironmentObject var thoughtPubSub: PubSub<Thought>
-    @EnvironmentObject var items: ItemsSwiftUI
+    @EnvironmentObject var thoughtsViewEnvironmentObject: ThoughtsViewEnvironmentObject
     let thought: Thought
     let opacity: CGFloat
 
@@ -84,9 +84,9 @@ struct ThoughtsTableCell: View {
 
     private func modifyMessageTapped() {
         print("tapped on message")
-        self.items.thoughtToEdit = self.thought
-        self.items.activeThoughtViewModal = .editThought
-        self.items.showModal = true
+        self.thoughtsViewEnvironmentObject.thoughtToEdit = self.thought
+        self.thoughtsViewEnvironmentObject.activeThoughtViewModal = .editThought
+        self.thoughtsViewEnvironmentObject.showModal = true
     }
 
     private func markDiscussedTapped() {
@@ -172,6 +172,6 @@ struct ThoughtsTableCellPreview: PreviewProvider {
             )
         )
             .environmentObject(PubSub<Thought>())
-            .environmentObject(ItemsSwiftUI())
+            .environmentObject(ThoughtsViewEnvironmentObject())
     }
 }
