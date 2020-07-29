@@ -19,6 +19,7 @@ import SwiftUI
 
 struct ValidatingTextFieldSwiftUI: View {
     @Binding var userInput: String
+    var placeholderText: String?
 
     var body: some View {
         var errorMessage = ""
@@ -29,7 +30,7 @@ struct ValidatingTextFieldSwiftUI: View {
         }
 
         return VStack {
-            TextField("", text: $userInput)
+            TextField(placeholderText ?? "", text: $userInput)
                 .padding()
                 .foregroundColor(Color.black)
                 .background(Color.white)
@@ -55,7 +56,7 @@ struct ValidatingTextFieldSwiftUIPreviews: PreviewProvider {
         @State var userInput: String = ""
 
         var body: some View {
-            ValidatingTextFieldSwiftUI(userInput: $userInput)
+            ValidatingTextFieldSwiftUI(userInput: $userInput, placeholderText: "enter thing")
                 .background(Color(RetroColors.backgroundColor))
         }
     }

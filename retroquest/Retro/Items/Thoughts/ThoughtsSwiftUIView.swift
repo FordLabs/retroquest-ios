@@ -64,12 +64,19 @@ struct ThoughtsSwiftUIView: View {
                     userInput: self.items.columnToEdit?.title ?? "",
                     saveCallback: self.editColumnNameCallback
                 ).environmentObject(self.items)
+            } else if self.items.activeThoughtViewModal == .addThought {
+                NewItemSwiftUIView(
+                    titleText: "Add New Thought",
+                    userInput: "",
+                    saveCallback: self.addThoughtCallback
+                ).environmentObject(self.items)
             }
         }
     }
 
     private func addItem() {
-
+        self.items.activeThoughtViewModal = .addThought
+        self.items.showModal = true
     }
 
     private func editThoughtCallback(userInput: String) {
@@ -88,6 +95,22 @@ struct ThoughtsSwiftUIView: View {
 
         MSAnalytics.trackEvent(
                 "edit column text to \(userInput)",
+                withProperties: ["Team": URLManager.currentTeam]
+        )
+    }
+
+    private func addThoughtCallback(userInput: String, selectedColumn: Column?) {
+        let newThought = Thought(
+                id: -1,
+                message: userInput,
+                hearts: 0,
+                topic: selectedColumn?.topic ?? "",
+                discussed: false,
+                teamId: URLManager.currentTeam
+        )
+        self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .create)
+        MSAnalytics.trackEvent(
+            "added \(selectedColumn?.topic ?? "") thought",
                 withProperties: ["Team": URLManager.currentTeam]
         )
     }

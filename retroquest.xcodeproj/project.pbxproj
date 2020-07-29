@@ -108,6 +108,7 @@
 		EBCDBEAF246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */; };
 		EBCDBEB12473093400C65F14 /* ThoughtsTableSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */; };
 		EBDA129724C9E87800914560 /* ValidatingTextFieldSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA129624C9E87800914560 /* ValidatingTextFieldSwiftUI.swift */; };
+		EBDA129924CF199600914560 /* NewItemSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA129824CF199600914560 /* NewItemSwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,7 @@
 		EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableViewHeaderViewSwiftUI.swift; sourceTree = "<group>"; };
 		EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableSwiftUI.swift; sourceTree = "<group>"; };
 		EBDA129624C9E87800914560 /* ValidatingTextFieldSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingTextFieldSwiftUI.swift; sourceTree = "<group>"; };
+		EBDA129824CF199600914560 /* NewItemSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemSwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +398,7 @@
 				EB91B6BE230728E700780E24 /* NewItemCell.swift */,
 				EB91B6BF230728E700780E24 /* NewItemViewController.swift */,
 				EB91B6C0230728E700780E24 /* NewItemView.swift */,
+				EBDA129824CF199600914560 /* NewItemSwiftUIView.swift */,
 			);
 			path = NewItem;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				EB91B702230728E700780E24 /* OutgoingType.swift in Sources */,
 				EB91B6E8230728E700780E24 /* ActionItemsService.swift in Sources */,
 				EB91B6EA230728E700780E24 /* EditTextView.swift in Sources */,
+				EBDA129924CF199600914560 /* NewItemSwiftUIView.swift in Sources */,
 				EB91B6F3230728E700780E24 /* ValidatingTextField.swift in Sources */,
 				EB91B6EB230728E700780E24 /* ItemsService.swift in Sources */,
 				EB91B6ED230728E700780E24 /* NewItemCell.swift in Sources */,

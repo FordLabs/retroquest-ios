@@ -36,7 +36,6 @@ class ThoughtsViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Thoughts"
 
-//        thoughtsView.addThoughtButton.addTarget(self, action: #selector(addThought), for: .touchUpInside)
         thoughtsService.registerItemCallback(thoughtCallback)
         columnNameService.registerItemCallback(columnNamesCallback)
         getThoughtsAndColumns()
@@ -68,19 +67,6 @@ class ThoughtsViewController: UIViewController {
         thoughtsService.clear()
         getThoughtsAndColumns()
     }
-
-//    @objc private func addThought() {
-//        print("Opening Add New Thought View")
-//        DispatchQueue.main.async(execute: {
-//            self.view.window?.rootViewController!.present(
-//                    NewItemViewController(
-//                            pubSub: self.thoughtsService.itemPubSub,
-//                            columnNameService: self.columnNameService
-//                    ),
-//                    animated: true
-//            )
-//        })
-//    }
 
     private func thoughtCallback(thought: Thought?) {
         if var thought = thought {

@@ -21,10 +21,15 @@ struct NewItemSwiftUIView: View {
     @EnvironmentObject var items: ItemsSwiftUI
     let titleText: String
     @State var userInput: String
-    let saveCallback: (String) -> Void
+    let saveCallback: (String, Column?) -> Void
+    @State var selectedColumn: Column?
 
     var body: some View {
-        VStack {
+        let numColumns: Int = self.items.columns.count
+        let columnRowTextHeight: CGFloat = 50.0
+        let columnRowHeight = CGFloat(numColumns) * (columnRowTextHeight + 4.0 * CGFloat(numColumns))
+
+        return VStack {
             Spacer()
 
             ZStack {
@@ -45,7 +50,33 @@ struct NewItemSwiftUIView: View {
                 }
             }
 
-            ValidatingTextFieldSwiftUI(userInput: $userInput)
+            ValidatingTextFieldSwiftUI(userInput: $userInput, placeholderText: "Enter Thought")
+
+            List {
+                ForEach(self.items.columns, id: \.self) { column in
+                    HStack {
+                        Text(column.title)
+                            .font(Font.retroquestRegular(size: 20))
+                            .frame(height: 50)
+                        if self.selectedColumn == column {
+                            HStack {
+                                Spacer()
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(Color.green)
+                            }
+                        }
+                    }
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            self.selectedColumn = column
+                        }
+                }
+            }
+                .background(Color.white)
+                .frame(height: columnRowHeight)
+                .cornerRadius(5.0)
+                .padding(.horizontal)
 
             Button(action: save) {
                 Text("Save")
@@ -66,30 +97,37 @@ struct NewItemSwiftUIView: View {
 
     private func save() {
         print(self.userInput)
-        saveCallback(self.userInput)
+        saveCallback(self.userInput, self.selectedColumn)
         exit()
     }
 
     private func exit() {
         print("exiting edit text modal")
         self.items.showModal = false
-        self.items.thoughtToEdit = nil
-        self.items.columnToEdit = nil
     }
 
     private func isValidInput() -> Bool {
-        return userInput.count != 0 && userInput.count <= 255
+        return userInput.count != 0 && userInput.count <= 255 && self.selectedColumn != nil
     }
 }
 
 struct NewItemSwiftUIViewPreviews: PreviewProvider {
-    static func saveCallback(input: String) {}
+    static let items = ItemsSwiftUI(
+        thoughts: [[], [], []],
+        columns: [
+            Column(id: 88, topic: ColumnName.happy.rawValue, title: "kindaHappy", teamId: "1"),
+            Column(id: 89, topic: ColumnName.confused.rawValue, title: "kindaConfused", teamId: "1"),
+            Column(id: 90, topic: ColumnName.sad.rawValue, title: "kindaSad", teamId: "1")
+        ]
+    )
+
+    static func saveCallback(input: String, selectedColumn: Column?) {}
 
     static var previews: some View {
-        EditTextSwiftUIView(
+        NewItemSwiftUIView(
             titleText: "Add New Thought",
-            userInput: "Happy",
+            userInput: "",
             saveCallback: saveCallback
-        ).environmentObject(ItemsSwiftUI())
+        ).environmentObject(items)
     }
 }
