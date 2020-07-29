@@ -29,7 +29,7 @@ struct ThoughtsSwiftUIView: View {
             ZStack {
                 HStack {
                     Text(self.teamName)
-                        .font(.system(size: 24))
+                        .font(.system(size: 30))
                         .frame(alignment: .center)
                 }
                 HStack {
@@ -44,13 +44,15 @@ struct ThoughtsSwiftUIView: View {
                 }
             }
             .padding(.top, 50)
-            .background(Color(RetroColors.backgroundColor))
+            .padding(.bottom)
+            .background(Color(RetroColors.menuHeaderColor))
 
             ThoughtsTableSwiftUI()
+                .background(Color(RetroColors.backgroundColor))
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.top)
-        .background(Color(RetroColors.backgroundColor))
+        .background(Color(RetroColors.menuHeaderColor))
         .sheet(isPresented: self.$items.showModal) {
             if self.items.activeThoughtViewModal == .editThought {
                 EditTextSwiftUIView(

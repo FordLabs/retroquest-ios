@@ -32,6 +32,7 @@ public struct RetroColors {
     public static let starColor = UIColor(hexString: "#f1c40f")
     public static let separatorColor = UIColor(hexString: "#34495E", alpha: 150)
     public static let buttonColor = UIColor(hexString: "#056CCB")
+    public static let menuHeaderColor = UIColor(hexString: "#F3F3F3")
 
     public static let shadowColor = UIColor(hexString: "#000000", alpha: 128)
 
