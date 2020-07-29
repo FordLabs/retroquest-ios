@@ -18,7 +18,7 @@ limitations under the License.
 import SwiftUI
 import FASwiftUI
 
-struct ThoughtsTableViewHeaderViewSwiftUI: View {
+struct ThoughtsTableHeader: View {
     @EnvironmentObject var items: ItemsSwiftUI
     @Binding var headerCollapsedStates: [Bool]
 
@@ -108,12 +108,12 @@ struct ThoughtsTableViewHeaderViewSwiftUI: View {
     }
 }
 
-struct ThoughtsTableViewHeaderViewSwiftUIPreviews: PreviewProvider {
+struct ThoughtsTableHeaderPreview: PreviewProvider {
     struct BindingTestHolder: View {
         @State var collapsedStates: [Bool] = [true, true, true]
 
         var body: some View {
-            ThoughtsTableViewHeaderViewSwiftUI(
+            ThoughtsTableHeader(
                 column: Column(id: 88, topic: ColumnName.happy.rawValue, title: "kindaHappy", teamId: "1"),
                 numThoughts: 3,
                 topicIndex: 2,

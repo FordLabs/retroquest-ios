@@ -18,7 +18,7 @@ limitations under the License.
 import SwiftUI
 import AppCenterAnalytics
 
-struct ThoughtsSwiftUIView: View {
+struct ThoughtsView: View {
     @EnvironmentObject var thoughtPubSub: PubSub<Thought>
     @EnvironmentObject var columnPubSub: PubSub<Column>
     @EnvironmentObject var items: ItemsSwiftUI
@@ -47,7 +47,7 @@ struct ThoughtsSwiftUIView: View {
             .padding(.bottom)
             .background(Color(RetroColors.menuHeaderColor))
 
-            ThoughtsTableSwiftUI()
+            ThoughtsTable()
                 .background(Color(RetroColors.backgroundColor))
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
@@ -118,7 +118,7 @@ struct ThoughtsSwiftUIView: View {
     }
 }
 
-struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
+struct ThoughtsViewPreview: PreviewProvider {
     static let items = ItemsSwiftUI(
         thoughts: [
             [
@@ -142,33 +142,9 @@ struct ThoughtsSwiftUIViewPreviews: PreviewProvider {
     )
 
     static var previews: some View {
-        ThoughtsSwiftUIView(teamName: "Coolest Team")
+        ThoughtsView(teamName: "Coolest Team")
             .environmentObject(items)
             .environmentObject(PubSub<Thought>())
             .environmentObject(PubSub<Column>())
     }
-}
-
-class ItemsSwiftUI: ObservableObject {
-    @Published var thoughts: [[Thought]] = [[]]
-    @Published var columns: [Column] = []
-
-    @Published var showModal: Bool = false
-    @Published var activeThoughtViewModal: ActiveThoughtViewModal = .none
-    @Published var thoughtToEdit: Thought?
-    @Published var columnToEdit: Column?
-
-    init(
-        thoughts: [[Thought]],
-        columns: [Column]
-    ) {
-        self.thoughts = thoughts
-        self.columns = columns
-    }
-
-    init() {}
-}
-
-enum ActiveThoughtViewModal {
-    case editThought, editColumnName, addThought, none
 }

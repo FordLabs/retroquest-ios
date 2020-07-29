@@ -21,7 +21,7 @@ import AppCenterAnalytics
 
 let dividerThickness: CGFloat = 4.0
 
-struct ThoughtsTableViewCellSwiftUI: View {
+struct ThoughtsTableCell: View {
     @EnvironmentObject var thoughtPubSub: PubSub<Thought>
     @EnvironmentObject var items: ItemsSwiftUI
     let thought: Thought
@@ -159,9 +159,9 @@ private struct StarsLabel: View {
     }
 }
 
-struct ThoughtsTableViewCellSwiftUIPreview: PreviewProvider {
+struct ThoughtsTableCellPreview: PreviewProvider {
     static var previews: some View {
-        ThoughtsTableViewCellSwiftUI(
+        ThoughtsTableCell(
             thought: Thought(
               id: 2,
               message: "fdsas",

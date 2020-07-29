@@ -17,13 +17,12 @@ limitations under the License.
 
 import UIKit
 import SwiftUI
-import AppCenterAnalytics
 
 class ThoughtsViewController: UIViewController {
 
     internal var columnNameService: ColumnNameService!
     internal var thoughtsService: ThoughtsService!
-    internal var itemsSwiftUI: ItemsSwiftUI = ItemsSwiftUI(thoughts: [[], [], []], columns: [])
+    internal var itemsSwiftUI = ItemsSwiftUI()
 
     convenience init(thoughtsService: ThoughtsService, columnNameService: ColumnNameService) {
         self.init()
@@ -40,7 +39,7 @@ class ThoughtsViewController: UIViewController {
         columnNameService.registerItemCallback(columnNamesCallback)
         getThoughtsAndColumns()
 
-        let thoughtsViewSwiftUI: some View = ThoughtsSwiftUIView(teamName: URLManager.currentTeam)
+        let thoughtsViewSwiftUI: some View = ThoughtsView(teamName: URLManager.currentTeam)
             .environmentObject(itemsSwiftUI)
             .environmentObject(thoughtsService.itemPubSub)
             .environmentObject(columnNameService.itemPubSub)
@@ -51,21 +50,14 @@ class ThoughtsViewController: UIViewController {
         _ = thoughtsView.anchorEdgesToSuperView()
     }
 
-    func getThoughtsAndColumns() {
-        _ = thoughtsService.requestItemsFromServer(team: URLManager.currentTeam)
-        _ = columnNameService.requestItemsFromServer(team: URLManager.currentTeam)
-    }
-
-    private func columnNamesCallback(column: Column?) {
-        if let column = column {
-            _ = columnNameService.addOrReplace(column)
-            itemsSwiftUI.columns = columnNameService.items
-        }
-    }
-
     func refreshData() {
         thoughtsService.clear()
         getThoughtsAndColumns()
+    }
+
+    private func getThoughtsAndColumns() {
+        _ = thoughtsService.requestItemsFromServer(team: URLManager.currentTeam)
+        _ = columnNameService.requestItemsFromServer(team: URLManager.currentTeam)
     }
 
     private func thoughtCallback(thought: Thought?) {
@@ -81,18 +73,18 @@ class ThoughtsViewController: UIViewController {
                 _ = self.thoughtsService.addOrReplace(thought)
                 self.thoughtsService.sort()
             }
-            let thoughts: [[Thought]] = [
-                thoughtsService.getThoughtsOfTopic(.happy),
-                thoughtsService.getThoughtsOfTopic(.confused),
-                thoughtsService.getThoughtsOfTopic(.sad)
-            ]
-            itemsSwiftUI.thoughts = thoughts
+
+            let columnName: ColumnName = self.columnNameService.getColumnName(thought.topic)
+            if let columnIndex = ColumnNameService.displayOrderForTopics.firstIndex(of: columnName) {
+                itemsSwiftUI.thoughts[columnIndex] = thoughtsService.getThoughtsOfTopic(columnName)
+            }
         }
     }
-}
 
-protocol ThoughtEditDelegate: AnyObject {
-    func starred(_ thought: Thought)
-    func discussed(_ thought: Thought)
-    func textChanged(_ thought: Thought)
+    private func columnNamesCallback(column: Column?) {
+        if let column = column {
+            _ = columnNameService.addOrReplace(column)
+            itemsSwiftUI.columns = columnNameService.items
+        }
+    }
 }

@@ -22,7 +22,7 @@ struct HeaderCollapsedStates {
     var collapsedStates: [Bool] = [true, true, true]
 }
 
-struct ThoughtsTableSwiftUI: View {
+struct ThoughtsTable: View {
     @EnvironmentObject var thoughtPubSub: PubSub<Thought>
     @EnvironmentObject var items: ItemsSwiftUI
     @State private var headerCollapsedStates: HeaderCollapsedStates = HeaderCollapsedStates()
@@ -38,7 +38,7 @@ struct ThoughtsTableSwiftUI: View {
 
         return List {
             ForEach(iterableColumns, id: \.element) { columnIndex, column in
-                Section(header: ThoughtsTableViewHeaderViewSwiftUI(
+                Section(header: ThoughtsTableHeader(
                     column: column,
                     numThoughts: self.items.thoughts[columnIndex].count,
                     topicIndex: columnIndex,
@@ -47,7 +47,7 @@ struct ThoughtsTableSwiftUI: View {
                 .listRowInsets(EdgeInsets())) {
                     if self.headerCollapsedStates.collapsedStates[columnIndex] != true {
                         ForEach(self.items.thoughts[columnIndex], id: \.self) { thought in
-                            ThoughtsTableViewCellSwiftUI(thought: thought)
+                            ThoughtsTableCell(thought: thought)
                                 .listRowInsets(EdgeInsets(
                                     top: 2,
                                     leading: 1,
@@ -72,7 +72,7 @@ struct ThoughtsTableSwiftUI: View {
     }
 }
 
-struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
+struct ThoughtsTablePreview: PreviewProvider {
     static let longMessage = """
     really long message, really long message, really long message, really long message,\
     really long message, really long message, really long message, really long message.
@@ -101,7 +101,7 @@ struct ThoughtsTableSwiftUIPreviews: PreviewProvider {
     )
 
     static var previews: some View {
-        ThoughtsTableSwiftUI()
+        ThoughtsTable()
             .environmentObject(items)
             .environmentObject(thoughtPubSub)
     }

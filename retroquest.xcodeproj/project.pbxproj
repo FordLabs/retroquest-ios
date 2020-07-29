@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
-		EB4E9B6D247467F800E3A583 /* ThoughtsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E9B6C247467F800E3A583 /* ThoughtsSwiftUIView.swift */; };
+		EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */; };
+		EB64A45124D2084100607325 /* ItemsSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45024D2084100607325 /* ItemsSwiftUI.swift */; };
 		EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6652306ED6200780E24 /* AppDelegate.swift */; };
 		EB91B66D2306ED6300780E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB91B66C2306ED6300780E24 /* Assets.xcassets */; };
 		EB91B6A52307289500780E24 /* AppCenterDistribute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6A32307289500780E24 /* AppCenterDistribute.framework */; };
@@ -35,11 +36,8 @@
 		EB91B6F2230728E700780E24 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6C4230728E700780E24 /* Feedback.swift */; };
 		EB91B6F3230728E700780E24 /* ValidatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6C5230728E700780E24 /* ValidatingTextField.swift */; };
 		EB91B6F4230728E700780E24 /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6C7230728E700780E24 /* Thought.swift */; };
-		EB91B6F5230728E700780E24 /* ThoughtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6C8230728E700780E24 /* ThoughtTableViewCell.swift */; };
 		EB91B6F6230728E700780E24 /* ThoughtsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6C9230728E700780E24 /* ThoughtsService.swift */; };
-		EB91B6F7230728E700780E24 /* ThoughtTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6CA230728E700780E24 /* ThoughtTableViewHeaderView.swift */; };
 		EB91B6F8230728E700780E24 /* ThoughtsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6CB230728E700780E24 /* ThoughtsViewController.swift */; };
-		EB91B6F9230728E700780E24 /* ThoughtsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6CC230728E700780E24 /* ThoughtsView.swift */; };
 		EB91B6FA230728E700780E24 /* ColumnName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6CE230728E700780E24 /* ColumnName.swift */; };
 		EB91B6FB230728E700780E24 /* ColumnNameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6CF230728E700780E24 /* ColumnNameService.swift */; };
 		EB91B6FC230728E700780E24 /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6D0230728E700780E24 /* Column.swift */; };
@@ -102,11 +100,11 @@
 		EBC5EF3E23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */; };
 		EBC5EF3F23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */; };
 		EBC5EF4223301E5C00FB5ABA /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = EBC5EF4123301E5C00FB5ABA /* M13Checkbox */; };
-		EBCDBEA8246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEA7246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift */; };
+		EBCDBEA8246DDAB700C65F14 /* ThoughtsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEA7246DDAB700C65F14 /* ThoughtsTableCell.swift */; };
 		EBCDBEAB246DE74D00C65F14 /* FASwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EBCDBEAA246DE74D00C65F14 /* FASwiftUI */; };
 		EBCDBEAD246DE9D000C65F14 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = EBCDBEAC246DE9D000C65F14 /* icons.json */; };
-		EBCDBEAF246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */; };
-		EBCDBEB12473093400C65F14 /* ThoughtsTableSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */; };
+		EBCDBEAF246F1E3800C65F14 /* ThoughtsTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEAE246F1E3800C65F14 /* ThoughtsTableHeader.swift */; };
+		EBCDBEB12473093400C65F14 /* ThoughtsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCDBEB02473093400C65F14 /* ThoughtsTable.swift */; };
 		EBDA129724C9E87800914560 /* ValidatingTextFieldSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA129624C9E87800914560 /* ValidatingTextFieldSwiftUI.swift */; };
 		EBDA129924CF199600914560 /* NewItemSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA129824CF199600914560 /* NewItemSwiftUIView.swift */; };
 /* End PBXBuildFile section */
@@ -123,7 +121,8 @@
 
 /* Begin PBXFileReference section */
 		EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenterSecret.generated.swift; sourceTree = "<group>"; };
-		EB4E9B6C247467F800E3A583 /* ThoughtsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsSwiftUIView.swift; sourceTree = "<group>"; };
+		EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsView.swift; sourceTree = "<group>"; };
+		EB64A45024D2084100607325 /* ItemsSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsSwiftUI.swift; sourceTree = "<group>"; };
 		EB91B6622306ED6200780E24 /* retroquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = retroquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB91B6652306ED6200780E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB91B66C2306ED6300780E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,11 +153,8 @@
 		EB91B6C4230728E700780E24 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		EB91B6C5230728E700780E24 /* ValidatingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatingTextField.swift; sourceTree = "<group>"; };
 		EB91B6C7230728E700780E24 /* Thought.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
-		EB91B6C8230728E700780E24 /* ThoughtTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtTableViewCell.swift; sourceTree = "<group>"; };
 		EB91B6C9230728E700780E24 /* ThoughtsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtsService.swift; sourceTree = "<group>"; };
-		EB91B6CA230728E700780E24 /* ThoughtTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtTableViewHeaderView.swift; sourceTree = "<group>"; };
 		EB91B6CB230728E700780E24 /* ThoughtsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtsViewController.swift; sourceTree = "<group>"; };
-		EB91B6CC230728E700780E24 /* ThoughtsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtsView.swift; sourceTree = "<group>"; };
 		EB91B6CE230728E700780E24 /* ColumnName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnName.swift; sourceTree = "<group>"; };
 		EB91B6CF230728E700780E24 /* ColumnNameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnNameService.swift; sourceTree = "<group>"; };
 		EB91B6D0230728E700780E24 /* Column.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
@@ -214,10 +210,10 @@
 		EBC5EF3A23301BC900FB5ABA /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Regular-400.otf"; path = "Fonts/Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		EBC5EF3B23301BC900FB5ABA /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Brands-Regular-400.otf"; path = "Fonts/Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		EBC5EF3C23301BC900FB5ABA /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Solid-900.otf"; path = "Fonts/Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
-		EBCDBEA7246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableViewCellSwiftUI.swift; sourceTree = "<group>"; };
+		EBCDBEA7246DDAB700C65F14 /* ThoughtsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableCell.swift; sourceTree = "<group>"; };
 		EBCDBEAC246DE9D000C65F14 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = icons.json; path = Fonts/icons.json; sourceTree = "<group>"; };
-		EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableViewHeaderViewSwiftUI.swift; sourceTree = "<group>"; };
-		EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableSwiftUI.swift; sourceTree = "<group>"; };
+		EBCDBEAE246F1E3800C65F14 /* ThoughtsTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTableHeader.swift; sourceTree = "<group>"; };
+		EBCDBEB02473093400C65F14 /* ThoughtsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsTable.swift; sourceTree = "<group>"; };
 		EBDA129624C9E87800914560 /* ValidatingTextFieldSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingTextFieldSwiftUI.swift; sourceTree = "<group>"; };
 		EBDA129824CF199600914560 /* NewItemSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemSwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,6 +248,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB64A44F24D2045E00607325 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBCDBEA7246DDAB700C65F14 /* ThoughtsTableCell.swift */,
+				EBCDBEAE246F1E3800C65F14 /* ThoughtsTableHeader.swift */,
+				EBCDBEB02473093400C65F14 /* ThoughtsTable.swift */,
+				EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EB91B6592306ED6200780E24 = {
 			isa = PBXGroup;
 			children = (
@@ -416,16 +423,11 @@
 		EB91B6C6230728E700780E24 /* Thoughts */ = {
 			isa = PBXGroup;
 			children = (
+				EB64A44F24D2045E00607325 /* Views */,
 				EB91B6C7230728E700780E24 /* Thought.swift */,
-				EB91B6C8230728E700780E24 /* ThoughtTableViewCell.swift */,
 				EB91B6C9230728E700780E24 /* ThoughtsService.swift */,
-				EB91B6CA230728E700780E24 /* ThoughtTableViewHeaderView.swift */,
 				EB91B6CB230728E700780E24 /* ThoughtsViewController.swift */,
-				EB91B6CC230728E700780E24 /* ThoughtsView.swift */,
-				EBCDBEA7246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift */,
-				EBCDBEAE246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift */,
-				EBCDBEB02473093400C65F14 /* ThoughtsTableSwiftUI.swift */,
-				EB4E9B6C247467F800E3A583 /* ThoughtsSwiftUIView.swift */,
+				EB64A45024D2084100607325 /* ItemsSwiftUI.swift */,
 			);
 			path = Thoughts;
 			sourceTree = "<group>";
@@ -781,7 +783,7 @@
 				EB91B6F1230728E700780E24 /* FeedbackFormView.swift in Sources */,
 				EB91B6E5230728E700780E24 /* ActionItemTableViewCell.swift in Sources */,
 				EB91B6FB230728E700780E24 /* ColumnNameService.swift in Sources */,
-				EBCDBEB12473093400C65F14 /* ThoughtsTableSwiftUI.swift in Sources */,
+				EBCDBEB12473093400C65F14 /* ThoughtsTable.swift in Sources */,
 				EB91B6E7230728E700780E24 /* ActionItemsViewController.swift in Sources */,
 				EB91B6FD230728E700780E24 /* RetroCookies.swift in Sources */,
 				EB91B6F0230728E700780E24 /* FeedbackViewController.swift in Sources */,
@@ -794,28 +796,26 @@
 				EB91B6EB230728E700780E24 /* ItemsService.swift in Sources */,
 				EB91B6ED230728E700780E24 /* NewItemCell.swift in Sources */,
 				EB91B6F6230728E700780E24 /* ThoughtsService.swift in Sources */,
-				EB91B6F5230728E700780E24 /* ThoughtTableViewCell.swift in Sources */,
+				EB64A45124D2084100607325 /* ItemsSwiftUI.swift in Sources */,
 				EB91B6FF230728E700780E24 /* ViewUtils.swift in Sources */,
 				EB91B6AA230728CA00780E24 /* RetroContainer.swift in Sources */,
 				EB91B705230728E700780E24 /* NotificationCenterWrapper.swift in Sources */,
 				EB91B6F8230728E700780E24 /* ThoughtsViewController.swift in Sources */,
-				EB91B6F7230728E700780E24 /* ThoughtTableViewHeaderView.swift in Sources */,
 				EB91B6F4230728E700780E24 /* Thought.swift in Sources */,
-				EBCDBEAF246F1E3800C65F14 /* ThoughtsTableViewHeaderViewSwiftUI.swift in Sources */,
-				EBCDBEA8246DDAB700C65F14 /* ThoughtsTableViewCellSwiftUI.swift in Sources */,
+				EBCDBEAF246F1E3800C65F14 /* ThoughtsTableHeader.swift in Sources */,
+				EBCDBEA8246DDAB700C65F14 /* ThoughtsTableCell.swift in Sources */,
 				EB91B704230728E700780E24 /* WebSocketService.swift in Sources */,
 				EB91B706230728E700780E24 /* RetroNavState.swift in Sources */,
 				EB91B6E6230728E700780E24 /* ActionItemsView.swift in Sources */,
 				EB91B6E4230728E700780E24 /* ActionItem.swift in Sources */,
 				EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */,
 				EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */,
-				EB4E9B6D247467F800E3A583 /* ThoughtsSwiftUIView.swift in Sources */,
+				EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */,
 				EB91B700230728E700780E24 /* PubSub.swift in Sources */,
 				EB91B6FC230728E700780E24 /* Column.swift in Sources */,
 				EBB986FF23072CA90013EB90 /* RetroquestServerURL.generated.swift in Sources */,
 				EB91B6E9230728E700780E24 /* EditItemViewController.swift in Sources */,
 				EB91B6EC230728E700780E24 /* Item.swift in Sources */,
-				EB91B6F9230728E700780E24 /* ThoughtsView.swift in Sources */,
 				EB91B701230728E700780E24 /* URLManager.swift in Sources */,
 				EB91B6E1230728E700780E24 /* LoginView.swift in Sources */,
 				EBDA129724C9E87800914560 /* ValidatingTextFieldSwiftUI.swift in Sources */,
