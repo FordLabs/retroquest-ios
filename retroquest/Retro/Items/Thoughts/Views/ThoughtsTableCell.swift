@@ -36,12 +36,12 @@ struct ThoughtsTableCell: View {
         GeometryReader { geometry in
             VStack {
 
-                MessageLabel(thought: self.thought)
+                MessageLabel(messageText: self.thought.message, strikethroughText: self.thought.discussed)
                     .frame(height: (geometry.size.height / 2) - dividerThickness)
                     .contentShape(Rectangle())
                     .onTapGesture(perform: self.modifyMessageTapped)
 
-                ThoughtsTableCellDivider(axis: .vertical)
+                ItemsTableCellDivider(axis: .vertical)
 
                 HStack {
                     StarsLabel(numStars: self.thought.hearts)
@@ -50,7 +50,7 @@ struct ThoughtsTableCell: View {
                         .contentShape(Rectangle())
                         .onTapGesture(perform: self.starsTapped)
 
-                    ThoughtsTableCellDivider(axis: .horizontal)
+                    ItemsTableCellDivider(axis: .horizontal)
 
                     FAIcon(iconName: "edit")
                         .padding(.vertical)
@@ -58,7 +58,7 @@ struct ThoughtsTableCell: View {
                         .contentShape(Rectangle())
                         .onTapGesture(perform: self.modifyMessageTapped)
 
-                    ThoughtsTableCellDivider(axis: .horizontal)
+                    ItemsTableCellDivider(axis: .horizontal)
 
                     FAIcon(iconName: self.thought.discussed ? "envelope-open-text" : "envelope")
                         .padding(.vertical)
@@ -91,7 +91,7 @@ struct ThoughtsTableCell: View {
 
     private func markDiscussedTapped() {
         print("tapped on discussed")
-        let newThought = thought.copy(discussed: !thought.discussed)
+        let newThought = self.thought.copy(discussed: !self.thought.discussed)
         self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
         MSAnalytics.trackEvent(
                 "mark \(newThought.topic) thought \(newThought.discussed ? "discussed" : "undiscussed")",
@@ -115,7 +115,7 @@ struct FAIcon: View {
     }
 }
 
-private struct ThoughtsTableCellDivider: View {
+struct ItemsTableCellDivider: View {
     let axis: DividerAxis
 
     var body: some View {
@@ -133,13 +133,14 @@ private struct ThoughtsTableCellDivider: View {
     }
 }
 
-private struct MessageLabel: View {
-    let thought: Thought
+struct MessageLabel: View {
+    let messageText: String
+    let strikethroughText: Bool
 
     var body: some View {
-        Text(self.thought.message)
+        Text(messageText)
             .font(Font.retroquestRegular(size: 20))
-            .strikethrough(self.thought.discussed)
+            .strikethrough(strikethroughText)
             .foregroundColor(Color(RetroColors.cellTextColor))
             .padding(.horizontal, 25)
     }

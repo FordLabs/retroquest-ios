@@ -11,6 +11,9 @@
 		EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */; };
 		EB64A45124D2084100607325 /* ThoughtsViewEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */; };
 		EB64A45324D20DCC00607325 /* ThoughtsViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45224D20DCC00607325 /* ThoughtsViewHeader.swift */; };
+		EB64A45624D2153600607325 /* ActionItemsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45524D2153600607325 /* ActionItemsSwiftUIView.swift */; };
+		EB64A45824D215A900607325 /* ActionItemsViewEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45724D215A900607325 /* ActionItemsViewEnvironmentObject.swift */; };
+		EB64A45A24D301CE00607325 /* ActionItemsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45924D301CE00607325 /* ActionItemsTableCell.swift */; };
 		EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B6652306ED6200780E24 /* AppDelegate.swift */; };
 		EB91B66D2306ED6300780E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB91B66C2306ED6300780E24 /* Assets.xcassets */; };
 		EB91B6A52307289500780E24 /* AppCenterDistribute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB91B6A32307289500780E24 /* AppCenterDistribute.framework */; };
@@ -125,6 +128,9 @@
 		EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsView.swift; sourceTree = "<group>"; };
 		EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsViewEnvironmentObject.swift; sourceTree = "<group>"; };
 		EB64A45224D20DCC00607325 /* ThoughtsViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsViewHeader.swift; sourceTree = "<group>"; };
+		EB64A45524D2153600607325 /* ActionItemsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemsSwiftUIView.swift; sourceTree = "<group>"; };
+		EB64A45724D215A900607325 /* ActionItemsViewEnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemsViewEnvironmentObject.swift; sourceTree = "<group>"; };
+		EB64A45924D301CE00607325 /* ActionItemsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemsTableCell.swift; sourceTree = "<group>"; };
 		EB91B6622306ED6200780E24 /* retroquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = retroquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB91B6652306ED6200780E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB91B66C2306ED6300780E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -262,6 +268,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		EB64A45424D2151500607325 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB64A45524D2153600607325 /* ActionItemsSwiftUIView.swift */,
+				EB64A45924D301CE00607325 /* ActionItemsTableCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EB91B6592306ED6200780E24 = {
 			isa = PBXGroup;
 			children = (
@@ -383,11 +398,13 @@
 		EB91B6B2230728E700780E24 /* ActionItems */ = {
 			isa = PBXGroup;
 			children = (
+				EB64A45424D2151500607325 /* Views */,
 				EB91B6B3230728E700780E24 /* ActionItem.swift */,
 				EB91B6B4230728E700780E24 /* ActionItemTableViewCell.swift */,
 				EB91B6B5230728E700780E24 /* ActionItemsView.swift */,
 				EB91B6B6230728E700780E24 /* ActionItemsViewController.swift */,
 				EB91B6B7230728E700780E24 /* ActionItemsService.swift */,
+				EB64A45724D215A900607325 /* ActionItemsViewEnvironmentObject.swift */,
 			);
 			path = ActionItems;
 			sourceTree = "<group>";
@@ -795,11 +812,13 @@
 				EB91B6E8230728E700780E24 /* ActionItemsService.swift in Sources */,
 				EB91B6EA230728E700780E24 /* EditTextView.swift in Sources */,
 				EBDA129924CF199600914560 /* NewItemSwiftUIView.swift in Sources */,
+				EB64A45A24D301CE00607325 /* ActionItemsTableCell.swift in Sources */,
 				EB91B6F3230728E700780E24 /* ValidatingTextField.swift in Sources */,
 				EB91B6EB230728E700780E24 /* ItemsService.swift in Sources */,
 				EB91B6ED230728E700780E24 /* NewItemCell.swift in Sources */,
 				EB91B6F6230728E700780E24 /* ThoughtsService.swift in Sources */,
 				EB64A45124D2084100607325 /* ThoughtsViewEnvironmentObject.swift in Sources */,
+				EB64A45824D215A900607325 /* ActionItemsViewEnvironmentObject.swift in Sources */,
 				EB91B6FF230728E700780E24 /* ViewUtils.swift in Sources */,
 				EB91B6AA230728CA00780E24 /* RetroContainer.swift in Sources */,
 				EB91B705230728E700780E24 /* NotificationCenterWrapper.swift in Sources */,
@@ -812,6 +831,7 @@
 				EB91B6E6230728E700780E24 /* ActionItemsView.swift in Sources */,
 				EB91B6E4230728E700780E24 /* ActionItem.swift in Sources */,
 				EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */,
+				EB64A45624D2153600607325 /* ActionItemsSwiftUIView.swift in Sources */,
 				EB91B6662306ED6200780E24 /* AppDelegate.swift in Sources */,
 				EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */,
 				EB91B700230728E700780E24 /* PubSub.swift in Sources */,
