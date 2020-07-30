@@ -98,7 +98,7 @@ struct ThoughtsTableHeader: View {
         print("long pressed on header \(self.headerCollapsedStates[self.topicIndex])")
         self.thoughtsViewEnvironmentObject.columnToEdit = self.column
 
-        self.thoughtsViewEnvironmentObject.activeThoughtViewModal = .editColumnName
+        self.thoughtsViewEnvironmentObject.activeItemsViewModal = .editColumnName
         self.thoughtsViewEnvironmentObject.showModal = true
     }
 

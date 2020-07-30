@@ -17,12 +17,12 @@ limitations under the License.
 
 import SwiftUI
 
-class ThoughtsViewEnvironmentObject: ObservableObject {
+class ThoughtsViewEnvironmentObject: ItemsViewEnvironmentObject {
     @Published var thoughts: [[Thought]] = [[], [], []]
     @Published var columns: [Column] = []
 
     @Published var showModal: Bool = false
-    @Published var activeThoughtViewModal: ActiveThoughtViewModal = .none
+    @Published var activeItemsViewModal: ActiveItemsViewModal = .none
     @Published var thoughtToEdit: Thought?
     @Published var columnToEdit: Column?
 
@@ -37,6 +37,16 @@ class ThoughtsViewEnvironmentObject: ObservableObject {
     init() {}
 }
 
-enum ActiveThoughtViewModal {
-    case editThought, editColumnName, addThought, none
+protocol ItemsViewEnvironmentObject: ObservableObject {
+    var showModal: Bool { get set }
+    var activeItemsViewModal: ActiveItemsViewModal { get set }
+}
+
+enum ActiveItemsViewModal {
+    case editThought,
+    editColumnName,
+    addItem,
+    editActionItemTask,
+    editActionItemAssignee,
+    none
 }

@@ -17,8 +17,8 @@ limitations under the License.
 
 import SwiftUI
 
-struct EditTextSwiftUIView: View {
-    @EnvironmentObject var thoughtsViewEnvironmentObject: ThoughtsViewEnvironmentObject
+struct EditTextSwiftUIView<T: ItemsViewEnvironmentObject>: View {
+    @EnvironmentObject var itemsViewEnvironmentObject: T
     let titleText: String
     @State var userInput: String
     let saveCallback: (String) -> Void
@@ -72,9 +72,17 @@ struct EditTextSwiftUIView: View {
 
     private func exit() {
         print("exiting edit text modal")
-        self.thoughtsViewEnvironmentObject.showModal = false
-        self.thoughtsViewEnvironmentObject.thoughtToEdit = nil
-        self.thoughtsViewEnvironmentObject.columnToEdit = nil
+        self.itemsViewEnvironmentObject.showModal = false
+        if type(of: T.self) == ThoughtsViewEnvironmentObject.Type.self {
+            if let thoughtsViewEnvironmentObject = self.itemsViewEnvironmentObject as? ThoughtsViewEnvironmentObject {
+                thoughtsViewEnvironmentObject.thoughtToEdit = nil
+                thoughtsViewEnvironmentObject.columnToEdit = nil
+            }
+        } else {
+            if let actionItemsViewEnvironmentObject = self.itemsViewEnvironmentObject as? ActionItemsViewEnvironmentObject {
+                actionItemsViewEnvironmentObject.actionItemToEdit = nil
+            }
+        }
     }
 
     private func isValidInput() -> Bool {
@@ -86,7 +94,7 @@ struct EditTextSwiftUIViewPreviews: PreviewProvider {
     static func saveCallback(input: String) {}
 
     static var previews: some View {
-        EditTextSwiftUIView(
+        EditTextSwiftUIView<ThoughtsViewEnvironmentObject>(
             titleText: "Change Column Name",
             userInput: "Happy",
             saveCallback: saveCallback

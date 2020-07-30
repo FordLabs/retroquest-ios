@@ -85,7 +85,7 @@ struct ThoughtsTableCell: View {
     private func modifyMessageTapped() {
         print("tapped on message")
         self.thoughtsViewEnvironmentObject.thoughtToEdit = self.thought
-        self.thoughtsViewEnvironmentObject.activeThoughtViewModal = .editThought
+        self.thoughtsViewEnvironmentObject.activeItemsViewModal = .editThought
         self.thoughtsViewEnvironmentObject.showModal = true
     }
 

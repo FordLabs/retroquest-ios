@@ -17,11 +17,11 @@ limitations under the License.
 
 import SwiftUI
 
-class ActionItemsViewEnvironmentObject: ObservableObject {
+class ActionItemsViewEnvironmentObject: ItemsViewEnvironmentObject {
     @Published var actionItems: [ActionItem] = []
 
     @Published var showModal: Bool = false
-    @Published var activeActionItemsViewModal: ActiveActionItemsViewModal = .none
+    @Published var activeItemsViewModal: ActiveItemsViewModal = .none
     @Published var actionItemToEdit: ActionItem?
 
     init(
@@ -31,8 +31,4 @@ class ActionItemsViewEnvironmentObject: ObservableObject {
     }
 
     init() {}
-}
-
-enum ActiveActionItemsViewModal {
-    case editActionItemTask, editActionItemAssignee, addActionItem, none
 }

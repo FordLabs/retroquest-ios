@@ -25,10 +25,10 @@ struct ThoughtsView: View {
     let teamName: String
 
     var body: some View {
-        let activeThoughtViewModal = self.thoughtsViewEnvironmentObject.activeThoughtViewModal
+        let activeItemsViewModal = self.thoughtsViewEnvironmentObject.activeItemsViewModal
 
         return VStack {
-            ThoughtsViewHeader(teamName: teamName)
+            ItemsViewHeader<ThoughtsViewEnvironmentObject>(teamName: teamName)
 
             ThoughtsTable()
                 .background(Color(RetroColors.backgroundColor))
@@ -36,20 +36,20 @@ struct ThoughtsView: View {
         .edgesIgnoringSafeArea(.top)
         .background(Color(RetroColors.menuHeaderColor))
         .sheet(isPresented: self.$thoughtsViewEnvironmentObject.showModal) {
-            if activeThoughtViewModal == .editThought {
-                EditTextSwiftUIView(
+            if activeItemsViewModal == .editThought {
+                EditTextSwiftUIView<ThoughtsViewEnvironmentObject>(
                     titleText: "Change Thought",
                     userInput: self.thoughtsViewEnvironmentObject.thoughtToEdit?.message ?? "",
                     saveCallback: self.editThoughtCallback
                 ).environmentObject(self.thoughtsViewEnvironmentObject)
-            } else if activeThoughtViewModal == .editColumnName {
-                EditTextSwiftUIView(
+            } else if activeItemsViewModal == .editColumnName {
+                EditTextSwiftUIView<ThoughtsViewEnvironmentObject>(
                     titleText: "Change Column Title",
                     userInput: self.thoughtsViewEnvironmentObject.columnToEdit?.title ?? "",
                     saveCallback: self.editColumnNameCallback
                 ).environmentObject(self.thoughtsViewEnvironmentObject)
-            } else if activeThoughtViewModal == .addThought {
-                NewItemSwiftUIView(
+            } else if activeItemsViewModal == .addItem {
+                NewItemSwiftUIView<ThoughtsViewEnvironmentObject>(
                     titleText: "Add New Thought",
                     userInput: "",
                     saveCallback: self.addThoughtCallback

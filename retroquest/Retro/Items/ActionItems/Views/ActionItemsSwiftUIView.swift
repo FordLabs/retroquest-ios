@@ -24,11 +24,10 @@ struct ActionItemsSwiftUIView: View {
     let teamName: String
 
     var body: some View {
-        let activeActionItemsViewModal = self.actionItemsViewEnvironmentObject.activeActionItemsViewModal
+        let activeActionItemsViewModal = self.actionItemsViewEnvironmentObject.activeItemsViewModal
 
         return VStack {
-            EmptyView()
-//            ThoughtsViewHeader(teamName: teamName)
+            ItemsViewHeader<ActionItemsViewEnvironmentObject>(teamName: teamName)
 //
 //            ThoughtsTable()
 //                .background(Color(RetroColors.backgroundColor))
@@ -37,19 +36,19 @@ struct ActionItemsSwiftUIView: View {
         .background(Color(RetroColors.menuHeaderColor))
         .sheet(isPresented: self.$actionItemsViewEnvironmentObject.showModal) {
             if activeActionItemsViewModal == .editActionItemTask {
-                EditTextSwiftUIView(
+                EditTextSwiftUIView<ActionItemsViewEnvironmentObject>(
                     titleText: "Change Action Item Task",
                     userInput: self.actionItemsViewEnvironmentObject.actionItemToEdit?.task ?? "",
                     saveCallback: self.editActionItemTaskCallback
                 ).environmentObject(self.actionItemsViewEnvironmentObject)
             } else if activeActionItemsViewModal == .editActionItemAssignee {
-                EditTextSwiftUIView(
+                EditTextSwiftUIView<ActionItemsViewEnvironmentObject>(
                     titleText: "Change Action Item Assignee",
                     userInput: self.actionItemsViewEnvironmentObject.actionItemToEdit?.assignee ?? "",
                     saveCallback: self.editActionItemAssigneeCallback
                 ).environmentObject(self.actionItemsViewEnvironmentObject)
-            } else if activeActionItemsViewModal == .addActionItem {
-                NewItemSwiftUIView(
+            } else if activeActionItemsViewModal == .addItem {
+                NewItemSwiftUIView<ActionItemsViewEnvironmentObject>(
                     titleText: "Add New Action Item",
                     userInput: "",
                     saveCallback: self.addActionItemCallback
@@ -89,7 +88,7 @@ struct ActionItemsSwiftUIView: View {
             let prefixOfAssignee = userInput.prefix(upTo: startOfAssigneeBlock)
             let indexOfAssigneeWithoutAt = userInput.index(startOfAssigneeBlock, offsetBy: 1)
             let restOfAssignee = userInput[indexOfAssigneeWithoutAt..<userInput.endIndex]
-            let textBlocks = restOfAssignee.split(separator: " ", maxSplits: 1)
+            let textBlocks = restOfAssignee.split(maxSplits: 1, whereSeparator: \.isWhitespace)
 
             assignee = String(textBlocks[0])
             task = String(prefixOfAssignee)

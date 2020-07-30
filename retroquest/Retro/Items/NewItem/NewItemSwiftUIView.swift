@@ -17,17 +17,15 @@ limitations under the License.
 
 import SwiftUI
 
-struct NewItemSwiftUIView: View {
-    @EnvironmentObject var thoughtsViewEnvironmentObject: ThoughtsViewEnvironmentObject
+struct NewItemSwiftUIView<T: ItemsViewEnvironmentObject>: View {
+    @EnvironmentObject var itemsViewEnvironmentObject: T
     let titleText: String
     @State var userInput: String
     let saveCallback: (String, Column?) -> Void
     @State var selectedColumn: Column?
 
     var body: some View {
-        let numColumns: Int = self.thoughtsViewEnvironmentObject.columns.count
-        let columnRowTextHeight: CGFloat = 50.0
-        let columnRowHeight = CGFloat(numColumns) * (columnRowTextHeight + 4.0 * CGFloat(numColumns))
+        let showColumnTable = type(of: T.self) == ThoughtsViewEnvironmentObject.Type.self
 
         return VStack {
             Spacer()
@@ -52,31 +50,9 @@ struct NewItemSwiftUIView: View {
 
             ValidatingTextFieldSwiftUI(userInput: $userInput, placeholderText: "Enter Thought")
 
-            List {
-                ForEach(self.thoughtsViewEnvironmentObject.columns, id: \.self) { column in
-                    HStack {
-                        Text(column.title)
-                            .font(Font.retroquestRegular(size: 20))
-                            .frame(height: 50)
-                        if self.selectedColumn == column {
-                            HStack {
-                                Spacer()
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(Color.green)
-                            }
-                        }
-                    }
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            self.selectedColumn = column
-                        }
-                }
+            if showColumnTable {
+                NewItemColumnTable(selectedColumn: self.$selectedColumn)
             }
-                .background(Color.white)
-                .frame(height: columnRowHeight)
-                .cornerRadius(5.0)
-                .padding(.horizontal)
 
             Button(action: save) {
                 Text("Save")
@@ -103,11 +79,48 @@ struct NewItemSwiftUIView: View {
 
     private func exit() {
         print("exiting edit text modal")
-        self.thoughtsViewEnvironmentObject.showModal = false
+        self.itemsViewEnvironmentObject.showModal = false
     }
 
     private func isValidInput() -> Bool {
         return userInput.count != 0 && userInput.count <= 255 && self.selectedColumn != nil
+    }
+}
+
+struct NewItemColumnTable: View {
+    @EnvironmentObject var thoughtsViewEnvironmentObject: ThoughtsViewEnvironmentObject
+    @Binding var selectedColumn: Column?
+
+    var body: some View {
+        let numColumns: Int = self.thoughtsViewEnvironmentObject.columns.count
+        let columnRowTextHeight: CGFloat = 50.0
+        let columnRowHeight = CGFloat(numColumns) * (columnRowTextHeight + 4.0 * CGFloat(numColumns))
+
+        return List {
+            ForEach(self.thoughtsViewEnvironmentObject.columns, id: \.self) { column in
+                HStack {
+                    Text(column.title)
+                        .font(Font.retroquestRegular(size: 20))
+                        .frame(height: 50)
+                    if self.selectedColumn == column {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "checkmark")
+                                .foregroundColor(Color.green)
+                        }
+                    }
+                }
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        self.selectedColumn = column
+                    }
+            }
+        }
+            .background(Color.white)
+            .frame(height: columnRowHeight)
+            .cornerRadius(5.0)
+            .padding(.horizontal)
     }
 }
 
@@ -124,7 +137,7 @@ struct NewItemSwiftUIViewPreviews: PreviewProvider {
     static func saveCallback(input: String, selectedColumn: Column?) {}
 
     static var previews: some View {
-        NewItemSwiftUIView(
+        NewItemSwiftUIView<ThoughtsViewEnvironmentObject>(
             titleText: "Add New Thought",
             userInput: "",
             saveCallback: saveCallback

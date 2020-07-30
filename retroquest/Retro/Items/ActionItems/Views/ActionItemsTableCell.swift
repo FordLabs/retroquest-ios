@@ -86,14 +86,14 @@ struct ActionItemsTableCell: View {
     private func modifyTaskTapped() {
         print("tapped on task")
         self.actionItemsViewEnvironmentObject.actionItemToEdit = self.actionItem
-        self.actionItemsViewEnvironmentObject.activeActionItemsViewModal = .editActionItemTask
+        self.actionItemsViewEnvironmentObject.activeItemsViewModal = .editActionItemTask
         self.actionItemsViewEnvironmentObject.showModal = true
     }
 
     private func modifyAssigneeTapped() {
         print("tapped on assignee")
         self.actionItemsViewEnvironmentObject.actionItemToEdit = self.actionItem
-        self.actionItemsViewEnvironmentObject.activeActionItemsViewModal = .editActionItemAssignee
+        self.actionItemsViewEnvironmentObject.activeItemsViewModal = .editActionItemAssignee
         self.actionItemsViewEnvironmentObject.showModal = true
     }
 

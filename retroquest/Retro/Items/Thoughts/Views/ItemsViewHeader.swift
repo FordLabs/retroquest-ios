@@ -17,8 +17,8 @@ limitations under the License.
 
 import SwiftUI
 
-struct ThoughtsViewHeader: View {
-    @EnvironmentObject var items: ThoughtsViewEnvironmentObject
+struct ItemsViewHeader<T: ItemsViewEnvironmentObject>: View {
+    @EnvironmentObject var items: T
     let teamName: String
 
     var body: some View {
@@ -45,14 +45,14 @@ struct ThoughtsViewHeader: View {
     }
 
     private func addItem() {
-        self.items.activeThoughtViewModal = .addThought
+        self.items.activeItemsViewModal = .addItem
         self.items.showModal = true
     }
 }
 
 struct ThoughtsViewHeaderPreview: PreviewProvider {
     static var previews: some View {
-        ThoughtsViewHeader(teamName: "Best Team")
+        ItemsViewHeader<ThoughtsViewEnvironmentObject>(teamName: "Best Team")
             .environmentObject(ThoughtsViewEnvironmentObject())
     }
 }
