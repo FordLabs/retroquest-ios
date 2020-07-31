@@ -33,7 +33,6 @@ struct ActionItemsTableCell: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-
                 VStack {
                     Spacer()
                     MessageLabel(messageText: self.actionItem.task, strikethroughText: self.actionItem.completed)

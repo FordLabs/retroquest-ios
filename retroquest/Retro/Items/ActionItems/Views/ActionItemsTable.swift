@@ -41,6 +41,9 @@ struct ActionItemsTable: View {
                     .listRowBackground(Color(RetroColors.backgroundColor))
             }.onDelete(perform: self.delete)
         }
+            .padding(.top, 10)
+            .background(Color(RetroColors.backgroundColor))
+        
     }
 
     private func delete(actionItemIndex: IndexSet) {
