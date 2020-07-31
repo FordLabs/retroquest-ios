@@ -44,6 +44,7 @@ struct ActionItemsTableCell: View {
                         .font(Font(UIFont.retroquestBold(size: 14)))
                         .foregroundColor(Color(RetroColors.cellDarkTextColor))
                     MessageLabel(messageText: self.actionItem.assignee ?? " ", strikethroughText: false)
+                        .frame(minWidth: 100)
                         .contentShape(Rectangle())
                         .onTapGesture(perform: self.modifyAssigneeTapped)
                 }.frame(height: (2 * geometry.size.height / 3) - dividerThickness)

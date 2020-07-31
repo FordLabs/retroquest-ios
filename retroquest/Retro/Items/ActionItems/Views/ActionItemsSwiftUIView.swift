@@ -100,7 +100,7 @@ struct ActionItemsSwiftUIView: View {
 
         let newActionItem = ActionItem(
                 id: -1,
-                task: userInput,
+                task: task,
                 completed: false,
                 teamId: URLManager.currentTeam,
                 assignee: assignee,

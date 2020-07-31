@@ -84,7 +84,8 @@ struct NewItemSwiftUIView<T: ItemsViewEnvironmentObject>: View {
 
     private func isValidInput() -> Bool {
         let userInputValid = userInput.count != 0 && userInput.count <= 255
-        let columnSelectedForThought = type(of: T.self) == ThoughtsViewEnvironmentObject.Type.self ? self.selectedColumn != nil : true
+        let isThought = type(of: T.self) == ThoughtsViewEnvironmentObject.Type.self
+        let columnSelectedForThought = isThought ? self.selectedColumn != nil : true
         return userInputValid && columnSelectedForThought
     }
 }
