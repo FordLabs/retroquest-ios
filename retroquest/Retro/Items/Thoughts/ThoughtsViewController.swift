@@ -35,14 +35,14 @@ class ThoughtsViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Thoughts"
 
-        thoughtsService.registerItemCallback(thoughtCallback)
-        columnNameService.registerItemCallback(columnNamesCallback)
-        getThoughtsAndColumns()
+        self.thoughtsService.registerItemCallback(thoughtCallback)
+        self.columnNameService.registerItemCallback(columnNamesCallback)
+        self.getThoughtsAndColumns()
 
         let thoughtsViewSwiftUI: some View = ThoughtsView(teamName: URLManager.currentTeam)
-            .environmentObject(thoughtsViewEnvironmentObject)
-            .environmentObject(thoughtsService.itemPubSub)
-            .environmentObject(columnNameService.itemPubSub)
+            .environmentObject(self.thoughtsViewEnvironmentObject)
+            .environmentObject(self.thoughtsService.itemPubSub)
+            .environmentObject(self.columnNameService.itemPubSub)
         let hostingController = UIHostingController(rootView: thoughtsViewSwiftUI)
         addChild(hostingController)
         let thoughtsView = hostingController.view!
@@ -51,13 +51,13 @@ class ThoughtsViewController: UIViewController {
     }
 
     func refreshData() {
-        thoughtsService.clear()
-        getThoughtsAndColumns()
+        self.thoughtsService.clear()
+        self.getThoughtsAndColumns()
     }
 
     private func getThoughtsAndColumns() {
-        _ = thoughtsService.requestItemsFromServer(team: URLManager.currentTeam)
-        _ = columnNameService.requestItemsFromServer(team: URLManager.currentTeam)
+        _ = self.thoughtsService.requestItemsFromServer(team: URLManager.currentTeam)
+        _ = self.columnNameService.requestItemsFromServer(team: URLManager.currentTeam)
     }
 
     private func thoughtCallback(thought: Thought?) {
@@ -76,15 +76,16 @@ class ThoughtsViewController: UIViewController {
 
             let columnName: ColumnName = self.columnNameService.getColumnName(thought.topic)
             if let columnIndex = ColumnNameService.displayOrderForTopics.firstIndex(of: columnName) {
-                thoughtsViewEnvironmentObject.thoughts[columnIndex] = thoughtsService.getThoughtsOfTopic(columnName)
+                let thoughtsOfTopic = self.thoughtsService.getThoughtsOfTopic(columnName)
+                self.thoughtsViewEnvironmentObject.thoughts[columnIndex] = thoughtsOfTopic
             }
         }
     }
 
     private func columnNamesCallback(column: Column?) {
         if let column = column {
-            _ = columnNameService.addOrReplace(column)
-            thoughtsViewEnvironmentObject.columns = columnNameService.items
+            _ = self.columnNameService.addOrReplace(column)
+            self.thoughtsViewEnvironmentObject.columns = self.columnNameService.items
         }
     }
 }
