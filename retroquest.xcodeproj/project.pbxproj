@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
+		EB225CBB24D35A4300713332 /* ActionItemsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB225CBA24D35A4300713332 /* ActionItemsTable.swift */; };
 		EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */; };
 		EB64A45124D2084100607325 /* ThoughtsViewEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */; };
 		EB64A45324D20DCC00607325 /* ItemsViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45224D20DCC00607325 /* ItemsViewHeader.swift */; };
@@ -125,6 +126,7 @@
 
 /* Begin PBXFileReference section */
 		EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenterSecret.generated.swift; sourceTree = "<group>"; };
+		EB225CBA24D35A4300713332 /* ActionItemsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemsTable.swift; sourceTree = "<group>"; };
 		EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsView.swift; sourceTree = "<group>"; };
 		EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsViewEnvironmentObject.swift; sourceTree = "<group>"; };
 		EB64A45224D20DCC00607325 /* ItemsViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewHeader.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			children = (
 				EB64A45524D2153600607325 /* ActionItemsSwiftUIView.swift */,
 				EB64A45924D301CE00607325 /* ActionItemsTableCell.swift */,
+				EB225CBA24D35A4300713332 /* ActionItemsTable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */,
 				EB91B700230728E700780E24 /* PubSub.swift in Sources */,
 				EB64A45324D20DCC00607325 /* ItemsViewHeader.swift in Sources */,
+				EB225CBB24D35A4300713332 /* ActionItemsTable.swift in Sources */,
 				EB91B6FC230728E700780E24 /* Column.swift in Sources */,
 				EBB986FF23072CA90013EB90 /* RetroquestServerURL.generated.swift in Sources */,
 				EB91B6E9230728E700780E24 /* EditItemViewController.swift in Sources */,

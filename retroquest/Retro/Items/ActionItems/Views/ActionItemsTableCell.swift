@@ -43,7 +43,7 @@ struct ActionItemsTableCell: View {
                     Text("assigned to")
                         .font(Font(UIFont.retroquestBold(size: 14)))
                         .foregroundColor(Color(RetroColors.cellDarkTextColor))
-                    MessageLabel(messageText: self.actionItem.assignee ?? "", strikethroughText: false)
+                    MessageLabel(messageText: self.actionItem.assignee ?? " ", strikethroughText: false)
                         .contentShape(Rectangle())
                         .onTapGesture(perform: self.modifyAssigneeTapped)
                 }.frame(height: (2 * geometry.size.height / 3) - dividerThickness)

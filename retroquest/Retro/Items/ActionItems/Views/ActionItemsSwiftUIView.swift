@@ -28,22 +28,22 @@ struct ActionItemsSwiftUIView: View {
 
         return VStack {
             ItemsViewHeader<ActionItemsViewEnvironmentObject>(teamName: teamName)
-//
-//            ThoughtsTable()
-//                .background(Color(RetroColors.backgroundColor))
+
+            ActionItemsTable()
+                .background(Color(RetroColors.backgroundColor))
         }
         .edgesIgnoringSafeArea(.top)
         .background(Color(RetroColors.menuHeaderColor))
         .sheet(isPresented: self.$actionItemsViewEnvironmentObject.showModal) {
             if activeActionItemsViewModal == .editActionItemTask {
                 EditTextSwiftUIView<ActionItemsViewEnvironmentObject>(
-                    titleText: "Change Action Item Task",
+                    titleText: "Change Task",
                     userInput: self.actionItemsViewEnvironmentObject.actionItemToEdit?.task ?? "",
                     saveCallback: self.editActionItemTaskCallback
                 ).environmentObject(self.actionItemsViewEnvironmentObject)
             } else if activeActionItemsViewModal == .editActionItemAssignee {
                 EditTextSwiftUIView<ActionItemsViewEnvironmentObject>(
-                    titleText: "Change Action Item Assignee",
+                    titleText: "Change Assignee",
                     userInput: self.actionItemsViewEnvironmentObject.actionItemToEdit?.assignee ?? "",
                     saveCallback: self.editActionItemAssigneeCallback
                 ).environmentObject(self.actionItemsViewEnvironmentObject)
