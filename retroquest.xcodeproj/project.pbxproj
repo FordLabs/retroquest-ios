@@ -65,18 +65,14 @@
 		EB91B73C23072AC300780E24 /* TestRetroContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B71223072AC300780E24 /* TestRetroContainer.swift */; };
 		EB91B73D23072AC300780E24 /* RetroTabBarViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B71423072AC300780E24 /* RetroTabBarViewControllerSpec.swift */; };
 		EB91B73E23072AC300780E24 /* FakeActionItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B71723072AC300780E24 /* FakeActionItemsService.swift */; };
-		EB91B73F23072AC300780E24 /* ActionItemsViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B71823072AC300780E24 /* ActionItemsViewControllerSpec.swift */; };
 		EB91B74023072AC300780E24 /* FakeActionItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B71923072AC300780E24 /* FakeActionItemsViewController.swift */; };
 		EB91B74123072AC300780E24 /* ActionItemsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B71A23072AC300780E24 /* ActionItemsServiceSpec.swift */; };
-		EB91B74223072AC300780E24 /* ActionItemTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B71B23072AC300780E24 /* ActionItemTableViewCellSpec.swift */; };
 		EB91B74323072AC300780E24 /* EditItemViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B71D23072AC300780E24 /* EditItemViewControllerSpec.swift */; };
 		EB91B74423072AC300780E24 /* NewItemViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B71F23072AC300780E24 /* NewItemViewControllerSpec.swift */; };
 		EB91B74523072AC300780E24 /* ItemsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B72023072AC300780E24 /* ItemsServiceSpec.swift */; };
 		EB91B74623072AC300780E24 /* FakeItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B72123072AC300780E24 /* FakeItemsService.swift */; };
 		EB91B74723072AC300780E24 /* FeedbackViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B72323072AC300780E24 /* FeedbackViewControllerSpec.swift */; };
 		EB91B74823072AC300780E24 /* FakeThoughtsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B72523072AC300780E24 /* FakeThoughtsViewController.swift */; };
-		EB91B74923072AC300780E24 /* ThoughtTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B72623072AC300780E24 /* ThoughtTableViewCellSpec.swift */; };
-		EB91B74A23072AC300780E24 /* ThoughtsViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B72723072AC300780E24 /* ThoughtsViewControllerSpec.swift */; };
 		EB91B74B23072AC300780E24 /* FakeThoughtsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B72823072AC300780E24 /* FakeThoughtsService.swift */; };
 		EB91B74C23072AC300780E24 /* ThoughtsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B72923072AC300780E24 /* ThoughtsServiceSpec.swift */; };
 		EB91B74D23072AC300780E24 /* ColumnNamesServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91B72B23072AC300780E24 /* ColumnNamesServiceSpec.swift */; };
@@ -187,18 +183,14 @@
 		EB91B71223072AC300780E24 /* TestRetroContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRetroContainer.swift; sourceTree = "<group>"; };
 		EB91B71423072AC300780E24 /* RetroTabBarViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetroTabBarViewControllerSpec.swift; sourceTree = "<group>"; };
 		EB91B71723072AC300780E24 /* FakeActionItemsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeActionItemsService.swift; sourceTree = "<group>"; };
-		EB91B71823072AC300780E24 /* ActionItemsViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionItemsViewControllerSpec.swift; sourceTree = "<group>"; };
 		EB91B71923072AC300780E24 /* FakeActionItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeActionItemsViewController.swift; sourceTree = "<group>"; };
 		EB91B71A23072AC300780E24 /* ActionItemsServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionItemsServiceSpec.swift; sourceTree = "<group>"; };
-		EB91B71B23072AC300780E24 /* ActionItemTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionItemTableViewCellSpec.swift; sourceTree = "<group>"; };
 		EB91B71D23072AC300780E24 /* EditItemViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditItemViewControllerSpec.swift; sourceTree = "<group>"; };
 		EB91B71F23072AC300780E24 /* NewItemViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewControllerSpec.swift; sourceTree = "<group>"; };
 		EB91B72023072AC300780E24 /* ItemsServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsServiceSpec.swift; sourceTree = "<group>"; };
 		EB91B72123072AC300780E24 /* FakeItemsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeItemsService.swift; sourceTree = "<group>"; };
 		EB91B72323072AC300780E24 /* FeedbackViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewControllerSpec.swift; sourceTree = "<group>"; };
 		EB91B72523072AC300780E24 /* FakeThoughtsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeThoughtsViewController.swift; sourceTree = "<group>"; };
-		EB91B72623072AC300780E24 /* ThoughtTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtTableViewCellSpec.swift; sourceTree = "<group>"; };
-		EB91B72723072AC300780E24 /* ThoughtsViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtsViewControllerSpec.swift; sourceTree = "<group>"; };
 		EB91B72823072AC300780E24 /* FakeThoughtsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeThoughtsService.swift; sourceTree = "<group>"; };
 		EB91B72923072AC300780E24 /* ThoughtsServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThoughtsServiceSpec.swift; sourceTree = "<group>"; };
 		EB91B72B23072AC300780E24 /* ColumnNamesServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnNamesServiceSpec.swift; sourceTree = "<group>"; };
@@ -545,10 +537,8 @@
 			isa = PBXGroup;
 			children = (
 				EB91B71723072AC300780E24 /* FakeActionItemsService.swift */,
-				EB91B71823072AC300780E24 /* ActionItemsViewControllerSpec.swift */,
 				EB91B71923072AC300780E24 /* FakeActionItemsViewController.swift */,
 				EB91B71A23072AC300780E24 /* ActionItemsServiceSpec.swift */,
-				EB91B71B23072AC300780E24 /* ActionItemTableViewCellSpec.swift */,
 			);
 			path = ActionItems;
 			sourceTree = "<group>";
@@ -581,8 +571,6 @@
 			isa = PBXGroup;
 			children = (
 				EB91B72523072AC300780E24 /* FakeThoughtsViewController.swift */,
-				EB91B72623072AC300780E24 /* ThoughtTableViewCellSpec.swift */,
-				EB91B72723072AC300780E24 /* ThoughtsViewControllerSpec.swift */,
 				EB91B72823072AC300780E24 /* FakeThoughtsService.swift */,
 				EB91B72923072AC300780E24 /* ThoughtsServiceSpec.swift */,
 			);
@@ -861,9 +849,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB91B74A23072AC300780E24 /* ThoughtsViewControllerSpec.swift in Sources */,
 				EB91B74D23072AC300780E24 /* ColumnNamesServiceSpec.swift in Sources */,
-				EB91B74923072AC300780E24 /* ThoughtTableViewCellSpec.swift in Sources */,
 				EB91B74523072AC300780E24 /* ItemsServiceSpec.swift in Sources */,
 				EB91B74623072AC300780E24 /* FakeItemsService.swift in Sources */,
 				EB91B75323072AC300780E24 /* FakeWebSocketService.swift in Sources */,
@@ -873,7 +859,6 @@
 				EB91B75723072AC300780E24 /* TestHelpers.swift in Sources */,
 				EB91B73A23072AC300780E24 /* FlowControllerSpec.swift in Sources */,
 				EB91B74423072AC300780E24 /* NewItemViewControllerSpec.swift in Sources */,
-				EB91B74223072AC300780E24 /* ActionItemTableViewCellSpec.swift in Sources */,
 				EB91B74723072AC300780E24 /* FeedbackViewControllerSpec.swift in Sources */,
 				EB91B74123072AC300780E24 /* ActionItemsServiceSpec.swift in Sources */,
 				EB91B73E23072AC300780E24 /* FakeActionItemsService.swift in Sources */,
@@ -881,7 +866,6 @@
 				EB91B73923072AC300780E24 /* FakeFlowController.swift in Sources */,
 				EB91B75523072AC300780E24 /* ViewUtilsSpec.swift in Sources */,
 				EB91B75123072AC300780E24 /* RetroCookiesSpec.swift in Sources */,
-				EB91B73F23072AC300780E24 /* ActionItemsViewControllerSpec.swift in Sources */,
 				EB91B74023072AC300780E24 /* FakeActionItemsViewController.swift in Sources */,
 				EB91B73C23072AC300780E24 /* TestRetroContainer.swift in Sources */,
 				EB91B75023072AC300780E24 /* URLManagerSpec.swift in Sources */,

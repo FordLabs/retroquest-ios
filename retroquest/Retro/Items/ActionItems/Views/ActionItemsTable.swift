@@ -43,7 +43,6 @@ struct ActionItemsTable: View {
         }
             .padding(.top, 10)
             .background(Color(RetroColors.backgroundColor))
-        
     }
 
     private func delete(actionItemIndex: IndexSet) {
