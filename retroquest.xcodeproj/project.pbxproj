@@ -10,6 +10,7 @@
 		EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
 		EB225CBB24D35A4300713332 /* ActionItemsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB225CBA24D35A4300713332 /* ActionItemsTable.swift */; };
 		EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */; };
+		EB5908F524D8A38900C2B2DC /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = EB5908F424D8A38900C2B2DC /* Swifter */; };
 		EB64A45124D2084100607325 /* ThoughtsViewEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */; };
 		EB64A45324D20DCC00607325 /* ItemsViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45224D20DCC00607325 /* ItemsViewHeader.swift */; };
 		EB64A45624D2153600607325 /* ActionItemsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45524D2153600607325 /* ActionItemsSwiftUIView.swift */; };
@@ -244,12 +245,20 @@
 				EBC5EF36232C1DF300FB5ABA /* Nimble in Frameworks */,
 				EBC5EF33232C1DBF00FB5ABA /* Quick in Frameworks */,
 				EBC5EF39232C1E3400FB5ABA /* Hippolyte in Frameworks */,
+				EB5908F524D8A38900C2B2DC /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB5908F224D8A36900C2B2DC /* retroquestUITests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = retroquestUITests;
+			sourceTree = "<group>";
+		};
 		EB64A44F24D2045E00607325 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +286,7 @@
 			children = (
 				EB91B6642306ED6200780E24 /* retroquest */,
 				EB91B6792306ED6300780E24 /* retroquestTests */,
+				EB5908F224D8A36900C2B2DC /* retroquestUITests */,
 				EB91B6632306ED6200780E24 /* Products */,
 				EB91B6852307255100780E24 /* Frameworks */,
 			);
@@ -664,6 +674,7 @@
 				EBC5EF32232C1DBF00FB5ABA /* Quick */,
 				EBC5EF35232C1DF300FB5ABA /* Nimble */,
 				EBC5EF38232C1E3400FB5ABA /* Hippolyte */,
+				EB5908F424D8A38900C2B2DC /* Swifter */,
 			);
 			productName = retroquestTests;
 			productReference = EB91B6762306ED6300780E24 /* retroquestTests.xctest */;
@@ -706,6 +717,7 @@
 				EBC5EF37232C1E3400FB5ABA /* XCRemoteSwiftPackageReference "Hippolyte" */,
 				EBC5EF4023301E5C00FB5ABA /* XCRemoteSwiftPackageReference "M13Checkbox" */,
 				EBCDBEA9246DE74D00C65F14 /* XCRemoteSwiftPackageReference "FASwiftUI" */,
+				EB5908F324D8A38900C2B2DC /* XCRemoteSwiftPackageReference "swifter" */,
 			);
 			productRefGroup = EB91B6632306ED6200780E24 /* Products */;
 			projectDirPath = "";
@@ -1134,6 +1146,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EB5908F324D8A38900C2B2DC /* XCRemoteSwiftPackageReference "swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/httpswift/swifter";
+			requirement = {
+				branch = stable;
+				kind = branch;
+			};
+		};
 		EBC5EF25232C1A0B00FB5ABA /* XCRemoteSwiftPackageReference "StompClientLib" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/thedavidharris/StompClientLib.git";
@@ -1201,6 +1221,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EB5908F424D8A38900C2B2DC /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB5908F324D8A38900C2B2DC /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
+		};
 		EBC5EF26232C1A0B00FB5ABA /* StompClientLib */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBC5EF25232C1A0B00FB5ABA /* XCRemoteSwiftPackageReference "StompClientLib" */;
