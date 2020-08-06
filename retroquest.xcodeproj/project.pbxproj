@@ -10,7 +10,8 @@
 		EB08EF0323195A05005EAD07 /* AppCenterSecret.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */; };
 		EB225CBB24D35A4300713332 /* ActionItemsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB225CBA24D35A4300713332 /* ActionItemsTable.swift */; };
 		EB4E9B6D247467F800E3A583 /* ThoughtsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */; };
-		EB5908F524D8A38900C2B2DC /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = EB5908F424D8A38900C2B2DC /* Swifter */; };
+		EB5908FF24D8B33D00C2B2DC /* retroquestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5908FE24D8B33D00C2B2DC /* retroquestUITests.swift */; };
+		EB59090724D8B3F900C2B2DC /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = EB59090624D8B3F900C2B2DC /* Swifter */; };
 		EB64A45124D2084100607325 /* ThoughtsViewEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */; };
 		EB64A45324D20DCC00607325 /* ItemsViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45224D20DCC00607325 /* ItemsViewHeader.swift */; };
 		EB64A45624D2153600607325 /* ActionItemsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64A45524D2153600607325 /* ActionItemsSwiftUIView.swift */; };
@@ -112,6 +113,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EB59090124D8B33D00C2B2DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB91B65A2306ED6200780E24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB91B6612306ED6200780E24;
+			remoteInfo = retroquest;
+		};
 		EB91B6772306ED6300780E24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB91B65A2306ED6200780E24 /* Project object */;
@@ -125,6 +133,9 @@
 		EB08EF0223195A05005EAD07 /* AppCenterSecret.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenterSecret.generated.swift; sourceTree = "<group>"; };
 		EB225CBA24D35A4300713332 /* ActionItemsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemsTable.swift; sourceTree = "<group>"; };
 		EB4E9B6C247467F800E3A583 /* ThoughtsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsView.swift; sourceTree = "<group>"; };
+		EB5908FC24D8B33D00C2B2DC /* retroquestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = retroquestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5908FE24D8B33D00C2B2DC /* retroquestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = retroquestUITests.swift; sourceTree = "<group>"; };
+		EB59090024D8B33D00C2B2DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB64A45024D2084100607325 /* ThoughtsViewEnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsViewEnvironmentObject.swift; sourceTree = "<group>"; };
 		EB64A45224D20DCC00607325 /* ItemsViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewHeader.swift; sourceTree = "<group>"; };
 		EB64A45524D2153600607325 /* ActionItemsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemsSwiftUIView.swift; sourceTree = "<group>"; };
@@ -222,6 +233,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EB5908F924D8B33D00C2B2DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB59090724D8B3F900C2B2DC /* Swifter in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB91B65F2306ED6200780E24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,16 +264,17 @@
 				EBC5EF36232C1DF300FB5ABA /* Nimble in Frameworks */,
 				EBC5EF33232C1DBF00FB5ABA /* Quick in Frameworks */,
 				EBC5EF39232C1E3400FB5ABA /* Hippolyte in Frameworks */,
-				EB5908F524D8A38900C2B2DC /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EB5908F224D8A36900C2B2DC /* retroquestUITests */ = {
+		EB5908FD24D8B33D00C2B2DC /* retroquestUITests */ = {
 			isa = PBXGroup;
 			children = (
+				EB5908FE24D8B33D00C2B2DC /* retroquestUITests.swift */,
+				EB59090024D8B33D00C2B2DC /* Info.plist */,
 			);
 			path = retroquestUITests;
 			sourceTree = "<group>";
@@ -286,7 +306,7 @@
 			children = (
 				EB91B6642306ED6200780E24 /* retroquest */,
 				EB91B6792306ED6300780E24 /* retroquestTests */,
-				EB5908F224D8A36900C2B2DC /* retroquestUITests */,
+				EB5908FD24D8B33D00C2B2DC /* retroquestUITests */,
 				EB91B6632306ED6200780E24 /* Products */,
 				EB91B6852307255100780E24 /* Frameworks */,
 			);
@@ -297,6 +317,7 @@
 			children = (
 				EB91B6622306ED6200780E24 /* retroquest.app */,
 				EB91B6762306ED6300780E24 /* retroquestTests.xctest */,
+				EB5908FC24D8B33D00C2B2DC /* retroquestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -630,6 +651,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EB5908FB24D8B33D00C2B2DC /* retroquestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB59090324D8B33D00C2B2DC /* Build configuration list for PBXNativeTarget "retroquestUITests" */;
+			buildPhases = (
+				EB5908F824D8B33D00C2B2DC /* Sources */,
+				EB5908F924D8B33D00C2B2DC /* Frameworks */,
+				EB5908FA24D8B33D00C2B2DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB59090224D8B33D00C2B2DC /* PBXTargetDependency */,
+			);
+			name = retroquestUITests;
+			packageProductDependencies = (
+				EB59090624D8B3F900C2B2DC /* Swifter */,
+			);
+			productName = retroquestUITests;
+			productReference = EB5908FC24D8B33D00C2B2DC /* retroquestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		EB91B6612306ED6200780E24 /* retroquest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB91B67F2306ED6300780E24 /* Build configuration list for PBXNativeTarget "retroquest" */;
@@ -674,7 +716,6 @@
 				EBC5EF32232C1DBF00FB5ABA /* Quick */,
 				EBC5EF35232C1DF300FB5ABA /* Nimble */,
 				EBC5EF38232C1E3400FB5ABA /* Hippolyte */,
-				EB5908F424D8A38900C2B2DC /* Swifter */,
 			);
 			productName = retroquestTests;
 			productReference = EB91B6762306ED6300780E24 /* retroquestTests.xctest */;
@@ -686,10 +727,14 @@
 		EB91B65A2306ED6200780E24 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Ford;
 				TargetAttributes = {
+					EB5908FB24D8B33D00C2B2DC = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = EB91B6612306ED6200780E24;
+					};
 					EB91B6612306ED6200780E24 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -725,11 +770,19 @@
 			targets = (
 				EB91B6612306ED6200780E24 /* retroquest */,
 				EB91B6752306ED6300780E24 /* retroquestTests */,
+				EB5908FB24D8B33D00C2B2DC /* retroquestUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EB5908FA24D8B33D00C2B2DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB91B6602306ED6200780E24 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -796,6 +849,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EB5908F824D8B33D00C2B2DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5908FF24D8B33D00C2B2DC /* retroquestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB91B65E2306ED6200780E24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -894,6 +955,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EB59090224D8B33D00C2B2DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB91B6612306ED6200780E24 /* retroquest */;
+			targetProxy = EB59090124D8B33D00C2B2DC /* PBXContainerItemProxy */;
+		};
 		EB91B6782306ED6300780E24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EB91B6612306ED6200780E24 /* retroquest */;
@@ -913,6 +979,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EB59090424D8B33D00C2B2DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = retroquestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ford.fordlabs.retroquestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = retroquest;
+			};
+			name = Debug;
+		};
+		EB59090524D8B33D00C2B2DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = retroquestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ford.fordlabs.retroquestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = retroquest;
+			};
+			name = Release;
+		};
 		EB91B67D2306ED6300780E24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1116,6 +1220,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EB59090324D8B33D00C2B2DC /* Build configuration list for PBXNativeTarget "retroquestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB59090424D8B33D00C2B2DC /* Debug */,
+				EB59090524D8B33D00C2B2DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EB91B65D2306ED6200780E24 /* Build configuration list for PBXProject "retroquest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1221,7 +1334,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EB5908F424D8A38900C2B2DC /* Swifter */ = {
+		EB59090624D8B3F900C2B2DC /* Swifter */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EB5908F324D8A38900C2B2DC /* XCRemoteSwiftPackageReference "swifter" */;
 			productName = Swifter;
