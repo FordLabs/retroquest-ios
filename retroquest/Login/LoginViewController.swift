@@ -158,7 +158,7 @@ class LoginViewController: UIViewController {
             }
 
             URLManager.setCurrentTeam(team: self.team!)
-            MSAnalytics.trackEvent("login", withProperties: ["Team": URLManager.currentTeam])
+            Analytics.trackEvent("login", withProperties: ["Team": URLManager.currentTeam])
             self.flowController.switchTo(.thoughts)
         }
     }

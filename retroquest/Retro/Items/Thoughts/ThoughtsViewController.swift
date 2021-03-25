@@ -124,7 +124,7 @@ class ThoughtsViewController: UIViewController {
                                         )
 
                                         self.columnNameService.itemPubSub.publishOutgoing(column, outgoingType: .edit)
-                                        MSAnalytics.trackEvent(
+                                        Analytics.trackEvent(
                                                 "change column name",
                                                 withProperties: ["Team": URLManager.currentTeam]
                                         )
@@ -206,7 +206,7 @@ extension ThoughtsViewController: UITableViewDelegate, UITableViewDataSource {
             }
             let thought = thoughtCell.thought!
             thoughtsService.itemPubSub.publishOutgoing(thought, outgoingType: .delete)
-            MSAnalytics.trackEvent("delete \(thought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
+            Analytics.trackEvent("delete \(thought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
             print("Deleting Thought with id: \(thought.id)")
         }
     }
@@ -216,13 +216,13 @@ extension ThoughtsViewController: ThoughtEditDelegate {
     func starred(_ thought: Thought) {
         let newThought = thought.copy(hearts: thought.hearts + 1)
         thoughtsService.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
-        MSAnalytics.trackEvent("star \(newThought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
+        Analytics.trackEvent("star \(newThought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
     }
 
     func discussed(_ thought: Thought) {
         let newThought = thought.copy(discussed: !thought.discussed)
         thoughtsService.itemPubSub.publishOutgoing(newThought, outgoingType: .edit)
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
                 "mark \(newThought.topic) thought \(newThought.discussed ? "discussed" : "undiscussed")",
                 withProperties: ["Team": URLManager.currentTeam]
         )
@@ -236,7 +236,7 @@ extension ThoughtsViewController: ThoughtEditDelegate {
                             titleText: "Change Thought",
                             defaultText: thought.message,
                             onSave: { updatedText in
-                                MSAnalytics.trackEvent(
+                                Analytics.trackEvent(
                                         "edit \(thought.topic) thought text",
                                         withProperties: ["Team": URLManager.currentTeam]
                                 )

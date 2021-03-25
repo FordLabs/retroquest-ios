@@ -43,9 +43,9 @@ class ActionItemsViewController: UIViewController {
         _ = actionItemsView.anchorEdgesToSuperView()
         actionItemsView.addActionItemButton.addTarget(self, action: #selector(addActionItem), for: .touchUpInside)
 
-        _ = actionItemsService.registerItemCallback(actionItemCallback)
+        actionItemsService.registerItemCallback(actionItemCallback)
         getActionItems()
-        MSAnalytics.trackEvent("view action items", withProperties: ["Team": URLManager.currentTeam])
+        Analytics.trackEvent("view action items", withProperties: ["Team": URLManager.currentTeam])
     }
 
     func getActionItems() {
@@ -89,7 +89,7 @@ extension ActionItemsViewController: ActionItemEditDelegate {
     func changeCompleted(_ actionItem: ActionItem) {
         let newActionItem = actionItem.copy(completed: !actionItem.completed)
         actionItemsService.itemPubSub.publishOutgoing(newActionItem, outgoingType: .edit)
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
                 "mark action item \(!actionItem.completed ? "completed" : "uncompleted")",
                 withProperties: ["Team": URLManager.currentTeam]
         )
@@ -99,7 +99,7 @@ extension ActionItemsViewController: ActionItemEditDelegate {
         DispatchQueue.main.async(execute: {
             self.view.window?.rootViewController!.present(
                 EditItemViewController(titleText: "Change Task", defaultText: actionItem.task, onSave: { updatedText in
-                    MSAnalytics.trackEvent("edit action item task", withProperties: ["Team": URLManager.currentTeam])
+                    Analytics.trackEvent("edit action item task", withProperties: ["Team": URLManager.currentTeam])
                     print("Updating action item task to \(updatedText)")
                     let newActionItem = actionItem.copy(task: updatedText)
                     self.actionItemsService.itemPubSub.publishOutgoing(newActionItem, outgoingType: .edit)
@@ -116,7 +116,7 @@ extension ActionItemsViewController: ActionItemEditDelegate {
                         titleText: "Change Assignee",
                         defaultText: actionItem.assignee,
                         onSave: { updatedText in
-                            MSAnalytics.trackEvent(
+                            Analytics.trackEvent(
                                     "edit action item assignee",
                                     withProperties: ["Team": URLManager.currentTeam]
                             )
@@ -167,7 +167,7 @@ extension ActionItemsViewController: UITableViewDataSource, UITableViewDelegate 
             }
             let actionItem = actionItemCell.actionItem!
             actionItemsService.itemPubSub.publishOutgoing(actionItem, outgoingType: .delete)
-            MSAnalytics.trackEvent("delete action item", withProperties: ["Team": URLManager.currentTeam])
+            Analytics.trackEvent("delete action item", withProperties: ["Team": URLManager.currentTeam])
             print("Deleting Action Item with id: \(actionItem.id)")
         }
     }
