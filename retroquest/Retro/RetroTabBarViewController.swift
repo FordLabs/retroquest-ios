@@ -114,7 +114,7 @@ class RetroTabBarViewController: UIViewController, UITabBarControllerDelegate {
 
             let alert = UIAlertController(title: "Logout", message: "Are you sure?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Confirm", style: .default) { _ in
-                MSAnalytics.trackEvent("logout", withProperties: ["Team": URLManager.currentTeam])
+                Analytics.trackEvent("logout", withProperties: ["Team": URLManager.currentTeam])
                 self.webSocketService.disconnectFromWebSocketServer()
                 self.notificationCenterWrapper.removeObserver(self)
                 self.logout()

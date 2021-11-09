@@ -94,7 +94,7 @@ class NewItemViewController<T: Item>: UIViewController,
             return
         }
         self.pubSub.publishOutgoing(newThought, outgoingType: .create)
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
                 "added \(ColumnNameService.displayOrderForTopics[selectedTopicIndex].rawValue) thought",
                 withProperties: ["Team": URLManager.currentTeam]
         )
@@ -133,7 +133,7 @@ class NewItemViewController<T: Item>: UIViewController,
             return
         }
         self.pubSub.publishOutgoing(newActionItem, outgoingType: .create)
-        MSAnalytics.trackEvent("added action item", withProperties: ["Team": URLManager.currentTeam])
+        Analytics.trackEvent("added action item", withProperties: ["Team": URLManager.currentTeam])
     }
 
     // MARK: UITableViewDelegate, UITableViewDataSource Delegate Methods

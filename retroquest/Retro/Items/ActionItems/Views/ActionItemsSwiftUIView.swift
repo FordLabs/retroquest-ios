@@ -61,7 +61,7 @@ struct ActionItemsSwiftUIView: View {
         let newActionItem = self.actionItemsViewEnvironmentObject.actionItemToEdit?.copy(task: userInput)
         self.actionItemsPubSub.publishOutgoing(newActionItem, outgoingType: .edit)
 
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
                 "edit action item task to \(userInput)",
                 withProperties: ["Team": URLManager.currentTeam]
         )
@@ -71,7 +71,7 @@ struct ActionItemsSwiftUIView: View {
         let newActionItem = self.actionItemsViewEnvironmentObject.actionItemToEdit?.copy(assignee: userInput)
         self.actionItemsPubSub.publishOutgoing(newActionItem, outgoingType: .edit)
 
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
                 "edit action item assignee to \(userInput)",
                 withProperties: ["Team": URLManager.currentTeam]
         )
@@ -107,7 +107,7 @@ struct ActionItemsSwiftUIView: View {
                 dateCreated: dateFormatter.string(from: Date())
         )
         self.actionItemsPubSub.publishOutgoing(newActionItem, outgoingType: .create)
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
             "added action item",
                 withProperties: ["Team": URLManager.currentTeam]
         )

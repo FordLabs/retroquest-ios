@@ -101,7 +101,7 @@ struct ActionItemsTableCell: View {
         print("tapped on completed")
         let newActionItem = self.actionItem.copy(completed: !self.actionItem.completed)
         self.actionItemsPubSub.publishOutgoing(newActionItem, outgoingType: .edit)
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
                 "mark action item \(newActionItem.completed ? "completed" : "incomplete")",
                 withProperties: ["Team": URLManager.currentTeam]
         )

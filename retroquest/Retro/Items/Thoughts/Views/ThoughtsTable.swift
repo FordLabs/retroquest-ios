@@ -67,7 +67,7 @@ struct ThoughtsTable: View {
     private func delete(thoughtIndex: IndexSet, columnIndex: Int) {
         let thought = self.thoughtsViewEnvironmentObject.thoughts[columnIndex][thoughtIndex.first!]
         self.thoughtPubSub.publishOutgoing(thought, outgoingType: .delete)
-        MSAnalytics.trackEvent("delete \(thought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
+        Analytics.trackEvent("delete \(thought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
         print("Deleting Thought with id: \(thought.id)")
     }
 }

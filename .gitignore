@@ -73,9 +73,6 @@ fastlane/test_output
 # AppCode
 .idea
 
-# App Center
-Vendor
-
 # Sourcery
 retroquest/Generated
 env-vars.sh

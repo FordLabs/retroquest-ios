@@ -62,7 +62,7 @@ struct ThoughtsView: View {
         let newThought = self.thoughtsViewEnvironmentObject.thoughtToEdit?.copy(message: userInput)
         self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
 
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
                 "edit thought text to \(userInput)",
                 withProperties: ["Team": URLManager.currentTeam]
         )
@@ -72,7 +72,7 @@ struct ThoughtsView: View {
         let newColumn = self.thoughtsViewEnvironmentObject.columnToEdit?.copy(title: userInput)
         self.columnPubSub.publishOutgoing(newColumn, outgoingType: .edit)
 
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
                 "edit column text to \(userInput)",
                 withProperties: ["Team": URLManager.currentTeam]
         )
@@ -88,7 +88,7 @@ struct ThoughtsView: View {
                 teamId: URLManager.currentTeam
         )
         self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .create)
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
             "added \(selectedColumn?.topic ?? "") thought",
                 withProperties: ["Team": URLManager.currentTeam]
         )

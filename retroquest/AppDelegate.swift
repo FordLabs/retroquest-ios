@@ -47,11 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var appServices: [AnyClass] = []
         #if DEBUG
             // disable app center in app updates if running locally
-            appServices = [ MSAnalytics.self, MSCrashes.self ]
+            appServices = [ Analytics.self, Crashes.self ]
         #else
-            appServices = [ MSAnalytics.self, MSCrashes.self, MSDistribute.self ]
+            appServices = [ Analytics.self, Crashes.self, Distribute.self ]
         #endif
-        MSAppCenter.start(AppCenterSecret, withServices: appServices)
+        AppCenter.start(withAppSecret: AppCenterSecret, services: appServices)
 
         return true
     }

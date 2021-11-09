@@ -79,7 +79,7 @@ struct ThoughtsTableCell: View {
         print("tapped on stars")
         let newThought = thought.copy(hearts: thought.hearts + 1)
         self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
-        MSAnalytics.trackEvent("star \(newThought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
+        Analytics.trackEvent("star \(newThought.topic) thought", withProperties: ["Team": URLManager.currentTeam])
     }
 
     private func modifyMessageTapped() {
@@ -93,7 +93,7 @@ struct ThoughtsTableCell: View {
         print("tapped on discussed")
         let newThought = self.thought.copy(discussed: !self.thought.discussed)
         self.thoughtPubSub.publishOutgoing(newThought, outgoingType: .edit)
-        MSAnalytics.trackEvent(
+        Analytics.trackEvent(
                 "mark \(newThought.topic) thought \(newThought.discussed ? "discussed" : "undiscussed")",
                 withProperties: ["Team": URLManager.currentTeam]
         )

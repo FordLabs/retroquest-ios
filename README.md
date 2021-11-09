@@ -23,11 +23,10 @@ We hope to distribute to the Apple App Store in the future.
 	* [Fastlane](https://fastlane.tools/) - ```brew cask install fastlane```
 	* [Xcode 11 and Xcode command line tools](https://developer.apple.com/download/more/) - download at link
 2. Clone this repository
-3. Download Microsoft App Center dependencies for crashalytics: ```make get_app_center```
-4. Set environment variable, ```RETROQUEST_SERVER_URL```, to tell the app where the RetroQuest server is running:
+3. Set environment variable, ```RETROQUEST_SERVER_URL```, to tell the app where the RetroQuest server is running:
     * Export variable on your machine or
     * Create an ```env-vars.sh``` script at the root of the repository containing: ```export RETROQUEST_SERVER_URL=https://myurl.com/```
-5. Run ```fastlane tests``` to build and test the app
+4. Run ```fastlane tests``` to build and test the app
 
 ## License
 
