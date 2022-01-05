@@ -169,10 +169,10 @@ public struct ViewConstraints {
     internal func activateConstraints(omit: NSLayoutConstraint.Attribute = .notAnAttribute) {
         var constraints = [top, left, bottom, right]
         switch omit {
-        case NSLayoutAttribute.top: _ = constraints.remove(at: 0)
-        case NSLayoutAttribute.leading, NSLayoutAttribute.left: _ = constraints.remove(at: 1)
-        case NSLayoutAttribute.bottom: _ = constraints.remove(at: 2)
-        case NSLayoutAttribute.trailing, NSLayoutAttribute.right: _ = constraints.remove(at: 3)
+        case NSLayoutConstraint.Attribute.top: _ = constraints.remove(at: 0)
+        case NSLayoutConstraint.Attribute.leading, NSLayoutConstraint.Attribute.left: _ = constraints.remove(at: 1)
+        case NSLayoutConstraint.Attribute.bottom: _ = constraints.remove(at: 2)
+        case NSLayoutConstraint.Attribute.trailing, NSLayoutConstraint.Attribute.right: _ = constraints.remove(at: 3)
         default: break
         }
 

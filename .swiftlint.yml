@@ -1,5 +1,6 @@
 disabled_rules:
   - large_tuple
+  - orphaned_doc_comment
 included: # paths to include during linting. `--path` is ignored if present.
   - retroquest
 identifier_name:

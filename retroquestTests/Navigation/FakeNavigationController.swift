@@ -20,20 +20,21 @@ import UIKit
 
 class FakeNavigationController: UINavigationController {
     override var topViewController: UIViewController? {
-        set {
-            mockTopViewController = newValue
-        }
         get {
             return mockTopViewController
         }
+        set {
+            mockTopViewController = newValue
+        }
     }
     override var presentedViewController: UIViewController? {
-        set {
-            mockPresentedViewController = newValue
-        }
         get {
             return mockPresentedViewController
         }
+        set {
+            mockPresentedViewController = newValue
+        }
+
     }
     private var mockTopViewController: UIViewController?
     private var mockPresentedViewController: UIViewController?
