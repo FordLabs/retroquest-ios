@@ -280,9 +280,12 @@ class ItemsServiceSpec: QuickSpec {
                 let nonExistentItem = T(id: 1, teamId: "1", deletion: true)
                 subject.items = [oldItem]
 
-                expect {
-                    try subject.delete(nonExistentItem)
-                }.to(throwError())
+                do {
+                    _ =  try subject.delete(nonExistentItem)
+                    assert(false)
+                } catch {
+                    assert(true)
+                }
             }
         }
     }
