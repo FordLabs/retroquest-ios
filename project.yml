@@ -1,0 +1,86 @@
+name: retroquest
+options:
+  bundleIdPrefix: com.ford.fordlabs
+packages:
+  StompClientLib:
+    url: https://github.com/thedavidharris/StompClientLib.git
+    branch: master
+  Swinject:
+    url: https://github.com/Swinject/Swinject.git
+    from: 2.7.1
+  FontAwesome:
+    url: https://github.com/thii/FontAwesome.swift.git
+    from: 1.9.0
+  Quick:
+    url: https://github.com/Quick/Quick.git
+    from: 2.2.0
+  Nimble:
+    url: https://github.com/Quick/Nimble.git
+    from: 8.0.7
+  Hippolyte:
+    url: https://github.com/JanGorman/Hippolyte.git
+    from: 1.2.1
+  AppCenter:
+    url: https://github.com/microsoft/appcenter-sdk-apple
+    from: 4.1.1
+  M13Checkbox:
+    url: https://github.com/Marxon13/M13Checkbox.git
+    from: 3.0.0
+
+targets:
+  retroquest:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: retroquest
+        excludes:
+          - "retroquest.xcodeproj"
+      - path: retroquest/Fonts
+        buildPhase: resources
+    preBuildScripts:
+      - name: Sourcery
+        shell: /bin/bash
+        script: |
+          if [ -f ./env-vars.sh ]
+          then
+          source ./env-vars.sh
+          fi
+          sourcery --templates templates/RetroquestServerURL.stencil --templates templates/AppCenterSecret.stencil --sources ./retroquest --output ./retroquest/Generated --args retroquest-server-url=\"$RETROQUEST_SERVER_URL\",app-center-secret=\"$APP_CENTER_SECRET\"
+        outputFiles:
+          - $(SRCROOT)/retroquest/Generated/RetroquestServerURL.generated.swift
+          - $(SRCROOT)/retroquest/Generated/AppCenterSecret.generated.swift
+    postCompileScripts:
+      - name: SwiftLint
+        shell: /bin/bash
+        script: |
+          if which swiftlint >/dev/null; then
+          swiftlint lint --config .swiftlint.yml
+          swiftlint lint --config .swiftlint.specs.yml
+          else
+          echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+          fi
+    dependencies:
+      - package: StompClientLib
+      - package: Swinject
+      - package: FontAwesome
+      - package: M13Checkbox
+      - package: AppCenter
+        product: AppCenterAnalytics
+      - package: AppCenter
+        product: AppCenterCrashes
+      - package: AppCenter
+        product: AppCenterDistribute
+    scheme:
+      testTargets:
+        - retroquestTests
+  retroquestTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: [ retroquestTests ]
+    dependencies:
+      - target: retroquest
+      - package: Quick
+      - package: Nimble
+      - package: Hippolyte
