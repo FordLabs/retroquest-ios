@@ -5,6 +5,7 @@
 ## Build generated
 build/
 DerivedData/
+retroquest.xcodeproj
 
 ## Various settings
 *.pbxuser
