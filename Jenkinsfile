@@ -24,7 +24,12 @@ pipeline {
                 echo "Running ${env.BUILD_ID}"
                 sh "brew bundle --no-upgrade"
                 sh "bundle install"
-                sh "make get_app_center"
+            }
+        }
+
+        stage('Build Xcodeproj') {
+            steps {
+                sh "xcodegen generate"
             }
         }
 
