@@ -18,15 +18,17 @@ We hope to distribute to the Apple App Store in the future.
 ## Building
 
 1. You will need these tools installed to develop the app
- 	* [Sourcery](https://github.com/krzysztofzablocki/Sourcery) - ```brew install sourcery```
-	* [Swiftlint](https://github.com/realm/SwiftLint) - ```brew install swiftlint```
-	* [Fastlane](https://fastlane.tools/) - ```brew cask install fastlane```
-	* [Xcode 11 and Xcode command line tools](https://developer.apple.com/download/more/) - download at link
+    * [Xcodegen](https://github.com/yonaskolb/XcodeGen) - ```brew install xcodegen```
+    * [Sourcery](https://github.com/krzysztofzablocki/Sourcery) - ```brew install sourcery```
+    * [Swiftlint](https://github.com/realm/SwiftLint) - ```brew install swiftlint```
+    * [Fastlane](https://fastlane.tools/) - ```brew cask install fastlane```
+    * [Xcode 11+ and Xcode command line tools](https://developer.apple.com/download/more/) - download at link
 2. Clone this repository
 3. Set environment variable, ```RETROQUEST_SERVER_URL```, to tell the app where the RetroQuest server is running:
     * Export variable on your machine or
     * Create an ```env-vars.sh``` script at the root of the repository containing: ```export RETROQUEST_SERVER_URL=https://myurl.com/```
-4. Run ```fastlane tests``` to build and test the app
+4. Run ```xcodegen generate``` in the root of the repository
+5. Run ```fastlane tests``` to build and test the app
 
 ## License
 
