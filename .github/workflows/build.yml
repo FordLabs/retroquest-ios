@@ -15,12 +15,11 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Write env variables
-      uses: DamianReeves/write-file-action@v1.0
+      uses: javajawa/create-envfile@v1
       with:
-        # The path to the file to write
-        path: ./env-vars.sh
-        # The contents of the file
-        contents: export RETROQUEST_SERVER_URL=localhost:8080;export APP_CENTER_SECRET=123
+        file_name: env-vars.sh
+        envkey_RETROQUEST_SERVER_URL: localhost:8080
+        envkey_APP_CENTER_SECRET: 123
         
     - name: view env vars
       run: cat ./env-vars.sh
