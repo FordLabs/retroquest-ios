@@ -14,22 +14,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Write env variables
+    - name: Write retroquest server file
       uses: DamianReeves/write-file-action@v1.0
       with:
-        path: env-vars.sh
-        contents: |
-          export RETROQUEST_SERVER_URL=http://localhost:8080
-          export APP_CENTER_SECRET=123
+        path: retroquest/Generated/RetroquestServerURL.generated.swift
+        contents: public let RetroQuestServerURL = "http://localhost:8080"
         
-    - name: view env vars
-      run: cat ./env-vars.sh
+    - name: Write app center file
+      uses: DamianReeves/write-file-action@v1.0
+      with:
+        path: retroquest/Generated/AppCenterSecret.generated.swift
+        contents: public let AppCenterSecret = "123"
         
     - name: xcodegen
       uses: xavierLowmiller/xcodegen-action@1.1.2
-
-    - name: Brew Install
-      run: brew install sourcery
       
     - name: Build
       run: xcodebuild clean test -project retroquest.xcodeproj -scheme retroquest -destination 'platform=iOS Simulator,name=iPhone 8' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
