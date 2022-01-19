@@ -1,0 +1,10 @@
+sources:
+  - ./retroquest
+templates:
+  - templates/RetroquestServerURL.stencil
+  - templates/AppCenterSecret.stencil
+output:
+  ./retroquest/Generated
+args:
+  retroquest-server-url: ${RETROQUEST_SERVER_URL}
+  app-center-secret: ${APP_CENTER_SECRET}
