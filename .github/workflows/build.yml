@@ -22,11 +22,14 @@ jobs:
         # The contents of the file
         contents: export RETROQUEST_SERVER_URL=localhost:8080;export APP_CENTER_SECRET=123
         
+    - name: view env vars
+      run: cat ./env-vars.sh
+        
     - name: xcodegen
       uses: xavierLowmiller/xcodegen-action@1.1.2
 
     - name: Brew Install
       run: brew install sourcery
       
-    - name: Build
-      run: xcodebuild clean test -project retroquest.xcodeproj -scheme retroquest -destination 'platform=iOS Simulator,name=iPhone 8' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+    #- name: Build
+    #  run: xcodebuild clean test -project retroquest.xcodeproj -scheme retroquest -destination 'platform=iOS Simulator,name=iPhone 8' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
