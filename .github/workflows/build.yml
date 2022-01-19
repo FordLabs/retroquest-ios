@@ -14,18 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Write retroquest server file
-      uses: DamianReeves/write-file-action@v1.0
-      with:
-        path: retroquest/Generated/RetroquestServerURL.generated.swift
-        contents: public let RetroQuestServerURL = "http://localhost:8080"
-        
-    - name: Write app center file
-      uses: DamianReeves/write-file-action@v1.0
-      with:
-        path: retroquest/Generated/AppCenterSecret.generated.swift
-        contents: public let AppCenterSecret = "123"
-        
+    - name: Add environment vars
+      run: export RETROQUEST_SERVER_URL=http://localhost:8080 && export APP_CENTER_SECRET=123
+      
+    - name: Sourcery
+      run: brew install sourcery && sourcery --config .sourcery.yml
+          
     - name: xcodegen
       uses: xavierLowmiller/xcodegen-action@1.1.2
       
