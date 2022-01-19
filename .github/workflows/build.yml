@@ -29,7 +29,4 @@ jobs:
       run: brew install sourcery
       
     - name: Build
-      run: swift build -v
-      
-    - name: Run tests
-      run: swift test -v
+      run: xcodebuild clean test -project retroquest.xcodeproj -scheme retroquest -destination 'platform=iOS Simulator,name=iPhone 8' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
