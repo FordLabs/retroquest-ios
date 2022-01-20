@@ -9,21 +9,22 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
     }
     stages {
+        stage('Install Dev Dependencies') {
+            steps {
+                echo "Running ${env.BUILD_ID}"
+                sh "brew bundle --no-upgrade"
+                sh "bundle install"
+            }
+        }
+
         stage('Setup Environment Vars') {
             steps {
                 echo "Setting up environment"
                 script {
                     writeFile file: "env-vars.sh", text: "export RETROQUEST_SERVER_URL="+retroenvs.retroquestserver+";export APP_CENTER_SECRET="+retroenvs.appcentersecret
                     sh "cat env-vars.sh"
+                    sh "sourcery --config .sourcery.yml"
                 }
-            }
-        }
-
-        stage('Install Dev Dependencies') {
-            steps {            
-                echo "Running ${env.BUILD_ID}"
-                sh "brew bundle --no-upgrade"
-                sh "bundle install"
             }
         }
 
