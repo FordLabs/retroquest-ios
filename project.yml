@@ -38,18 +38,6 @@ targets:
           - "retroquest.xcodeproj"
       - path: retroquest/Fonts
         buildPhase: resources
-    preBuildScripts:
-      - name: Sourcery
-        shell: /bin/bash
-        script: |
-          if [ -f ./env-vars.sh ]
-          then
-          source ./env-vars.sh
-          fi
-          sourcery --templates templates/RetroquestServerURL.stencil --templates templates/AppCenterSecret.stencil --sources ./retroquest --output ./retroquest/Generated --args retroquest-server-url=\"$RETROQUEST_SERVER_URL\",app-center-secret=\"$APP_CENTER_SECRET\"
-        outputFiles:
-          - $(SRCROOT)/retroquest/Generated/RetroquestServerURL.generated.swift
-          - $(SRCROOT)/retroquest/Generated/AppCenterSecret.generated.swift
     postCompileScripts:
       - name: SwiftLint
         shell: /bin/bash

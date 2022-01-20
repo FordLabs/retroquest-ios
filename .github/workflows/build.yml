@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Add environment vars
+      run: export RETROQUEST_SERVER_URL=http://localhost:8080 && export APP_CENTER_SECRET=123
+      
+    - name: Sourcery
+      run: brew install sourcery && sourcery --config .sourcery.yml
+          
+    - name: xcodegen
+      uses: xavierLowmiller/xcodegen-action@1.1.2
+      
+    - name: Build
+      run: xcodebuild clean test -project retroquest.xcodeproj -scheme retroquest -destination 'platform=iOS Simulator,name=iPhone 8' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
