@@ -403,7 +403,7 @@ class LoginViewControllerSpec: QuickSpec {
                     let feedbackFormView = feedbackViewController.feedbackFormView!
                     feedbackFormView.cancelButton.tap()
 
-                    expect(subject.presentedViewController).toEventually(beNil(), timeout: 5)
+                    expect(subject.presentedViewController).toEventually(beNil(), timeout: .seconds(5))
                 }
             }
         }

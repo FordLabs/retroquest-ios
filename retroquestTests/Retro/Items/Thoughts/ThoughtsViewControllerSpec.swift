@@ -219,7 +219,7 @@ class ThoughtsViewControllerSpec: QuickSpec {
                     let newItemView = newItemViewController.newItemView!
                     newItemView.cancelButton.tap()
 
-                    expect(subject.presentedViewController).toEventually(beNil(), timeout: 5)
+                    expect(subject.presentedViewController).toEventually(beNil(), timeout: .seconds(5))
                 }
 
                 it("should show a new happy thought") {
@@ -244,7 +244,7 @@ class ThoughtsViewControllerSpec: QuickSpec {
                     subject.thoughtsService.publishItem(items: [newThought])
                     let happyExpandingCellUpdatedText = getHeaderView(forSection: 0).topicLabel.text
                     let expectedItemCount = "\(originalNumHappyThoughts + 1) items"
-                    expect(happyExpandingCellUpdatedText).toEventually(contain(expectedItemCount), timeout: 10)
+                    expect(happyExpandingCellUpdatedText).toEventually(contain(expectedItemCount), timeout: .seconds(10))
                 }
 
                 it("should show a new confused thought") {
